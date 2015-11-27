@@ -1,10 +1,75 @@
-<h3>
-   <!-- START Language list-->
-   
-   <!-- END Language list    -->
+<head>
+  <script src="library/sweetalert.min.js"></script>
+<link rel="stylesheet" type="text/css" href="library/sweetalert.css"> 
+</head>
+<style>
+  select {
   
-</h3>
-<div class="row">
-   <div class="col-xs-12 text-center">
-   </div>
+    border: 1px solid #111;
+   background: transparent;
+   width: 150px;
+   padding: 5px 35px 5px 5px;
+   font-size: 16px;
+   border: 1px solid #ccc;
+   height: 34px;
+   -webkit-appearance: none;
+   -moz-appearance: none;
+   appearance: none;
+    
+} 
+</style>
+<div class="row" ng-controller="SweetAlertController">
+  <div class= "col-sm-10 col-lg-10">
+   <div class="col-sm-5 col-lg-5">
+     <h4>Type of plan</h4>
+     <select name="singleSelect" id="singleSelect" ng-change="selectChanged()" ng-model="data.singleSelect">
+      <option value="">---Please select---</option> <!-- not selected / blank option -->
+       <option value="residential">residential</option>
+      <option value="commercial">commercial</option>
+    </select>
+    </div>
+    <div class="col-sm-5 col-lg-5">
+    <h4>Plan Selected</h4>
+     
+    <select name="repeatSelect" id="repeatSelect" ng-change="selectCahnged2()" ng-model="plan.repeatSelect">
+      <option ng-repeat="option in plan.availableOptions" value="{{option.id}}">{{option.name}}</option>
+    </select>
+  
+    </div>
+    </div>
+    <div class= "col-sm-2 col-lg-2">
+      <button style="background-color:#487e00" class="btn btn-primary" color:"white">Login</button>
+    </div>
+    <div ng-show="flag">
+      <!--<a href="#" class="icon-users" style="font-size:20px">meet</a>-->
+      <p style="padding-top:10%;margin:0 0 0 20px"><a href="" data-toggle="modal"  data-target="#myModal" class="btn btn-primary icon-users" style="background-color: #1aacda">Get Help</a>
+         </p>
+      <img src="{{planImage}}">
+      
+    </div>
+    <div class="modal fade" id="myModal" role="dialog">
+    <div class="modal-dialog">
+    
+      <!-- Modal content-->
+      <div class="modal-content">
+      	<form name="myForm">
+        <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal" ng-click="getHelp()">&times;</button>
+         
+        </div>
+        <div class="modal-body">
+          <p>Enter Your Name : <input ng-model="name" type="text"/>
+          Enter Email Address :<input ng-model="email" type="text"/></p>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-primary" data-dismiss="modal" ng-click="getHelp()">Submit</button>
+          <button type="button" class="btn btn-primary" data-dismiss="modal">Close</button>
+        </div>
+        </form>
+      </div>
+      
+    </div>
+  </div>
+     
+    
 </div>

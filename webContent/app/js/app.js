@@ -85,6 +85,7 @@ function ($stateProvider, $locationProvider, $urlRouterProvider, helper) {
     .state('app.singleview', {
         url: '/singleview',
         title: 'Single View',
+        controller: 'customerController',
         templateUrl: helper.basepath('singleview.html')
        // resolve: helper.resolveFor('oitozero.ngSweetAlert')
     })
@@ -662,14 +663,41 @@ App.controller('SweetAlertController', ['$scope', '$state', '$http',
           };*/
     //    }
   //  }
-	  
+	  $scope.name="";
+		$scope.email="";  
+$scope.getHelp=function(){
 	
+    	   try {
+              
+									console.log(JSON.stringify("EmailId" + $scope.email));
+									var requestBody = {"EmailId":$scope.email,"Name":$scope.name};
+							
+									console.log("####" + requestBody);
+									var request = {
+										method : 'POST',
+										url : 'http://10.44.54.9:3000/postHelpRequest',
+										data : requestBody
+									};
+
+									$http(request).then(
+										function(response) {
+										console.log("success");
+										console.log(JSON.stringify(response));
+										}, function(response) {
+										console.log("error");
+									});
+		  } 
+    	   catch (e) {
+						console.log(e);
+		   }
+};
 $scope.ClickMe=function(){
+		
 	  swal({
         html : true,
         title : '<div>'+
-                '<p>Enter Your Name : <input type="text"/></p>'+
-                '<p>Enter Email Address :<input type="text"/></p>'+
+                '<p>Enter Your Name : <input type="text" ng-model="name"/></p>'+
+                '<p>Enter Email Address :<input type="text" ng-model="email"/></p>'+
                 '</div>',
       /* 
       title : '<p style="font-size:20pt;margin-top:-0.5%;font-family:Roboto,sans-serif;font-weight:normal;">Spend Deposit</p><br/><br/><div id="div1" align="center"><img id="overlay1" src="app/img/icon_fuel.png" align="center" style="margin-top:-15%;width:100px;"></img><p style="font-size:20pt;color:#DE5554;font-family:Roboto,sans-serif;font-weight:normal;margin-top: 10px;margin-bottom: 0px;" align="center">'+$scope.cat+'&nbsp;<em class="fa fa-rupee"></em> '+$scope.amt+'</p><small style="font-size:12pt;color:#9F9EA1;font-family:Roboto,sans-serif;font-weight:normal;">Date: '+$scope.todayDate +'</small></div>'+
@@ -681,8 +709,10 @@ $scope.ClickMe=function(){
           confirmButtonColor: "#1aacda", 
           confirmButtonText: "Submit",
           closeOnConfirm: false
+       
+       
        });
-} 
+};
 
 $scope.response=function(){
 	  swal({
@@ -812,6 +842,59 @@ App.controller('SidebarController', ['$rootScope', '$scope', '$state', '$http', 
 
 }]);
 
+
+//controller for singleview
+
+App.controller('customerController',
+  ['$rootScope', '$scope', '$state', '$translate', '$window', '$localStorage', '$timeout', 'toggleStateService', 'colors', 'browser', 'cfpLoadingBar',
+  function($rootScope, $scope, $state, $translate, $window, $localStorage, $timeout, toggle, colors, browser, cfpLoadingBar) {
+  
+    $scope.data = {
+     singleSelect: "",
+    };
+    $scope.flag=false;
+    $scope.selectChanged = function(){
+    
+    $scope.planImage="";
+    if($scope.data.singleSelect=="residential") { 
+     
+       $scope.plan = {
+       repeatSelect: "",
+       availableOptions: [
+         
+         {id: '1', name: 'Plan A'},
+         {id: '2', name: 'Plan B'}
+       ]
+     };
+    }
+    else if($scope.data.singleSelect=="commercial"){
+      
+      $scope.plan = {
+       repeatSelect: "",
+       availableOptions: [
+         {id: '3', name: 'Plan C'},
+         {id: '4', name: 'Plan D'}
+       ]
+      };
+    }
+    };
+    
+    $scope.selectCahnged2 = function(){
+         
+          if($scope.plan.repeatSelect=="1" && $scope.data.singleSelect == "residential" ) {
+              $scope.planImage="app/img/images/Plan1.PNG";
+          }else if($scope.plan.repeatSelect=="2" && $scope.data.singleSelect == "residential"){
+              $scope.planImage="app/img/images/Plan2.PNG";
+          }else if($scope.plan.repeatSelect=="3" && $scope.data.singleSelect == "commercial"){
+            $scope.planImage="app/img/images/Plan1.PNG";
+          }else if($scope.plan.repeatSelect=="4" && $scope.data.singleSelect == "commercial"){
+            $scope.planImage="app/img/images/Plan2.PNG";
+          }
+          $scope.flag=true;
+    };
+    
+    
+  }]); 
 /**=========================================================
  * Module: navbar-search.js
  * Navbar search toggler * Auto dismiss on ESC key
