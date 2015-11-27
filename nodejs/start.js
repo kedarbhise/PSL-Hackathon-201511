@@ -11,13 +11,27 @@ var connection = mysql.createConnection({
   database : 'hackathon'
 });
 
-
-var content=[{"name":"abc","email":"abc@gmail.com","url":""},{"name":"xyz","email":"xyz@gmail.com","url":""}];
-var checkCustomerdata=false;
 //request=request.defaults({'proxy':'http://shipra_singhal:saurabh@119@hjproxy.persistent.co.in:8080'});
-
 app.use(bodyParser.urlencoded({extended: true}));
 app.use(bodyParser.json());
+
+// Add headers
+app.use(function (req, res, next) {
+
+    // Website you wish to allow to connect
+    res.setHeader('Access-Control-Allow-Origin', '*');
+
+    // Request methods you wish to allow
+    res.setHeader('Access-Control-Allow-Methods', 'GET, POST, OPTIONS, PUT, PATCH, DELETE');
+
+    // Request headers you wish to allow
+    res.setHeader('Access-Control-Allow-Headers', 'X-Requested-With,content-type');
+
+    // Pass to next layer of middleware
+    next();
+});
+
+
 
 //to make db connection
 connection.connect(function(err){
@@ -82,8 +96,24 @@ app.post('/postHelpRequest', function(req, res) {
 	}
 	else{	
 		console.log("Record saved to Requests table");
-		/*var check=getCustomerDetails(body.EmailId);
-		console.log("check:"+check);*/
+		var check=getCustomerDetails(body.EmailId,function(error,isExist){
+			if(error==null){
+				if(isExist){
+					console.log("Exist ");
+
+				}
+				else
+				{
+					console.log("Not Exist ");
+					insertCustomerData(body.Name,body.EmailId);
+				}
+			}
+			else{
+				console.log("Error while selecting ");
+			}
+
+		});
+		/*console.log("check:"+check);*/
 		res.send(JSON.stringify({
 				result: 'success',
 				json: rows,
@@ -142,19 +172,46 @@ app.get('/getMeetURL', function(req, res) {
 		
 });
 
-/*function getCustomerDetails(emailId){
+function getCustomerDetails(emailId,callback){
 	connection.query("SELECT * FROM Customer where EmailId='"+emailId+"'", function(err, rows, fields) {
 	//connection.end();
   if (!err){
     console.log('The solution is: ', rows);
-    return true;
+    if(rows.length>0){
+    	 callback(null,true);
+ 	}
+ 	else
+ 		callback(null,false);
 	//res.send(rows);
 	}
   else{
     console.log('Error while performing Search on Customer.');
+    callback(err,false);
   }
   });
-}*/
+}
 
+function insertCustomerData(name,emailId){
+	var query="INSERT INTO Customer (Name,EmailId) VALUES ('"+name+"','"+emailId+"')";
+	connection.query(query,function(err, rows, fields) {
+	if (err) {
+		console.error(err);
+		/*res.statusCode = 500;
+		res.send(JSON.stringify({
+			result: 'error',
+			err: err.code
+		}));*/
+	}
+	else{	
+		console.log("Record added to customer db");
+		/*res.send(JSON.stringify({
+		result: 'success',
+		json: rows,
+		length: rows.length
+		}));*/
+		//connection.end();
+	}	 
+	});
+}
 app.listen(3000);
 
