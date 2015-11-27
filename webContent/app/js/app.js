@@ -93,6 +93,12 @@ function ($stateProvider, $locationProvider, $urlRouterProvider, helper) {
         title: 'User Agent',
         templateUrl: helper.basepath('UserAgentView.html')
     })
+     .state('app.meeting', {
+        url: '/meeting',
+        title: 'Meeting',
+        controller:'moxtraMeetingController',
+        templateUrl: helper.basepath('meeting.html')
+    })
     .state('app.submenu', {
         url: '/submenu',
         title: 'Submenu',
@@ -326,6 +332,258 @@ App.controller('AppController',
 }]);
 
 
+App.controller('UserAgentController', ['$scope', '$state', '$http','$window',
+                                        function($scope, $state, $http,$window){
+	/*
+	 $http.get("http://10.44.54.9:3000/getRequestQueue")
+	  .then(function (response) {
+		  alert(response.data.)});
+	 */
+	 $scope.details=false;
+	 $scope.selectedRow = null;
+	 
+     $http({
+            url: 'http://10.44.54.9:3000/getRequestQueue',     
+            method:'GET'
+             
+        }).success(function(data, status) {
+           // console.log(JSON.stringify(data));
+            $scope.record=data;
+            console.log($scope.record);
+                  
+        }).error(function(data,status) {
+          
+
+        });
+
+     $scope.getHistory=function(requestID){
+    	 $scope.id=requestID;
+    	 $scope.selectedRow = requestID;
+    	 alert($scope.id);
+    	  $http({
+              url: 'http://10.44.54.9:3000/getEnergyUsage?CustomerId='+$scope.id,     
+              method:'GET'
+          
+               
+          }).success(function(data, status) {
+             console.log(JSON.stringify(data));
+             if(data==""){
+            	 $scope.details=false;
+             }
+             else{
+             $scope.details=true;
+              $scope.usage=data;
+              console.log($scope.usage);
+              console.log($scope.details);
+             }
+          }).error(function(data,status) {
+            
+
+          });
+    	  
+     }
+    	 $scope.startmeet=function(){
+    		// $state.go('app.meeting');
+    		$window.open('http://localhost:8082/tpp/webContent/index.html#/app/meeting', '_blank');
+    	 } 
+    	  
+    	
+     
+     
+     $scope.changeShow = function(index){
+    	  $scope.isShow = index;
+    	}
+  
+}]);
+
+
+
+
+
+App.controller('moxtraMeetingController', ['$scope', '$http', '$state', '$cookieStore', '$sce', function($scope, $http, $state, $cookieStore, $sce) {
+
+		
+			
+			var userName="reshma_shendge@persistent.co.in";
+			var password="P@ssw0rd786";
+			var applicationName="screensharingapp";
+			var clientId="n7DP0T58JEQ";
+			var clientSecret="uZgCdldQxxA";
+			
+			
+			
+			var timestamp = new Date().getTime();
+			
+			var startMeetingTimestamp = new Date().getTime();
+			var endMeetingDate = new Date();
+			endMeetingDate.setDate(endMeetingDate.getDate()+1);
+			var endMeetingTimestamp = endMeetingDate.getTime();
+			
+		
+			//var hash = CryptoJS.HmacSHA256('q7QopLz9nzM' + "akshaykolhe1989@gmail.com" + timestamp, 'o2QNsZN2ZSQ');
+			var hash = CryptoJS.HmacSHA256(clientId + userName + timestamp, clientSecret);
+			var hashInBase64 = CryptoJS.enc.Base64.stringify(hash);
+			var signature = hashInBase64.replace(/\+/g, '-').replace(/\//g, '_').replace(/\=+$/, '');
+			
+			
+			
+			
+			var apisandbox_moxtra = 'https://apisandbox.moxtra.com';
+			var apisandbox_moxtra_token = '/oauth/token';
+			var apisandbox_moxtra_binder = '/me/binders?access_token=';
+			var apisandbox_moxtra_meet = '/meets/schedule?access_token=';
+			//var apisandbox_moxtra_end_meet = '/meets/schedule?access_token=';
+			//var apisandbox_moxtra_timeline = '/timeline?access_token=';
+			
+			
+			
+			var apisandbox_moxtra_binder_name = 'HackthonBinder';
+			var apisandbox_moxtra_binder_binder_description = 'HackthonBinder is a binder for connecting people';
+			
+			var apisandbox_moxtra_meet_name="Meeting";
+			
+			console.log("clientId: "+clientId);
+			console.log("clientSecret: "+clientSecret);
+			console.log("timestamp: "+timestamp);
+			console.log("userName: "+userName);
+			console.log("signature: "+signature);
+		
+			
+			
+			var apisandbox_moxtra_token_parameters = {client_id : String(clientId),
+					client_secret: String(clientSecret),
+					grant_type: 'http://www.moxtra.com/auth_uniqueid',
+					timestamp: String(timestamp),
+					uniqueid: String(userName),
+					signature: String(signature)};
+					
+var apisandbox_moxtra_binder_parameters = {name: apisandbox_moxtra_binder_name,
+description: apisandbox_moxtra_binder_binder_description};
+
+var apisandbox_moxtra_meet_parameters = {
+name: apisandbox_moxtra_meet_name,
+start_time: String(startMeetingTimestamp),
+end_time: String(endMeetingTimestamp),
+agenda: ''
+};
+
+
+
+
+
+
+					
+					
+					
+	    	$http({
+				url: apisandbox_moxtra+apisandbox_moxtra_token,
+				method: "POST",
+				headers: {"Content-Type": "application/x-www-form-urlencoded"} ,
+				transformRequest: function(obj) {
+					var str = [];
+					for(var p in obj)
+					str.push(encodeURIComponent(p) + "=" + encodeURIComponent(obj[p]));
+					return str.join("&");
+				},
+				data: apisandbox_moxtra_token_parameters
+			}).
+			success(function(data, status) {
+				  accessToken = data.access_token;
+				  console.log("accessToken is: "+accessToken);
+				  $cookieStore.put('accessToken',accessToken);
+				  $scope.status = status;
+				  $scope.authInfo = data;
+				  
+				  
+				  
+				  
+				  $http({
+								
+				url: apisandbox_moxtra+apisandbox_moxtra_binder + accessToken,
+				method: "POST",
+
+				data: apisandbox_moxtra_binder_parameters
+				}).success(function(data, status) {
+				$scope.status = status;
+				$scope.authInfo = data;
+				binderId = data.data.id;
+				$cookieStore.put('binderId',binderId);
+				
+				console.log("Binder is: "+binderId);
+
+
+
+$http({
+			url:apisandbox_moxtra+apisandbox_moxtra_meet+accessToken, //$cookieStore.get('moxtraToken'),
+			method: "POST",
+			headers: {
+				'Content-Type': 'application/json'
+		   	},
+		   	data: apisandbox_moxtra_meet_parameters
+		}).
+		success(function(data,status,headers,config) {
+			  
+			  $scope.status = data.data.status;
+			  $scope.sessionKey = data.data.startmeet_url,
+			  console.log("data is: "+JSON.stringify(data));
+			  console.log("sessionKey is: "+$scope.sessionKey);
+			  var sessionId=data.data.session_key;
+			  
+				$scope.endMeet  = function(){
+				//console.log("End Meet");
+					$http({
+					url: apisandbox_moxtra+"/"+binderId+"?access_token="+accessToken,
+					method: "POST",
+					}).success(function(data, status) {
+						console.log("Binder deleted");
+					}).
+			error(function(data, status) {
+				console.log("Binder deletion error");
+				  $scope.data = data || "Authentication failed";
+				  $scope.status = status;
+			});
+				}
+				$scope.source = {
+					"url": $sce.trustAsResourceUrl($scope.sessionKey+"?access_token="+accessToken)
+					//"url": $sce.trustAsResourceUrl("https://sandbox.moxtra.com/462218592?access_token="+accessToken)
+				//alert($scope.source.url);
+					//"url": $sce.trustAsResourceUrl("https://www.moxtra.com/"+sessionId+"?access_token="+accessToken)
+					//"url": $sce.trustAsResourceUrl("https:/sandbox.moxtra.com/service/#timeline?access_token="+accessToken)
+					//"url": $sce.trustAsResourceUrl("https:/sandbox.moxtra.com/timeline?access_token="+accessToken)
+				}
+			  //$window.location.reload();
+			  
+				alert($scope.source.url);
+			  
+		}).
+		error(function(data,status,headers,config){
+			 $scope.data = data || "Authentication failed";
+			$scope.status = status;
+		});
+
+}).
+error(function(data, status,config) {
+$scope.data = data || "Authentication failed";
+$scope.status = status;
+});
+				  
+				  
+				  
+				}).
+			error(function(data, status) {
+				  $scope.data = data || "Authentication failed";
+				  $scope.status = status;
+			});
+			
+			
+			
+			
+	    	
+			
+			
+
+}]);
+
 
 /**=========================================================
  * Module: sweetalert.js
@@ -419,7 +677,7 @@ $scope.ClickMe=function(){
   */     
                 type: "input",
                 showConfirmButton : true,
-          showCancelButton: false, 
+          showCancelButton: true, 
           confirmButtonColor: "#1aacda", 
           confirmButtonText: "Submit",
           closeOnConfirm: false

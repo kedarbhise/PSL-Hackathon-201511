@@ -17,6 +17,12 @@
     "translate": "sidebar.nav.USERAGENT"
   },
   {
+    "text": "Meeting",
+    "sref": "app.meeting",
+    "icon": "fa fa-file-o",
+    "translate": "sidebar.nav.MEETING"
+  },
+  {
     "text": "My Own View",
     "sref": "app.myownview",
     "icon": "fa fa-file-code-o",
