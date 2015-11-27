@@ -405,14 +405,41 @@ App.controller('SweetAlertController', ['$scope', '$state', '$http',
           };*/
     //    }
   //  }
-	  
+	  $scope.name="";
+		$scope.email="";  
+$scope.getHelp=function(){
 	
+    	   try {
+              
+									console.log(JSON.stringify("EmailId" + $scope.email));
+									var requestBody = {"EmailId":$scope.email,"Name":$scope.name};
+							
+									console.log("####" + requestBody);
+									var request = {
+										method : 'POST',
+										url : 'http://10.44.54.9:3000/postHelpRequest',
+										data : requestBody
+									};
+
+									$http(request).then(
+										function(response) {
+										console.log("success");
+										console.log(JSON.stringify(response));
+										}, function(response) {
+										console.log("error");
+									});
+		  } 
+    	   catch (e) {
+						console.log(e);
+		   }
+};
 $scope.ClickMe=function(){
+		
 	  swal({
         html : true,
         title : '<div>'+
-                '<p>Enter Your Name : <input type="text"/></p>'+
-                '<p>Enter Email Address :<input type="text"/></p>'+
+                '<p>Enter Your Name : <input type="text" ng-model="name"/></p>'+
+                '<p>Enter Email Address :<input type="text" ng-model="email"/></p>'+
                 '</div>',
       /* 
       title : '<p style="font-size:20pt;margin-top:-0.5%;font-family:Roboto,sans-serif;font-weight:normal;">Spend Deposit</p><br/><br/><div id="div1" align="center"><img id="overlay1" src="app/img/icon_fuel.png" align="center" style="margin-top:-15%;width:100px;"></img><p style="font-size:20pt;color:#DE5554;font-family:Roboto,sans-serif;font-weight:normal;margin-top: 10px;margin-bottom: 0px;" align="center">'+$scope.cat+'&nbsp;<em class="fa fa-rupee"></em> '+$scope.amt+'</p><small style="font-size:12pt;color:#9F9EA1;font-family:Roboto,sans-serif;font-weight:normal;">Date: '+$scope.todayDate +'</small></div>'+
@@ -420,12 +447,14 @@ $scope.ClickMe=function(){
   */     
                 type: "input",
                 showConfirmButton : true,
-          showCancelButton: false, 
+          showCancelButton: true, 
           confirmButtonColor: "#1aacda", 
           confirmButtonText: "Submit",
           closeOnConfirm: false
+       
+       
        });
-} 
+};
 
 $scope.response=function(){
 	  swal({
@@ -570,7 +599,7 @@ App.controller('customerController',
     
     $scope.planImage="";
     if($scope.data.singleSelect=="residential") { 
-      alert("residential");
+     
        $scope.plan = {
        repeatSelect: "",
        availableOptions: [
@@ -581,7 +610,7 @@ App.controller('customerController',
      };
     }
     else if($scope.data.singleSelect=="commercial"){
-      alert("commercial");
+      
       $scope.plan = {
        repeatSelect: "",
        availableOptions: [
