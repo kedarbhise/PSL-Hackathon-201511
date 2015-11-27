@@ -69,7 +69,7 @@ function ($stateProvider, $locationProvider, $urlRouterProvider, helper) {
   $locationProvider.html5Mode(false);
 
   // default route
-  $urlRouterProvider.otherwise('/app/singleview');
+  $urlRouterProvider.otherwise('/app/useragent');
 
   // 
   // Application Routes
@@ -87,6 +87,12 @@ function ($stateProvider, $locationProvider, $urlRouterProvider, helper) {
         title: 'Single View',
         controller: 'customerController',
         templateUrl: helper.basepath('singleview.html')
+       // resolve: helper.resolveFor('oitozero.ngSweetAlert')
+    })
+    .state('app.useragent', {
+        url: '/useragent',
+        title: 'User Agent',
+        templateUrl: helper.basepath('UserAgentView.html')
     })
     .state('app.submenu', {
         url: '/submenu',
@@ -191,6 +197,9 @@ App
     // Angular based script (use the right module name)
     modules: [
       // { name: 'toaster', files: ['vendor/angularjs-toaster/toaster.js','vendor/angularjs-toaster/toaster.css'] }
+/*      {name: 'oitozero.ngSweetAlert',     files: ['vendor/sweetalert/dist/sweetalert.css',
+                                                  'vendor/sweetalert/dist/sweetalert.min.js',
+                                                  'vendor/angular-sweetalert/SweetAlert.js']}*/
     ]
 
   })
@@ -316,6 +325,131 @@ App.controller('AppController',
     };
 
 }]);
+
+
+
+/**=========================================================
+ * Module: sweetalert.js
+ =========================================================*/
+App.controller('SweetAlertController', ['$scope', '$state', '$http',
+                                   function($scope, $state, $http){
+	  'use strict';
+/*(function() {
+  
+
+    angular
+        .module('app.elements')
+        .controller('SweetAlertController', SweetAlertController);
+
+    SweetAlertController.$inject = ['SweetAlert'];
+    function SweetAlertController(SweetAlert) {
+        var vm = this;
+
+        activate();
+*/
+        ////////////////
+
+       /* function activate() {
+          vm.demo1 = function() {
+            SweetAlert.swal('Here\'s a message');
+          };
+
+          vm.demo2 = function() {
+            SweetAlert.swal('Here\'s a message!', 'It\'s pretty, isn\'t it?');
+          };
+
+          vm.demo3 = function() {
+            SweetAlert.swal('Good job!', 'You clicked the button!', 'success');
+          };
+
+          vm.demo4 = function() {
+            SweetAlert.swal({   
+              title: 'Are you sure?',   
+              text: 'Your will not be able to recover this imaginary file!',   
+              type: 'warning',   
+              showCancelButton: true,   
+              confirmButtonColor: '#DD6B55',   
+              confirmButtonText: 'Yes, delete it!',
+              closeOnConfirm: false
+            },  function(){  
+              SweetAlert.swal('Booyah!');
+            });
+          };
+
+          vm.demo5 = function() {
+            SweetAlert.swal({   
+              title: 'Are you sure?',   
+              text: 'Your will not be able to recover this imaginary file!',   
+              type: 'warning',   
+              showCancelButton: true,   
+              confirmButtonColor: '#DD6B55',   
+              confirmButtonText: 'Yes, delete it!',   
+              cancelButtonText: 'No, cancel plx!',   
+              closeOnConfirm: false,   
+              closeOnCancel: false 
+            }, function(isConfirm){  
+              if (isConfirm) {     
+                SweetAlert.swal('Deleted!', 'Your imaginary file has been deleted.', 'success');   
+              } else {     
+                SweetAlert.swal('Cancelled', 'Your imaginary file is safe :)', 'error');   
+              } 
+            });
+          };*/
+
+         /* $scope.demo6 = function() {
+            SweetAlert.swal({   
+              title: 'Sweet!',   
+              text: 'Here\'s a custom image.',   
+              imageUrl: 'http://oitozero.com/img/avatar.jpg' 
+            });
+          };*/
+    //    }
+  //  }
+	  
+	
+$scope.ClickMe=function(){
+	  swal({
+        html : true,
+        title : '<div>'+
+                '<p>Enter Your Name : <input type="text"/></p>'+
+                '<p>Enter Email Address :<input type="text"/></p>'+
+                '</div>',
+      /* 
+      title : '<p style="font-size:20pt;margin-top:-0.5%;font-family:Roboto,sans-serif;font-weight:normal;">Spend Deposit</p><br/><br/><div id="div1" align="center"><img id="overlay1" src="app/img/icon_fuel.png" align="center" style="margin-top:-15%;width:100px;"></img><p style="font-size:20pt;color:#DE5554;font-family:Roboto,sans-serif;font-weight:normal;margin-top: 10px;margin-bottom: 0px;" align="center">'+$scope.cat+'&nbsp;<em class="fa fa-rupee"></em> '+$scope.amt+'</p><small style="font-size:12pt;color:#9F9EA1;font-family:Roboto,sans-serif;font-weight:normal;">Date: '+$scope.todayDate +'</small></div>'+
+        '<p style="margin-top: 0px;line-height:40px;margin-bottom: 0px;"  ><a href="#" onClick="performSpendDepositOperation('+fuel+')"  style="font-size:13pt;color:#52A0CD;font-family:Roboto,sans-serif;font-weight:normal;" align="center;">Spend From Deposit</a><br/><a href="#" onClick="performKeepDepositOperation('+fuel+')" style="font-size:13pt;color:#52A0CD;font-family:Roboto,sans-serif;font-weight:normal;" align="center;">Keep Deposit</a><br/><a href="#" onClick="performCreateNewOperation('+fuel+')" style="font-size:13pt;color:#52A0CD;font-family:Roboto,sans-serif;font-weight:normal;" align="center;">Create New</a></p>',
+  */     
+                type: "input",
+                showConfirmButton : true,
+          showCancelButton: false, 
+          confirmButtonColor: "#1aacda", 
+          confirmButtonText: "Submit",
+          closeOnConfirm: false
+       });
+} 
+
+$scope.response=function(){
+	  swal({
+      html : true,
+      title : '<div>'+
+              '<p>Please Click Below Link</p>'+
+              '<a href="https://sandbox.moxtra.com/439588822">Click ME</a>'+
+              '</div>',
+    /* 
+    title : '<p style="font-size:20pt;margin-top:-0.5%;font-family:Roboto,sans-serif;font-weight:normal;">Spend Deposit</p><br/><br/><div id="div1" align="center"><img id="overlay1" src="app/img/icon_fuel.png" align="center" style="margin-top:-15%;width:100px;"></img><p style="font-size:20pt;color:#DE5554;font-family:Roboto,sans-serif;font-weight:normal;margin-top: 10px;margin-bottom: 0px;" align="center">'+$scope.cat+'&nbsp;<em class="fa fa-rupee"></em> '+$scope.amt+'</p><small style="font-size:12pt;color:#9F9EA1;font-family:Roboto,sans-serif;font-weight:normal;">Date: '+$scope.todayDate +'</small></div>'+
+      '<p style="margin-top: 0px;line-height:40px;margin-bottom: 0px;"  ><a href="#" onClick="performSpendDepositOperation('+fuel+')"  style="font-size:13pt;color:#52A0CD;font-family:Roboto,sans-serif;font-weight:normal;" align="center;">Spend From Deposit</a><br/><a href="#" onClick="performKeepDepositOperation('+fuel+')" style="font-size:13pt;color:#52A0CD;font-family:Roboto,sans-serif;font-weight:normal;" align="center;">Keep Deposit</a><br/><a href="#" onClick="performCreateNewOperation('+fuel+')" style="font-size:13pt;color:#52A0CD;font-family:Roboto,sans-serif;font-weight:normal;" align="center;">Create New</a></p>',
+*/     
+              type: "input",
+              showConfirmButton : true,
+        showCancelButton: false, 
+        confirmButtonColor: "#1aacda", 
+        confirmButtonText: "Submit",
+        closeOnConfirm: false
+     });
+} 
+
+}]);
+
+
 
 /**=========================================================
  * Module: sidebar-menu.js

@@ -15,6 +15,7 @@
     },
     "nav": {
       "SINGLEVIEW": "Single View",
+      "USERAGENT":"User Agent",
       "menu": {
         "MENU": "Menu",
         "SUBMENU": "Sub Menu"

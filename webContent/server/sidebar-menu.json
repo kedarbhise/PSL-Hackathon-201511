@@ -11,6 +11,12 @@
     "translate": "sidebar.nav.SINGLEVIEW"
   },
   {
+    "text": "User Agent",
+    "sref": "app.useragent",
+    "icon": "fa fa-file-o",
+    "translate": "sidebar.nav.USERAGENT"
+  },
+  {
     "text": "My Own View",
     "sref": "app.myownview",
     "icon": "fa fa-file-code-o",
