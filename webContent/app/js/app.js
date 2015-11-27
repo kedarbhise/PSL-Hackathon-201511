@@ -85,6 +85,7 @@ function ($stateProvider, $locationProvider, $urlRouterProvider, helper) {
     .state('app.singleview', {
         url: '/singleview',
         title: 'Single View',
+        controller: 'customerController',
         templateUrl: helper.basepath('singleview.html')
     })
     .state('app.submenu', {
@@ -420,6 +421,59 @@ App.controller('SidebarController', ['$rootScope', '$scope', '$state', '$http', 
 
 }]);
 
+
+//controller for singleview
+
+App.controller('customerController',
+  ['$rootScope', '$scope', '$state', '$translate', '$window', '$localStorage', '$timeout', 'toggleStateService', 'colors', 'browser', 'cfpLoadingBar',
+  function($rootScope, $scope, $state, $translate, $window, $localStorage, $timeout, toggle, colors, browser, cfpLoadingBar) {
+  
+    $scope.data = {
+     singleSelect: "",
+    };
+    $scope.flag=false;
+    $scope.selectChanged = function(){
+    
+    $scope.planImage="";
+    if($scope.data.singleSelect=="residential") { 
+      alert("residential");
+       $scope.plan = {
+       repeatSelect: "",
+       availableOptions: [
+         
+         {id: '1', name: 'Plan A'},
+         {id: '2', name: 'Plan B'}
+       ]
+     };
+    }
+    else if($scope.data.singleSelect=="commercial"){
+      alert("commercial");
+      $scope.plan = {
+       repeatSelect: "",
+       availableOptions: [
+         {id: '3', name: 'Plan C'},
+         {id: '4', name: 'Plan D'}
+       ]
+      };
+    }
+    };
+    
+    $scope.selectCahnged2 = function(){
+         
+          if($scope.plan.repeatSelect=="1" && $scope.data.singleSelect == "residential" ) {
+              $scope.planImage="app/img/images/Plan1.PNG";
+          }else if($scope.plan.repeatSelect=="2" && $scope.data.singleSelect == "residential"){
+              $scope.planImage="app/img/images/Plan2.PNG";
+          }else if($scope.plan.repeatSelect=="3" && $scope.data.singleSelect == "commercial"){
+            $scope.planImage="app/img/images/Plan1.PNG";
+          }else if($scope.plan.repeatSelect=="4" && $scope.data.singleSelect == "commercial"){
+            $scope.planImage="app/img/images/Plan2.PNG";
+          }
+          $scope.flag=true;
+    };
+    
+    
+  }]); 
 /**=========================================================
  * Module: navbar-search.js
  * Navbar search toggler * Auto dismiss on ESC key

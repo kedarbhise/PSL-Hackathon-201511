@@ -1,10 +1,42 @@
-<h3>
-   <!-- START Language list-->
-   
-   <!-- END Language list    -->
+<style>
+  select {
   
-</h3>
+    border: 1px solid #111;
+   background: transparent;
+   width: 150px;
+   padding: 5px 35px 5px 5px;
+   font-size: 16px;
+   border: 1px solid #ccc;
+   height: 34px;
+   -webkit-appearance: none;
+   -moz-appearance: none;
+   appearance: none;
+    
+} 
+</style>
 <div class="row">
-   <div class="col-xs-12 text-center">
+   <div >
+     <h4>Type of plan</h4>
+     <select name="singleSelect" id="singleSelect" ng-change="selectChanged()" ng-model="data.singleSelect">
+      <option value="">---Please select---</option> <!-- not selected / blank option -->
+       <option value="residential">residential</option>
+      <option value="commercial">commercial</option>
+    </select>
+    </div>
+    <div>
+    <h4>Plan Selected</h4>
+     
+    <select name="repeatSelect" id="repeatSelect" ng-change="selectCahnged2()" ng-model="plan.repeatSelect">
+      <option ng-repeat="option in plan.availableOptions" value="{{option.id}}">{{option.name}}</option>
+    </select>
+  
+    </div>
+    <div ng-show="flag">
+      <a href="#" class="icon-users" style="font-size:20px">meet</a>
+      <img src="{{planImage}}">
+      
+    </div>
+     
+     
    </div>
 </div>
