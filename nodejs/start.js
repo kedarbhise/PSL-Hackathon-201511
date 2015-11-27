@@ -3,7 +3,7 @@ var express = require('express');
 var request = require('request');
 var bodyParser = require('body-parser');
 var app = express();
-var content;
+var content={{"name":"abc","email":"abc@gmail.com"},{"name":"xyz","email":"xyz@gmail.com"}};
 
 //request=request.defaults({'proxy':'http://shipra_singhal:saurabh@119@hjproxy.persistent.co.in:8080'});
 
