@@ -1,4 +1,3 @@
-
 var express = require('express');
 var request = require('request');
 var bodyParser = require('body-parser');
@@ -11,27 +10,20 @@ var connection = mysql.createConnection({
   database : 'hackathon'
 });
 
-//request=request.defaults({'proxy':'http://shipra_singhal:saurabh@119@hjproxy.persistent.co.in:8080'});
 app.use(bodyParser.urlencoded({extended: true}));
 app.use(bodyParser.json());
 
 // Add headers
 app.use(function (req, res, next) {
-
     // Website you wish to allow to connect
     res.setHeader('Access-Control-Allow-Origin', '*');
-
     // Request methods you wish to allow
     res.setHeader('Access-Control-Allow-Methods', 'GET, POST, OPTIONS, PUT, PATCH, DELETE');
-
     // Request headers you wish to allow
     res.setHeader('Access-Control-Allow-Headers', 'X-Requested-With,content-type');
-
     // Pass to next layer of middleware
     next();
 });
-
-
 
 //to make db connection
 connection.connect(function(err){
@@ -53,9 +45,7 @@ app.get('/getRequestQueue', function(req, res) {
   else{
     console.log('Error while performing Query.');
   }
-  });
-
-		
+  });	
 });
 
 //To get requested user's details
@@ -63,7 +53,6 @@ app.get('/getEnergyUsage', function(req, res) {
 	var customerId = req.query.CustomerId;
 	console.log("customerId: "+customerId);
 	connection.query('SELECT * FROM EnergyUsage where CustomerId='+customerId, function(err, rows, fields) {
-	
   if (!err){
     console.log('The solution is: ', rows);
 	res.send(rows);
@@ -71,11 +60,8 @@ app.get('/getEnergyUsage', function(req, res) {
   else{
     console.log('Error while performing Query.');
   }
-  });
-
-		
+  });		
 });
-
 
 //To post user's details
 app.post('/postHelpRequest', function(req, res) {
@@ -83,7 +69,6 @@ app.post('/postHelpRequest', function(req, res) {
 	res.setHeader('Access-Control-Allow-Origin', '*');
 	var body=req.body;
 	console.log(body); 
-
 	var query1="INSERT INTO Requests (EmailId, isServiced) VALUES ('"+body.EmailId+"',0)";
 	connection.query(query1,function(err, rows, fields) {
 	if (err) {
@@ -100,20 +85,16 @@ app.post('/postHelpRequest', function(req, res) {
 			if(error==null){
 				if(isExist){
 					console.log("Exist ");
-
 				}
 				else
-				{
-					console.log("Not Exist ");
+				{	console.log("Not Exist ");
 					insertCustomerData(body.Name,body.EmailId);
 				}
 			}
 			else{
 				console.log("Error while selecting ");
 			}
-
 		});
-		/*console.log("check:"+check);*/
 		res.send(JSON.stringify({
 				result: 'success',
 				json: rows,
@@ -124,7 +105,6 @@ app.post('/postHelpRequest', function(req, res) {
 	});
 
 });
-
 
 //To update URL
 app.post('/postMeetURL', function(req, res) {
@@ -196,20 +176,9 @@ function insertCustomerData(name,emailId){
 	connection.query(query,function(err, rows, fields) {
 	if (err) {
 		console.error(err);
-		/*res.statusCode = 500;
-		res.send(JSON.stringify({
-			result: 'error',
-			err: err.code
-		}));*/
 	}
 	else{	
 		console.log("Record added to customer db");
-		/*res.send(JSON.stringify({
-		result: 'success',
-		json: rows,
-		length: rows.length
-		}));*/
-		//connection.end();
 	}	 
 	});
 }
