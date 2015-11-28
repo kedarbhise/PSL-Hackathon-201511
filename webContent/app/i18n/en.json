@@ -16,6 +16,7 @@
     "nav": {
       "SINGLEVIEW": "Single View",
       "USERAGENT":"User Agent",
+       "MEETING":"Meeting",
       "menu": {
         "MENU": "Menu",
         "SUBMENU": "Sub Menu"
