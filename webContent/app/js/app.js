@@ -20,7 +20,7 @@ var App = angular.module('angle', ['ngRoute', 'ngAnimate', 'ngStorage', 'ngCooki
               $rootScope.$state = $state;
               $rootScope.$stateParams = $stateParams;
               $rootScope.$storage = $window.localStorage;
-
+        //      $rootScope.indexURL=null;
               // Uncomment this to disable template cache
               /*$rootScope.$on('$stateChangeStart', function(event, toState, toParams, fromState, fromParams) {
                   if (typeof(toState) !== 'undefined'){
@@ -52,6 +52,7 @@ var App = angular.module('angle', ['ngRoute', 'ngAnimate', 'ngStorage', 'ngCooki
                 job:      'ng-Dev',
                 picture:  'app/img/user/02.jpg'
               };
+             
 
           }]);
 
@@ -333,16 +334,18 @@ App.controller('AppController',
 }]);
 
 
-App.controller('UserAgentController', ['$scope', '$state', '$http','$window',
-                                        function($scope, $state, $http,$window){
+App.controller('UserAgentController', ['$scope','$rootScope', '$state', '$http','$window',
+                                        function($scope,$rootScope, $state, $http,$window){
 	/*
 	 $http.get("http://10.44.54.9:3000/getRequestQueue")
 	  .then(function (response) {
 		  alert(response.data.)});
 	 */
 	 $scope.details=false;
+	 $scope.noData=false;
+	 $scope.yesData=false;
 	 $scope.selectedRow = null;
-	 
+	
      $http({
             url: 'http://10.44.54.9:3000/getRequestQueue',     
             method:'GET'
@@ -360,7 +363,7 @@ App.controller('UserAgentController', ['$scope', '$state', '$http','$window',
      $scope.getHistory=function(requestID){
     	 $scope.id=requestID;
     	 $scope.selectedRow = requestID;
-    	 alert($scope.id);
+    	// alert($scope.id);
     	  $http({
               url: 'http://10.44.54.9:3000/getEnergyUsage?CustomerId='+$scope.id,     
               method:'GET'
@@ -369,13 +372,20 @@ App.controller('UserAgentController', ['$scope', '$state', '$http','$window',
           }).success(function(data, status) {
              console.log(JSON.stringify(data));
              if(data==""){
-            	 $scope.details=false;
+            	 $scope.details=true;
+            	 $scope.noData=true;
+            	 $scope.yesData=false;
              }
              else{
              $scope.details=true;
+             $scope.yesData=true;
+             $scope.noData=false;
               $scope.usage=data;
               console.log($scope.usage);
               console.log($scope.details);
+          //    document.body.style.cursor = "wait";
+              document.getElementById('historyTable').scrollIntoView();
+            //  document.body.style.cursor = "default";
              }
           }).error(function(data,status) {
             
@@ -383,35 +393,49 @@ App.controller('UserAgentController', ['$scope', '$state', '$http','$window',
           });
     	  
      }
-    	 $scope.startmeet=function(){
+     
+     
+    	 $scope.startmeet=function(requestID){
     		// $state.go('app.meeting');
-    		$window.open('http://localhost:8082/tpp/webContent/index.html#/app/meeting', '_blank');
+    		$scope.reqid=requestID;
+    		// $rootScope.a=$scope.reqid;
+    		// console.log( "rootscope value"+$rootScope.a);
+    		// $localStorage.reqID
+    		$window.open('http://localhost:8082/tpp/webContent/index.html#/app/meeting?val='+$scope.reqid, '_blank');
     	 } 
     	  
     	
+    	/*  
+    	  setInterval(function() {
+    		  window.location.reload();
+
+    	      }, 15000); */
+
      
      
-     $scope.changeShow = function(index){
-    	  $scope.isShow = index;
-    	}
-  
+     
 }]);
 
 
 
 
 
-App.controller('moxtraMeetingController', ['$scope', '$http', '$state', '$cookieStore', '$sce', function($scope, $http, $state, $cookieStore, $sce) {
+App.controller('moxtraMeetingController', ['$scope', '$rootScope','$http', '$state', '$cookieStore', '$sce','$location', function($scope,$rootScope, $http, $state, $cookieStore, $sce,$location) {
 
-		
-			
+		//alert($location.path());
+	$scope.location = $location;
+    $scope.$watch('location.search()', function() {
+        $scope.target = $location.search()['val'];
+        console.log($scope.target);
+    }, true);
 			var userName="reshma_shendge@persistent.co.in";
 			var password="P@ssw0rd786";
 			var applicationName="screensharingapp";
 			var clientId="n7DP0T58JEQ";
 			var clientSecret="uZgCdldQxxA";
-			
-			
+		//	 console.log( "rootscope value"+$rootScope.a);
+		//	$scope.ReqID=$rootScope.a;
+		//	console.log("URL ID:"+$scope.ReqID);
 			
 			var timestamp = new Date().getTime();
 			
@@ -553,8 +577,42 @@ $http({
 					//"url": $sce.trustAsResourceUrl("https:/sandbox.moxtra.com/timeline?access_token="+accessToken)
 				}
 			  //$window.location.reload();
-			  
-				alert($scope.source.url);
+				
+
+			//	alert($scope.source.url);
+				
+		    	// alert("requestid:"+$scope.ReqID);
+				// alert("requID"+$scope.target);
+			//	alert("sessionid:"+$scope.sessionKey);
+				$scope.reid=parseInt($scope.target);
+				
+				//post URL
+				var reqBody={
+						
+						"RequestId" :$scope.reid,
+						"URL" :$scope.sessionKey
+				}
+			//	alert(JSON.stringify(reqBody));
+				   $http({
+            url: 'http://10.44.54.9:3000/postMeetURL',     
+            method:'POST',
+            headers: {
+				'Content-Type': 'application/json'
+		   	},
+            data:reqBody
+             
+        }).success(function(data, status) {
+           // console.log(JSON.stringify(data));
+            $scope.record=data;
+            console.log($scope.record.result);
+                  
+        }).error(function(data,status) {
+          
+
+        });
+				 
+				
+				
 			  
 		}).
 		error(function(data,status,headers,config){
@@ -576,8 +634,7 @@ $scope.status = status;
 				  $scope.status = status;
 			});
 			
-			
-			
+		
 			
 	    	
 			
