@@ -768,7 +768,7 @@ $scope.getHelp=function(){
                             $scope.meetURL=response.data[0].MeetingURL;
                             console.log($scope.meetURL);
                             if($scope.meetURL!==null){
-                              alert("Kill");
+                             // alert("Kill");
                               $scope.killtimer();
                             }
                             //	$scope.hideLoading();
