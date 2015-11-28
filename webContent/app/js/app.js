@@ -401,7 +401,7 @@ App.controller('UserAgentController', ['$scope','$rootScope', '$state', '$http',
     		// $rootScope.a=$scope.reqid;
     		// console.log( "rootscope value"+$rootScope.a);
     		// $localStorage.reqID
-    		$window.open('http://localhost:8082/tpp/webContent/index.html#/app/meeting?val='+$scope.reqid, '_blank');
+    		$window.open('http://hjd22841:8082/tpp/webContent/index.html#/app/meeting?val='+$scope.reqid, '_blank');
     	 } 
     	  
     	
