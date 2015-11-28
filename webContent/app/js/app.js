@@ -589,8 +589,8 @@ $scope.status = status;
 /**=========================================================
  * Module: sweetalert.js
  =========================================================*/
-App.controller('SweetAlertController', ['$scope', '$state', '$http',
-                                   function($scope, $state, $http){
+App.controller('SweetAlertController', ['$scope', '$state', '$http', '$interval',
+                                   function($scope, $state, $http, $interval){
 	  'use strict';
 /*(function() {
   
@@ -663,12 +663,27 @@ App.controller('SweetAlertController', ['$scope', '$state', '$http',
           };*/
     //    }
   //  }
+  
+    $scope.loadingVisible = false;
+	
+		$scope.showLoading = function(){
+		
+			$scope.loadingVisible = true;
+				console.log("show loader image"+$scope.loadingVisible);
+		};
+			$scope.hideLoading = function(){
+			  //console.log("hide loader image");
+			$scope.loadingVisible = false;
+			console.log("show loader image"+$scope.loadingVisible);
+		};
+
+    $scope.requestedId=0;
 	  $scope.name="";
 		$scope.email="";  
 $scope.getHelp=function(){
 	
     	   try {
-              
+                  
 									console.log(JSON.stringify("EmailId" + $scope.email));
 									var requestBody = {"EmailId":$scope.email,"Name":$scope.name};
 							
@@ -681,16 +696,79 @@ $scope.getHelp=function(){
 
 									$http(request).then(
 										function(response) {
-										console.log("success");
+										  $scope.showLoading();
+										console.log("success"+JSON.stringify(response));
+									  $scope.requestedId=response.data.json.insertId;
+									  console.log("$scope.requestedId="+$scope.requestedId);
+									  $scope.timer=$interval(function(){
+      									   $http({
+                          method: 'GET',
+                          url: 'http://10.44.54.9:3000/getMeetURL?RequestId='+$scope.requestedId
+                        }).then(function successCallback(response) {
+                            // this callback will be called asynchronously
+                            // when the response is available
+                            console.log("*** response"+JSON.stringify(response));
+                            $scope.meetURL=response.data[0].MeetingURL;
+                            console.log($scope.meetURL);
+                            if($scope.meetURL!==null){
+                              alert("Kill");
+                              $scope.killtimer();
+                            }
+                            //	$scope.hideLoading();
+                            	
+                          }, function errorCallback(response) {
+                            // called asynchronously if an error occurs
+                            // or server returns response with an error status.
+                            console.log("not fetched url");
+                          });
+									  },6000);	  
+	  
+									  
+										/*swal({
+                    html : true,
+                    title : '<div>'+
+                            '<p>Waiting for your meet URL</p>'+
+                             '<div class="loaderImageBG" ng-hide="loadingVisible">'+
+                              '<h1>hello <a href={{meetURL}} /></h1>'+
+                              '</div>'+
+                            '<div class="loaderImageBG" ng-show="loadingVisible">'+
+      	                    '<img  style="margin-top: 50%;"  src="app/img/images/loading.gif">'+
+                            '</div>'+
+                            '</div>',*/
+                  /* 
+    title : '<p style="font-size:20pt;margin-top:-0.5%;font-family:Roboto,sans-serif;font-weight:normal;">Spend Deposit</p><br/><br/><div id="div1" align="center"><img id="overlay1" src="app/img/icon_fuel.png" align="center" style="margin-top:-15%;width:100px;"></img><p style="font-size:20pt;color:#DE5554;font-family:Roboto,sans-serif;font-weight:normal;margin-top: 10px;margin-bottom: 0px;" align="center">'+$scope.cat+'&nbsp;<em class="fa fa-rupee"></em> '+$scope.amt+'</p><small style="font-size:12pt;color:#9F9EA1;font-family:Roboto,sans-serif;font-weight:normal;">Date: '+$scope.todayDate +'</small></div>'+
+      '<p style="margin-top: 0px;line-height:40px;margin-bottom: 0px;"  ><a href="#" onClick="performSpendDepositOperation('+fuel+')"  style="font-size:13pt;color:#52A0CD;font-family:Roboto,sans-serif;font-weight:normal;" align="center;">Spend From Deposit</a><br/><a href="#" onClick="performKeepDepositOperation('+fuel+')" style="font-size:13pt;color:#52A0CD;font-family:Roboto,sans-serif;font-weight:normal;" align="center;">Keep Deposit</a><br/><a href="#" onClick="performCreateNewOperation('+fuel+')" style="font-size:13pt;color:#52A0CD;font-family:Roboto,sans-serif;font-weight:normal;" align="center;">Create New</a></p>',
+*/     
+                      
+                     /* showConfirmButton : false,
+                showCancelButton: false, 
+                confirmButtonColor: "#1aacda", 
+                cancelButtonText: "close",
+                closeOnConfirm: false
+             });*/
 										console.log(JSON.stringify(response));
+										
 										}, function(response) {
 										console.log("error");
 									});
+										//$scope.showLoading();
+										
+                  	
 		  } 
     	   catch (e) {
 						console.log(e);
 		   }
 };
+	$scope.killtimer=function(){
+	   $scope.hideLoading();
+	   
+	if(angular.isDefined($scope.timer))
+	  {
+		$interval.cancel($scope.timer);
+		$scope.timer=undefined;
+	  }
+    };
+	
 $scope.ClickMe=function(){
 		
 	  swal({
