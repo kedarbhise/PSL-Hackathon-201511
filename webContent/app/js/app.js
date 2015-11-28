@@ -20,7 +20,7 @@ var App = angular.module('angle', ['ngRoute', 'ngAnimate', 'ngStorage', 'ngCooki
               $rootScope.$state = $state;
               $rootScope.$stateParams = $stateParams;
               $rootScope.$storage = $window.localStorage;
-
+        //      $rootScope.indexURL=null;
               // Uncomment this to disable template cache
               /*$rootScope.$on('$stateChangeStart', function(event, toState, toParams, fromState, fromParams) {
                   if (typeof(toState) !== 'undefined'){
@@ -52,6 +52,7 @@ var App = angular.module('angle', ['ngRoute', 'ngAnimate', 'ngStorage', 'ngCooki
                 job:      'ng-Dev',
                 picture:  'app/img/user/02.jpg'
               };
+             
 
           }]);
 
@@ -85,6 +86,7 @@ function ($stateProvider, $locationProvider, $urlRouterProvider, helper) {
     .state('app.singleview', {
         url: '/singleview',
         title: 'Single View',
+        controller: 'customerController',
         templateUrl: helper.basepath('singleview.html')
        // resolve: helper.resolveFor('oitozero.ngSweetAlert')
     })
@@ -92,6 +94,12 @@ function ($stateProvider, $locationProvider, $urlRouterProvider, helper) {
         url: '/useragent',
         title: 'User Agent',
         templateUrl: helper.basepath('UserAgentView.html')
+    })
+     .state('app.meeting', {
+        url: '/meeting',
+        title: 'Meeting',
+        controller:'moxtraMeetingController',
+        templateUrl: helper.basepath('meeting.html')
     })
     .state('app.submenu', {
         url: '/submenu',
@@ -326,6 +334,314 @@ App.controller('AppController',
 }]);
 
 
+App.controller('UserAgentController', ['$scope','$rootScope', '$state', '$http','$window',
+                                        function($scope,$rootScope, $state, $http,$window){
+	/*
+	 $http.get("http://10.44.54.9:3000/getRequestQueue")
+	  .then(function (response) {
+		  alert(response.data.)});
+	 */
+	 $scope.details=false;
+	 $scope.noData=false;
+	 $scope.yesData=false;
+	 $scope.selectedRow = null;
+	
+     $http({
+            url: 'http://10.44.54.9:3000/getRequestQueue',     
+            method:'GET'
+             
+        }).success(function(data, status) {
+           // console.log(JSON.stringify(data));
+            $scope.record=data;
+            console.log($scope.record);
+                  
+        }).error(function(data,status) {
+          
+
+        });
+
+     $scope.getHistory=function(requestID){
+    	 $scope.id=requestID;
+    	 $scope.selectedRow = requestID;
+    	// alert($scope.id);
+    	  $http({
+              url: 'http://10.44.54.9:3000/getEnergyUsage?CustomerId='+$scope.id,     
+              method:'GET'
+          
+               
+          }).success(function(data, status) {
+             console.log(JSON.stringify(data));
+             if(data==""){
+            	 $scope.details=true;
+            	 $scope.noData=true;
+            	 $scope.yesData=false;
+             }
+             else{
+             $scope.details=true;
+             $scope.yesData=true;
+             $scope.noData=false;
+              $scope.usage=data;
+              console.log($scope.usage);
+              console.log($scope.details);
+          //    document.body.style.cursor = "wait";
+              document.getElementById('historyTable').scrollIntoView();
+            //  document.body.style.cursor = "default";
+             }
+          }).error(function(data,status) {
+            
+
+          });
+    	  
+     }
+     
+     
+    	 $scope.startmeet=function(requestID){
+    		// $state.go('app.meeting');
+    		$scope.reqid=requestID;
+    		// $rootScope.a=$scope.reqid;
+    		// console.log( "rootscope value"+$rootScope.a);
+    		// $localStorage.reqID
+    		$window.open('http://localhost:8082/tpp/webContent/index.html#/app/meeting?val='+$scope.reqid, '_blank');
+    	 } 
+    	  
+    	
+    	/*  
+    	  setInterval(function() {
+    		  window.location.reload();
+
+    	      }, 15000); */
+
+     
+     
+     
+}]);
+
+
+
+
+
+App.controller('moxtraMeetingController', ['$scope', '$rootScope','$http', '$state', '$cookieStore', '$sce','$location', function($scope,$rootScope, $http, $state, $cookieStore, $sce,$location) {
+
+		//alert($location.path());
+	$scope.location = $location;
+    $scope.$watch('location.search()', function() {
+        $scope.target = $location.search()['val'];
+        console.log($scope.target);
+    }, true);
+			var userName="reshma_shendge@persistent.co.in";
+			var password="P@ssw0rd786";
+			var applicationName="screensharingapp";
+			var clientId="n7DP0T58JEQ";
+			var clientSecret="uZgCdldQxxA";
+		//	 console.log( "rootscope value"+$rootScope.a);
+		//	$scope.ReqID=$rootScope.a;
+		//	console.log("URL ID:"+$scope.ReqID);
+			
+			var timestamp = new Date().getTime();
+			
+			var startMeetingTimestamp = new Date().getTime();
+			var endMeetingDate = new Date();
+			endMeetingDate.setDate(endMeetingDate.getDate()+1);
+			var endMeetingTimestamp = endMeetingDate.getTime();
+			
+		
+			//var hash = CryptoJS.HmacSHA256('q7QopLz9nzM' + "akshaykolhe1989@gmail.com" + timestamp, 'o2QNsZN2ZSQ');
+			var hash = CryptoJS.HmacSHA256(clientId + userName + timestamp, clientSecret);
+			var hashInBase64 = CryptoJS.enc.Base64.stringify(hash);
+			var signature = hashInBase64.replace(/\+/g, '-').replace(/\//g, '_').replace(/\=+$/, '');
+			
+			
+			
+			
+			var apisandbox_moxtra = 'https://apisandbox.moxtra.com';
+			var apisandbox_moxtra_token = '/oauth/token';
+			var apisandbox_moxtra_binder = '/me/binders?access_token=';
+			var apisandbox_moxtra_meet = '/meets/schedule?access_token=';
+			//var apisandbox_moxtra_end_meet = '/meets/schedule?access_token=';
+			//var apisandbox_moxtra_timeline = '/timeline?access_token=';
+			
+			
+			
+			var apisandbox_moxtra_binder_name = 'HackthonBinder';
+			var apisandbox_moxtra_binder_binder_description = 'HackthonBinder is a binder for connecting people';
+			
+			var apisandbox_moxtra_meet_name="Meeting";
+			
+			console.log("clientId: "+clientId);
+			console.log("clientSecret: "+clientSecret);
+			console.log("timestamp: "+timestamp);
+			console.log("userName: "+userName);
+			console.log("signature: "+signature);
+		
+			
+			
+			var apisandbox_moxtra_token_parameters = {client_id : String(clientId),
+					client_secret: String(clientSecret),
+					grant_type: 'http://www.moxtra.com/auth_uniqueid',
+					timestamp: String(timestamp),
+					uniqueid: String(userName),
+					signature: String(signature)};
+					
+var apisandbox_moxtra_binder_parameters = {name: apisandbox_moxtra_binder_name,
+description: apisandbox_moxtra_binder_binder_description};
+
+var apisandbox_moxtra_meet_parameters = {
+name: apisandbox_moxtra_meet_name,
+start_time: String(startMeetingTimestamp),
+end_time: String(endMeetingTimestamp),
+agenda: ''
+};
+
+
+
+
+
+
+					
+					
+					
+	    	$http({
+				url: apisandbox_moxtra+apisandbox_moxtra_token,
+				method: "POST",
+				headers: {"Content-Type": "application/x-www-form-urlencoded"} ,
+				transformRequest: function(obj) {
+					var str = [];
+					for(var p in obj)
+					str.push(encodeURIComponent(p) + "=" + encodeURIComponent(obj[p]));
+					return str.join("&");
+				},
+				data: apisandbox_moxtra_token_parameters
+			}).
+			success(function(data, status) {
+				  accessToken = data.access_token;
+				  console.log("accessToken is: "+accessToken);
+				  $cookieStore.put('accessToken',accessToken);
+				  $scope.status = status;
+				  $scope.authInfo = data;
+				  
+				  
+				  
+				  
+				  $http({
+								
+				url: apisandbox_moxtra+apisandbox_moxtra_binder + accessToken,
+				method: "POST",
+
+				data: apisandbox_moxtra_binder_parameters
+				}).success(function(data, status) {
+				$scope.status = status;
+				$scope.authInfo = data;
+				binderId = data.data.id;
+				$cookieStore.put('binderId',binderId);
+				
+				console.log("Binder is: "+binderId);
+
+
+
+$http({
+			url:apisandbox_moxtra+apisandbox_moxtra_meet+accessToken, //$cookieStore.get('moxtraToken'),
+			method: "POST",
+			headers: {
+				'Content-Type': 'application/json'
+		   	},
+		   	data: apisandbox_moxtra_meet_parameters
+		}).
+		success(function(data,status,headers,config) {
+			  
+			  $scope.status = data.data.status;
+			  $scope.sessionKey = data.data.startmeet_url,
+			  console.log("data is: "+JSON.stringify(data));
+			  console.log("sessionKey is: "+$scope.sessionKey);
+			  var sessionId=data.data.session_key;
+			  
+				$scope.endMeet  = function(){
+				//console.log("End Meet");
+					$http({
+					url: apisandbox_moxtra+"/"+binderId+"?access_token="+accessToken,
+					method: "POST",
+					}).success(function(data, status) {
+						console.log("Binder deleted");
+					}).
+			error(function(data, status) {
+				console.log("Binder deletion error");
+				  $scope.data = data || "Authentication failed";
+				  $scope.status = status;
+			});
+				}
+				$scope.source = {
+					"url": $sce.trustAsResourceUrl($scope.sessionKey+"?access_token="+accessToken)
+					//"url": $sce.trustAsResourceUrl("https://sandbox.moxtra.com/462218592?access_token="+accessToken)
+				//alert($scope.source.url);
+					//"url": $sce.trustAsResourceUrl("https://www.moxtra.com/"+sessionId+"?access_token="+accessToken)
+					//"url": $sce.trustAsResourceUrl("https:/sandbox.moxtra.com/service/#timeline?access_token="+accessToken)
+					//"url": $sce.trustAsResourceUrl("https:/sandbox.moxtra.com/timeline?access_token="+accessToken)
+				}
+			  //$window.location.reload();
+				
+
+			//	alert($scope.source.url);
+				
+		    	// alert("requestid:"+$scope.ReqID);
+				// alert("requID"+$scope.target);
+			//	alert("sessionid:"+$scope.sessionKey);
+				$scope.reid=parseInt($scope.target);
+				
+				//post URL
+				var reqBody={
+						
+						"RequestId" :$scope.reid,
+						"URL" :$scope.sessionKey
+				}
+			//	alert(JSON.stringify(reqBody));
+				   $http({
+            url: 'http://10.44.54.9:3000/postMeetURL',     
+            method:'POST',
+            headers: {
+				'Content-Type': 'application/json'
+		   	},
+            data:reqBody
+             
+        }).success(function(data, status) {
+           // console.log(JSON.stringify(data));
+            $scope.record=data;
+            console.log($scope.record.result);
+                  
+        }).error(function(data,status) {
+          
+
+        });
+				 
+				
+				
+			  
+		}).
+		error(function(data,status,headers,config){
+			 $scope.data = data || "Authentication failed";
+			$scope.status = status;
+		});
+
+}).
+error(function(data, status,config) {
+$scope.data = data || "Authentication failed";
+$scope.status = status;
+});
+				  
+				  
+				  
+				}).
+			error(function(data, status) {
+				  $scope.data = data || "Authentication failed";
+				  $scope.status = status;
+			});
+			
+		
+			
+	    	
+			
+			
+
+}]);
+
 
 /**=========================================================
  * Module: sweetalert.js
@@ -404,14 +720,41 @@ App.controller('SweetAlertController', ['$scope', '$state', '$http',
           };*/
     //    }
   //  }
-	  
+	  $scope.name="";
+		$scope.email="";  
+$scope.getHelp=function(){
 	
+    	   try {
+              
+									console.log(JSON.stringify("EmailId" + $scope.email));
+									var requestBody = {"EmailId":$scope.email,"Name":$scope.name};
+							
+									console.log("####" + requestBody);
+									var request = {
+										method : 'POST',
+										url : 'http://10.44.54.9:3000/postHelpRequest',
+										data : requestBody
+									};
+
+									$http(request).then(
+										function(response) {
+										console.log("success");
+										console.log(JSON.stringify(response));
+										}, function(response) {
+										console.log("error");
+									});
+		  } 
+    	   catch (e) {
+						console.log(e);
+		   }
+};
 $scope.ClickMe=function(){
+		
 	  swal({
         html : true,
         title : '<div>'+
-                '<p>Enter Your Name : <input type="text"/></p>'+
-                '<p>Enter Email Address :<input type="text"/></p>'+
+                '<p>Enter Your Name : <input type="text" ng-model="name"/></p>'+
+                '<p>Enter Email Address :<input type="text" ng-model="email"/></p>'+
                 '</div>',
       /* 
       title : '<p style="font-size:20pt;margin-top:-0.5%;font-family:Roboto,sans-serif;font-weight:normal;">Spend Deposit</p><br/><br/><div id="div1" align="center"><img id="overlay1" src="app/img/icon_fuel.png" align="center" style="margin-top:-15%;width:100px;"></img><p style="font-size:20pt;color:#DE5554;font-family:Roboto,sans-serif;font-weight:normal;margin-top: 10px;margin-bottom: 0px;" align="center">'+$scope.cat+'&nbsp;<em class="fa fa-rupee"></em> '+$scope.amt+'</p><small style="font-size:12pt;color:#9F9EA1;font-family:Roboto,sans-serif;font-weight:normal;">Date: '+$scope.todayDate +'</small></div>'+
@@ -419,12 +762,14 @@ $scope.ClickMe=function(){
   */     
                 type: "input",
                 showConfirmButton : true,
-          showCancelButton: false, 
+          showCancelButton: true, 
           confirmButtonColor: "#1aacda", 
           confirmButtonText: "Submit",
           closeOnConfirm: false
+       
+       
        });
-} 
+};
 
 $scope.response=function(){
 	  swal({
@@ -554,6 +899,59 @@ App.controller('SidebarController', ['$rootScope', '$scope', '$state', '$http', 
 
 }]);
 
+
+//controller for singleview
+
+App.controller('customerController',
+  ['$rootScope', '$scope', '$state', '$translate', '$window', '$localStorage', '$timeout', 'toggleStateService', 'colors', 'browser', 'cfpLoadingBar',
+  function($rootScope, $scope, $state, $translate, $window, $localStorage, $timeout, toggle, colors, browser, cfpLoadingBar) {
+  
+    $scope.data = {
+     singleSelect: "",
+    };
+    $scope.flag=false;
+    $scope.selectChanged = function(){
+    
+    $scope.planImage="";
+    if($scope.data.singleSelect=="residential") { 
+     
+       $scope.plan = {
+       repeatSelect: "",
+       availableOptions: [
+         
+         {id: '1', name: 'Plan A'},
+         {id: '2', name: 'Plan B'}
+       ]
+     };
+    }
+    else if($scope.data.singleSelect=="commercial"){
+      
+      $scope.plan = {
+       repeatSelect: "",
+       availableOptions: [
+         {id: '3', name: 'Plan C'},
+         {id: '4', name: 'Plan D'}
+       ]
+      };
+    }
+    };
+    
+    $scope.selectCahnged2 = function(){
+         
+          if($scope.plan.repeatSelect=="1" && $scope.data.singleSelect == "residential" ) {
+              $scope.planImage="app/img/images/Plan1.PNG";
+          }else if($scope.plan.repeatSelect=="2" && $scope.data.singleSelect == "residential"){
+              $scope.planImage="app/img/images/Plan2.PNG";
+          }else if($scope.plan.repeatSelect=="3" && $scope.data.singleSelect == "commercial"){
+            $scope.planImage="app/img/images/Plan1.PNG";
+          }else if($scope.plan.repeatSelect=="4" && $scope.data.singleSelect == "commercial"){
+            $scope.planImage="app/img/images/Plan2.PNG";
+          }
+          $scope.flag=true;
+    };
+    
+    
+  }]); 
 /**=========================================================
  * Module: navbar-search.js
  * Navbar search toggler * Auto dismiss on ESC key
