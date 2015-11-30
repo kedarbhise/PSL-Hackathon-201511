@@ -1,0 +1,1343 @@
+0 info it worked if it ends with ok
+1 verbose cli [ '/usr/bin/nodejs', '/usr/bin/npm', 'install', 'body-parser' ]
+2 info using npm@1.4.21
+3 info using node@v0.10.25
+4 verbose cache add [ 'body-parser', null ]
+5 verbose cache add name=undefined spec="body-parser" args=["body-parser",null]
+6 verbose parsed url { protocol: null,
+6 verbose parsed url   slashes: null,
+6 verbose parsed url   auth: null,
+6 verbose parsed url   host: null,
+6 verbose parsed url   port: null,
+6 verbose parsed url   hostname: null,
+6 verbose parsed url   hash: null,
+6 verbose parsed url   search: null,
+6 verbose parsed url   query: null,
+6 verbose parsed url   pathname: 'body-parser',
+6 verbose parsed url   path: 'body-parser',
+6 verbose parsed url   href: 'body-parser' }
+7 silly lockFile 14cf125c-body-parser body-parser
+8 verbose lock body-parser /home/shipra/.npm/14cf125c-body-parser.lock
+9 silly lockFile 14cf125c-body-parser body-parser
+10 silly lockFile 14cf125c-body-parser body-parser
+11 verbose addNamed [ 'body-parser', '' ]
+12 verbose addNamed [ null, '*' ]
+13 silly lockFile 9f665704-body-parser body-parser@
+14 verbose lock body-parser@ /home/shipra/.npm/9f665704-body-parser.lock
+15 silly addNameRange { name: 'body-parser', range: '*', hasData: false }
+16 verbose request where is /body-parser
+17 verbose request registry http://registry.npmjs.org/
+18 verbose request id 986395235a01ed3e
+19 verbose url raw /body-parser
+20 verbose url resolving [ 'http://registry.npmjs.org/', './body-parser' ]
+21 verbose url resolved http://registry.npmjs.org/body-parser
+22 verbose request where is http://registry.npmjs.org/body-parser
+23 info trying registry request attempt 1 at 10:19:18
+24 verbose etag "ZAPBHD8DDJ09HX8WNQSOUF72"
+25 http GET http://registry.npmjs.org/body-parser
+26 http 401 http://registry.npmjs.org/body-parser
+27 verbose bad json <HTML><HEAD>
+27 verbose bad json <TITLE>Access Denied</TITLE>
+27 verbose bad json </HEAD>
+27 verbose bad json <BODY>
+27 verbose bad json <FONT face="Helvetica">
+27 verbose bad json <big><strong></strong></big><BR>
+27 verbose bad json </FONT>
+27 verbose bad json <blockquote>
+27 verbose bad json <TABLE border=0 cellPadding=1 width="80%">
+27 verbose bad json <TR><TD>
+27 verbose bad json <FONT face="Helvetica">
+27 verbose bad json <big>Access Denied (authentication_failed)</big>
+27 verbose bad json <BR>
+27 verbose bad json <BR>
+27 verbose bad json </FONT>
+27 verbose bad json </TD></TR>
+27 verbose bad json <TR><TD>
+27 verbose bad json <FONT face="Helvetica">
+27 verbose bad json Your credentials could not be authenticated: "Credentials are missing.". You will not be permitted access until your credentials can be verified.
+27 verbose bad json </FONT>
+27 verbose bad json </TD></TR>
+27 verbose bad json <TR><TD>
+27 verbose bad json <FONT face="Helvetica">
+27 verbose bad json This is typically caused by an incorrect username and/or password, but could also be caused by network problems.
+27 verbose bad json </FONT>
+27 verbose bad json </TD></TR>
+27 verbose bad json <TR><TD>
+27 verbose bad json <FONT face="Helvetica" SIZE=2>
+27 verbose bad json <BR>
+27 verbose bad json For assistance, contact your network support team.<br><br>Your request was categorized by Blue Coat Web Filter as 'Technology/Internet'. <br>If you wish to question or dispute this result, please click <a href="http://sitereview.bluecoat.com/sitereview.jsp?referrer=136&url=http://registry.npmjs.org/body-parser">here</a>.
+27 verbose bad json </FONT>
+27 verbose bad json </TD></TR>
+27 verbose bad json </TABLE>
+27 verbose bad json </blockquote>
+27 verbose bad json </FONT>
+27 verbose bad json </BODY></HTML>
+28 error registry error parsing json
+29 verbose headers { 'cache-control': 'no-cache',
+29 verbose headers   pragma: 'no-cache',
+29 verbose headers   'www-authenticate': 'NEGOTIATE, NTLM, BASIC realm="BCADINT"',
+29 verbose headers   'content-type': 'text/html; charset=utf-8',
+29 verbose headers   'proxy-connection': 'close',
+29 verbose headers   'set-cookie': [ 'BCSI-CS-ff9696d7b4f08ace=2; Path=/' ],
+29 verbose headers   connection: 'close',
+29 verbose headers   'content-length': '1121' }
+30 silly registry.get cb [ 304, undefined ]
+31 verbose etag http://registry.npmjs.org/body-parser from cache
+32 silly addNameRange number 2 { name: 'body-parser', range: '*', hasData: true }
+33 silly addNameRange versions [ 'body-parser',
+33 silly addNameRange   [ '1.0.0',
+33 silly addNameRange     '1.0.1',
+33 silly addNameRange     '1.0.2',
+33 silly addNameRange     '1.1.0',
+33 silly addNameRange     '1.1.1',
+33 silly addNameRange     '1.1.2',
+33 silly addNameRange     '1.2.0',
+33 silly addNameRange     '1.2.1',
+33 silly addNameRange     '1.2.2',
+33 silly addNameRange     '1.3.0',
+33 silly addNameRange     '1.3.1',
+33 silly addNameRange     '1.4.0',
+33 silly addNameRange     '1.4.1',
+33 silly addNameRange     '1.4.2',
+33 silly addNameRange     '1.4.3',
+33 silly addNameRange     '1.5.0',
+33 silly addNameRange     '1.5.1',
+33 silly addNameRange     '1.5.2',
+33 silly addNameRange     '1.6.0',
+33 silly addNameRange     '1.6.1',
+33 silly addNameRange     '1.6.2',
+33 silly addNameRange     '1.6.3',
+33 silly addNameRange     '1.6.4',
+33 silly addNameRange     '1.6.5',
+33 silly addNameRange     '1.6.6',
+33 silly addNameRange     '1.6.7',
+33 silly addNameRange     '1.7.0',
+33 silly addNameRange     '1.8.0',
+33 silly addNameRange     '1.8.1',
+33 silly addNameRange     '1.8.2',
+33 silly addNameRange     '1.8.3',
+33 silly addNameRange     '1.8.4',
+33 silly addNameRange     '1.9.0',
+33 silly addNameRange     '1.9.1',
+33 silly addNameRange     '1.9.2',
+33 silly addNameRange     '1.9.3',
+33 silly addNameRange     '1.10.0',
+33 silly addNameRange     '1.10.1',
+33 silly addNameRange     '1.10.2',
+33 silly addNameRange     '1.11.0',
+33 silly addNameRange     '1.12.0',
+33 silly addNameRange     '1.12.1',
+33 silly addNameRange     '1.12.2',
+33 silly addNameRange     '1.12.3',
+33 silly addNameRange     '1.12.4',
+33 silly addNameRange     '1.13.0',
+33 silly addNameRange     '1.13.1',
+33 silly addNameRange     '1.13.2',
+33 silly addNameRange     '1.13.3' ] ]
+34 verbose addNamed [ 'body-parser', '1.13.3' ]
+35 verbose addNamed [ '1.13.3', '1.13.3' ]
+36 silly lockFile 33d87632-body-parser-1-13-3 body-parser@1.13.3
+37 verbose lock body-parser@1.13.3 /home/shipra/.npm/33d87632-body-parser-1-13-3.lock
+38 silly lockFile 33d87632-body-parser-1-13-3 body-parser@1.13.3
+39 silly lockFile 33d87632-body-parser-1-13-3 body-parser@1.13.3
+40 silly lockFile 9f665704-body-parser body-parser@
+41 silly lockFile 9f665704-body-parser body-parser@
+42 silly resolved [ { name: 'body-parser',
+42 silly resolved     description: 'Node.js body parsing middleware',
+42 silly resolved     version: '1.13.3',
+42 silly resolved     contributors: [ [Object], [Object] ],
+42 silly resolved     license: 'MIT',
+42 silly resolved     repository: { type: 'git', url: 'https://github.com/expressjs/body-parser' },
+42 silly resolved     dependencies:
+42 silly resolved      { bytes: '2.1.0',
+42 silly resolved        'content-type': '~1.0.1',
+42 silly resolved        debug: '~2.2.0',
+42 silly resolved        depd: '~1.0.1',
+42 silly resolved        'http-errors': '~1.3.1',
+42 silly resolved        'iconv-lite': '0.4.11',
+42 silly resolved        'on-finished': '~2.3.0',
+42 silly resolved        qs: '4.0.0',
+42 silly resolved        'raw-body': '~2.1.2',
+42 silly resolved        'type-is': '~1.6.6' },
+42 silly resolved     devDependencies:
+42 silly resolved      { istanbul: '0.3.17',
+42 silly resolved        methods: '~1.1.1',
+42 silly resolved        mocha: '2.2.5',
+42 silly resolved        supertest: '1.0.1' },
+42 silly resolved     files: [ 'lib/', 'LICENSE', 'HISTORY.md', 'index.js' ],
+42 silly resolved     engines: { node: '>= 0.8' },
+42 silly resolved     scripts:
+42 silly resolved      { test: 'mocha --require test/support/env --reporter spec --check-leaks --bail test/',
+42 silly resolved        'test-cov': 'istanbul cover node_modules/mocha/bin/_mocha -- --require test/support/env --reporter dot --check-leaks test/',
+42 silly resolved        'test-travis': 'istanbul cover node_modules/mocha/bin/_mocha --report lcovonly -- --require test/support/env --reporter spec --check-leaks test/' },
+42 silly resolved     gitHead: '79d0972bd18247071326105bfb36539830b61b76',
+42 silly resolved     bugs: { url: 'https://github.com/expressjs/body-parser/issues' },
+42 silly resolved     homepage: 'https://github.com/expressjs/body-parser',
+42 silly resolved     _id: 'body-parser@1.13.3',
+42 silly resolved     _shasum: 'c08cf330c3358e151016a05746f13f029c97fa97',
+42 silly resolved     _from: 'body-parser@',
+42 silly resolved     _npmVersion: '1.4.28',
+42 silly resolved     _npmUser: { name: 'dougwilson', email: 'doug@somethingdoug.com' },
+42 silly resolved     maintainers: [ [Object], [Object], [Object], [Object], [Object], [Object] ],
+42 silly resolved     dist:
+42 silly resolved      { shasum: 'c08cf330c3358e151016a05746f13f029c97fa97',
+42 silly resolved        tarball: 'http://registry.npmjs.org/body-parser/-/body-parser-1.13.3.tgz' },
+42 silly resolved     directories: {},
+42 silly resolved     _resolved: 'http://registry.npmjs.org/body-parser/-/body-parser-1.13.3.tgz',
+42 silly resolved     readme: 'ERROR: No README data found!' } ]
+43 info install body-parser@1.13.3 into /home/shipra/Desktop/shipra/ScreenSharing/clone/PSL-Hackathon-201511/nodejs
+44 info installOne body-parser@1.13.3
+45 verbose node_modules/body-parser unbuild
+46 verbose tar unpack /home/shipra/.npm/body-parser/1.13.3/package.tgz
+47 silly lockFile 32c7587f--nodejs-node-modules-body-parser tar:///home/shipra/Desktop/shipra/ScreenSharing/clone/PSL-Hackathon-201511/nodejs/node_modules/body-parser
+48 verbose lock tar:///home/shipra/Desktop/shipra/ScreenSharing/clone/PSL-Hackathon-201511/nodejs/node_modules/body-parser /home/shipra/.npm/32c7587f--nodejs-node-modules-body-parser.lock
+49 silly lockFile bbcace6e-m-body-parser-1-13-3-package-tgz tar:///home/shipra/.npm/body-parser/1.13.3/package.tgz
+50 verbose lock tar:///home/shipra/.npm/body-parser/1.13.3/package.tgz /home/shipra/.npm/bbcace6e-m-body-parser-1-13-3-package-tgz.lock
+51 silly gunzTarPerm modes [ '755', '644' ]
+52 silly gunzTarPerm extractEntry package.json
+53 silly gunzTarPerm modified mode [ 'package.json', 438, 420 ]
+54 silly gunzTarPerm extractEntry README.md
+55 silly gunzTarPerm modified mode [ 'README.md', 438, 420 ]
+56 silly gunzTarPerm extractEntry LICENSE
+57 silly gunzTarPerm modified mode [ 'LICENSE', 438, 420 ]
+58 silly gunzTarPerm extractEntry index.js
+59 silly gunzTarPerm modified mode [ 'index.js', 438, 420 ]
+60 silly gunzTarPerm extractEntry HISTORY.md
+61 silly gunzTarPerm modified mode [ 'HISTORY.md', 438, 420 ]
+62 silly gunzTarPerm extractEntry lib/read.js
+63 silly gunzTarPerm modified mode [ 'lib/read.js', 438, 420 ]
+64 silly gunzTarPerm extractEntry lib/types/json.js
+65 silly gunzTarPerm modified mode [ 'lib/types/json.js', 438, 420 ]
+66 silly gunzTarPerm extractEntry lib/types/raw.js
+67 silly gunzTarPerm modified mode [ 'lib/types/raw.js', 438, 420 ]
+68 silly gunzTarPerm extractEntry lib/types/text.js
+69 silly gunzTarPerm modified mode [ 'lib/types/text.js', 438, 420 ]
+70 silly gunzTarPerm extractEntry lib/types/urlencoded.js
+71 silly gunzTarPerm modified mode [ 'lib/types/urlencoded.js', 438, 420 ]
+72 silly lockFile 32c7587f--nodejs-node-modules-body-parser tar:///home/shipra/Desktop/shipra/ScreenSharing/clone/PSL-Hackathon-201511/nodejs/node_modules/body-parser
+73 silly lockFile 32c7587f--nodejs-node-modules-body-parser tar:///home/shipra/Desktop/shipra/ScreenSharing/clone/PSL-Hackathon-201511/nodejs/node_modules/body-parser
+74 silly lockFile bbcace6e-m-body-parser-1-13-3-package-tgz tar:///home/shipra/.npm/body-parser/1.13.3/package.tgz
+75 silly lockFile bbcace6e-m-body-parser-1-13-3-package-tgz tar:///home/shipra/.npm/body-parser/1.13.3/package.tgz
+76 info preinstall body-parser@1.13.3
+77 verbose readDependencies using package.json deps
+78 verbose readDependencies using package.json deps
+79 verbose cache add [ 'bytes@2.1.0', null ]
+80 verbose cache add name=undefined spec="bytes@2.1.0" args=["bytes@2.1.0",null]
+81 verbose parsed url { protocol: null,
+81 verbose parsed url   slashes: null,
+81 verbose parsed url   auth: null,
+81 verbose parsed url   host: null,
+81 verbose parsed url   port: null,
+81 verbose parsed url   hostname: null,
+81 verbose parsed url   hash: null,
+81 verbose parsed url   search: null,
+81 verbose parsed url   query: null,
+81 verbose parsed url   pathname: 'bytes@2.1.0',
+81 verbose parsed url   path: 'bytes@2.1.0',
+81 verbose parsed url   href: 'bytes@2.1.0' }
+82 verbose cache add [ 'content-type@~1.0.1', null ]
+83 verbose cache add name=undefined spec="content-type@~1.0.1" args=["content-type@~1.0.1",null]
+84 verbose parsed url { protocol: null,
+84 verbose parsed url   slashes: null,
+84 verbose parsed url   auth: null,
+84 verbose parsed url   host: null,
+84 verbose parsed url   port: null,
+84 verbose parsed url   hostname: null,
+84 verbose parsed url   hash: null,
+84 verbose parsed url   search: null,
+84 verbose parsed url   query: null,
+84 verbose parsed url   pathname: 'content-type@~1.0.1',
+84 verbose parsed url   path: 'content-type@~1.0.1',
+84 verbose parsed url   href: 'content-type@~1.0.1' }
+85 verbose cache add name="bytes" spec="2.1.0" args=["bytes","2.1.0"]
+86 verbose parsed url { protocol: null,
+86 verbose parsed url   slashes: null,
+86 verbose parsed url   auth: null,
+86 verbose parsed url   host: null,
+86 verbose parsed url   port: null,
+86 verbose parsed url   hostname: null,
+86 verbose parsed url   hash: null,
+86 verbose parsed url   search: null,
+86 verbose parsed url   query: null,
+86 verbose parsed url   pathname: '2.1.0',
+86 verbose parsed url   path: '2.1.0',
+86 verbose parsed url   href: '2.1.0' }
+87 verbose addNamed [ 'bytes', '2.1.0' ]
+88 verbose addNamed [ '2.1.0', '2.1.0' ]
+89 silly lockFile f962fd80-bytes-2-1-0 bytes@2.1.0
+90 verbose lock bytes@2.1.0 /home/shipra/.npm/f962fd80-bytes-2-1-0.lock
+91 verbose cache add [ 'depd@~1.0.1', null ]
+92 verbose cache add name=undefined spec="depd@~1.0.1" args=["depd@~1.0.1",null]
+93 verbose parsed url { protocol: null,
+93 verbose parsed url   slashes: null,
+93 verbose parsed url   auth: null,
+93 verbose parsed url   host: null,
+93 verbose parsed url   port: null,
+93 verbose parsed url   hostname: null,
+93 verbose parsed url   hash: null,
+93 verbose parsed url   search: null,
+93 verbose parsed url   query: null,
+93 verbose parsed url   pathname: 'depd@~1.0.1',
+93 verbose parsed url   path: 'depd@~1.0.1',
+93 verbose parsed url   href: 'depd@~1.0.1' }
+94 verbose cache add [ 'debug@~2.2.0', null ]
+95 verbose cache add name=undefined spec="debug@~2.2.0" args=["debug@~2.2.0",null]
+96 verbose parsed url { protocol: null,
+96 verbose parsed url   slashes: null,
+96 verbose parsed url   auth: null,
+96 verbose parsed url   host: null,
+96 verbose parsed url   port: null,
+96 verbose parsed url   hostname: null,
+96 verbose parsed url   hash: null,
+96 verbose parsed url   search: null,
+96 verbose parsed url   query: null,
+96 verbose parsed url   pathname: 'debug@~2.2.0',
+96 verbose parsed url   path: 'debug@~2.2.0',
+96 verbose parsed url   href: 'debug@~2.2.0' }
+97 verbose cache add name="content-type" spec="~1.0.1" args=["content-type","~1.0.1"]
+98 verbose parsed url { protocol: null,
+98 verbose parsed url   slashes: null,
+98 verbose parsed url   auth: null,
+98 verbose parsed url   host: null,
+98 verbose parsed url   port: null,
+98 verbose parsed url   hostname: null,
+98 verbose parsed url   hash: null,
+98 verbose parsed url   search: null,
+98 verbose parsed url   query: null,
+98 verbose parsed url   pathname: '~1.0.1',
+98 verbose parsed url   path: '~1.0.1',
+98 verbose parsed url   href: '~1.0.1' }
+99 verbose addNamed [ 'content-type', '~1.0.1' ]
+100 verbose addNamed [ null, '>=1.0.1-0 <1.1.0-0' ]
+101 silly lockFile cc42bda4-content-type-1-0-1 content-type@~1.0.1
+102 verbose lock content-type@~1.0.1 /home/shipra/.npm/cc42bda4-content-type-1-0-1.lock
+103 verbose cache add name="depd" spec="~1.0.1" args=["depd","~1.0.1"]
+104 verbose parsed url { protocol: null,
+104 verbose parsed url   slashes: null,
+104 verbose parsed url   auth: null,
+104 verbose parsed url   host: null,
+104 verbose parsed url   port: null,
+104 verbose parsed url   hostname: null,
+104 verbose parsed url   hash: null,
+104 verbose parsed url   search: null,
+104 verbose parsed url   query: null,
+104 verbose parsed url   pathname: '~1.0.1',
+104 verbose parsed url   path: '~1.0.1',
+104 verbose parsed url   href: '~1.0.1' }
+105 verbose addNamed [ 'depd', '~1.0.1' ]
+106 verbose addNamed [ null, '>=1.0.1-0 <1.1.0-0' ]
+107 silly lockFile 96f022c4-depd-1-0-1 depd@~1.0.1
+108 verbose lock depd@~1.0.1 /home/shipra/.npm/96f022c4-depd-1-0-1.lock
+109 verbose cache add name="debug" spec="~2.2.0" args=["debug","~2.2.0"]
+110 verbose parsed url { protocol: null,
+110 verbose parsed url   slashes: null,
+110 verbose parsed url   auth: null,
+110 verbose parsed url   host: null,
+110 verbose parsed url   port: null,
+110 verbose parsed url   hostname: null,
+110 verbose parsed url   hash: null,
+110 verbose parsed url   search: null,
+110 verbose parsed url   query: null,
+110 verbose parsed url   pathname: '~2.2.0',
+110 verbose parsed url   path: '~2.2.0',
+110 verbose parsed url   href: '~2.2.0' }
+111 verbose addNamed [ 'debug', '~2.2.0' ]
+112 verbose addNamed [ null, '>=2.2.0-0 <2.3.0-0' ]
+113 silly lockFile 7986b842-debug-2-2-0 debug@~2.2.0
+114 verbose lock debug@~2.2.0 /home/shipra/.npm/7986b842-debug-2-2-0.lock
+115 silly addNameRange { name: 'content-type',
+115 silly addNameRange   range: '>=1.0.1-0 <1.1.0-0',
+115 silly addNameRange   hasData: false }
+116 verbose cache add [ 'http-errors@~1.3.1', null ]
+117 verbose cache add name=undefined spec="http-errors@~1.3.1" args=["http-errors@~1.3.1",null]
+118 verbose parsed url { protocol: null,
+118 verbose parsed url   slashes: null,
+118 verbose parsed url   auth: null,
+118 verbose parsed url   host: null,
+118 verbose parsed url   port: null,
+118 verbose parsed url   hostname: null,
+118 verbose parsed url   hash: null,
+118 verbose parsed url   search: null,
+118 verbose parsed url   query: null,
+118 verbose parsed url   pathname: 'http-errors@~1.3.1',
+118 verbose parsed url   path: 'http-errors@~1.3.1',
+118 verbose parsed url   href: 'http-errors@~1.3.1' }
+119 silly addNameRange { name: 'depd', range: '>=1.0.1-0 <1.1.0-0', hasData: false }
+120 silly addNameRange { name: 'debug', range: '>=2.2.0-0 <2.3.0-0', hasData: false }
+121 verbose cache add name="http-errors" spec="~1.3.1" args=["http-errors","~1.3.1"]
+122 verbose parsed url { protocol: null,
+122 verbose parsed url   slashes: null,
+122 verbose parsed url   auth: null,
+122 verbose parsed url   host: null,
+122 verbose parsed url   port: null,
+122 verbose parsed url   hostname: null,
+122 verbose parsed url   hash: null,
+122 verbose parsed url   search: null,
+122 verbose parsed url   query: null,
+122 verbose parsed url   pathname: '~1.3.1',
+122 verbose parsed url   path: '~1.3.1',
+122 verbose parsed url   href: '~1.3.1' }
+123 verbose addNamed [ 'http-errors', '~1.3.1' ]
+124 verbose addNamed [ null, '>=1.3.1-0 <1.4.0-0' ]
+125 silly lockFile 0d853b22-http-errors-1-3-1 http-errors@~1.3.1
+126 verbose lock http-errors@~1.3.1 /home/shipra/.npm/0d853b22-http-errors-1-3-1.lock
+127 verbose cache add [ 'iconv-lite@0.4.11', null ]
+128 verbose cache add name=undefined spec="iconv-lite@0.4.11" args=["iconv-lite@0.4.11",null]
+129 verbose parsed url { protocol: null,
+129 verbose parsed url   slashes: null,
+129 verbose parsed url   auth: null,
+129 verbose parsed url   host: null,
+129 verbose parsed url   port: null,
+129 verbose parsed url   hostname: null,
+129 verbose parsed url   hash: null,
+129 verbose parsed url   search: null,
+129 verbose parsed url   query: null,
+129 verbose parsed url   pathname: 'iconv-lite@0.4.11',
+129 verbose parsed url   path: 'iconv-lite@0.4.11',
+129 verbose parsed url   href: 'iconv-lite@0.4.11' }
+130 verbose cache add name="iconv-lite" spec="0.4.11" args=["iconv-lite","0.4.11"]
+131 verbose parsed url { protocol: null,
+131 verbose parsed url   slashes: null,
+131 verbose parsed url   auth: null,
+131 verbose parsed url   host: null,
+131 verbose parsed url   port: null,
+131 verbose parsed url   hostname: null,
+131 verbose parsed url   hash: null,
+131 verbose parsed url   search: null,
+131 verbose parsed url   query: null,
+131 verbose parsed url   pathname: '0.4.11',
+131 verbose parsed url   path: '0.4.11',
+131 verbose parsed url   href: '0.4.11' }
+132 verbose addNamed [ 'iconv-lite', '0.4.11' ]
+133 verbose addNamed [ '0.4.11', '0.4.11' ]
+134 silly lockFile f62a2e31-iconv-lite-0-4-11 iconv-lite@0.4.11
+135 verbose lock iconv-lite@0.4.11 /home/shipra/.npm/f62a2e31-iconv-lite-0-4-11.lock
+136 silly addNameRange { name: 'http-errors',
+136 silly addNameRange   range: '>=1.3.1-0 <1.4.0-0',
+136 silly addNameRange   hasData: false }
+137 verbose cache add [ 'on-finished@~2.3.0', null ]
+138 verbose cache add name=undefined spec="on-finished@~2.3.0" args=["on-finished@~2.3.0",null]
+139 verbose parsed url { protocol: null,
+139 verbose parsed url   slashes: null,
+139 verbose parsed url   auth: null,
+139 verbose parsed url   host: null,
+139 verbose parsed url   port: null,
+139 verbose parsed url   hostname: null,
+139 verbose parsed url   hash: null,
+139 verbose parsed url   search: null,
+139 verbose parsed url   query: null,
+139 verbose parsed url   pathname: 'on-finished@~2.3.0',
+139 verbose parsed url   path: 'on-finished@~2.3.0',
+139 verbose parsed url   href: 'on-finished@~2.3.0' }
+140 verbose request where is /bytes
+141 verbose request registry http://registry.npmjs.org/
+142 verbose url raw /bytes
+143 verbose url resolving [ 'http://registry.npmjs.org/', './bytes' ]
+144 verbose url resolved http://registry.npmjs.org/bytes
+145 verbose request where is http://registry.npmjs.org/bytes
+146 info trying registry request attempt 1 at 10:19:18
+147 verbose etag "1H3BDDKW7WRQB0Y48B8NCXDO5"
+148 http GET http://registry.npmjs.org/bytes
+149 verbose request where is /content-type
+150 verbose request registry http://registry.npmjs.org/
+151 verbose url raw /content-type
+152 verbose url resolving [ 'http://registry.npmjs.org/', './content-type' ]
+153 verbose url resolved http://registry.npmjs.org/content-type
+154 verbose request where is http://registry.npmjs.org/content-type
+155 info trying registry request attempt 1 at 10:19:18
+156 verbose etag "8O24AGWIP2HNNPS49I8AYDZS8"
+157 http GET http://registry.npmjs.org/content-type
+158 verbose cache add [ 'raw-body@~2.1.2', null ]
+159 verbose cache add name=undefined spec="raw-body@~2.1.2" args=["raw-body@~2.1.2",null]
+160 verbose parsed url { protocol: null,
+160 verbose parsed url   slashes: null,
+160 verbose parsed url   auth: null,
+160 verbose parsed url   host: null,
+160 verbose parsed url   port: null,
+160 verbose parsed url   hostname: null,
+160 verbose parsed url   hash: null,
+160 verbose parsed url   search: null,
+160 verbose parsed url   query: null,
+160 verbose parsed url   pathname: 'raw-body@~2.1.2',
+160 verbose parsed url   path: 'raw-body@~2.1.2',
+160 verbose parsed url   href: 'raw-body@~2.1.2' }
+161 verbose cache add [ 'qs@4.0.0', null ]
+162 verbose cache add name=undefined spec="qs@4.0.0" args=["qs@4.0.0",null]
+163 verbose parsed url { protocol: null,
+163 verbose parsed url   slashes: null,
+163 verbose parsed url   auth: null,
+163 verbose parsed url   host: null,
+163 verbose parsed url   port: null,
+163 verbose parsed url   hostname: null,
+163 verbose parsed url   hash: null,
+163 verbose parsed url   search: null,
+163 verbose parsed url   query: null,
+163 verbose parsed url   pathname: 'qs@4.0.0',
+163 verbose parsed url   path: 'qs@4.0.0',
+163 verbose parsed url   href: 'qs@4.0.0' }
+164 verbose cache add [ 'type-is@~1.6.6', null ]
+165 verbose cache add name=undefined spec="type-is@~1.6.6" args=["type-is@~1.6.6",null]
+166 verbose parsed url { protocol: null,
+166 verbose parsed url   slashes: null,
+166 verbose parsed url   auth: null,
+166 verbose parsed url   host: null,
+166 verbose parsed url   port: null,
+166 verbose parsed url   hostname: null,
+166 verbose parsed url   hash: null,
+166 verbose parsed url   search: null,
+166 verbose parsed url   query: null,
+166 verbose parsed url   pathname: 'type-is@~1.6.6',
+166 verbose parsed url   path: 'type-is@~1.6.6',
+166 verbose parsed url   href: 'type-is@~1.6.6' }
+167 verbose cache add name="on-finished" spec="~2.3.0" args=["on-finished","~2.3.0"]
+168 verbose parsed url { protocol: null,
+168 verbose parsed url   slashes: null,
+168 verbose parsed url   auth: null,
+168 verbose parsed url   host: null,
+168 verbose parsed url   port: null,
+168 verbose parsed url   hostname: null,
+168 verbose parsed url   hash: null,
+168 verbose parsed url   search: null,
+168 verbose parsed url   query: null,
+168 verbose parsed url   pathname: '~2.3.0',
+168 verbose parsed url   path: '~2.3.0',
+168 verbose parsed url   href: '~2.3.0' }
+169 verbose addNamed [ 'on-finished', '~2.3.0' ]
+170 verbose addNamed [ null, '>=2.3.0-0 <2.4.0-0' ]
+171 silly lockFile 5dda6b83-on-finished-2-3-0 on-finished@~2.3.0
+172 verbose lock on-finished@~2.3.0 /home/shipra/.npm/5dda6b83-on-finished-2-3-0.lock
+173 verbose request where is /debug
+174 verbose request registry http://registry.npmjs.org/
+175 verbose url raw /debug
+176 verbose url resolving [ 'http://registry.npmjs.org/', './debug' ]
+177 verbose url resolved http://registry.npmjs.org/debug
+178 verbose request where is http://registry.npmjs.org/debug
+179 info trying registry request attempt 1 at 10:19:18
+180 verbose etag "42YLIP2JR43ZW2STNZTJ41GKQ"
+181 http GET http://registry.npmjs.org/debug
+182 verbose request where is /depd
+183 verbose request registry http://registry.npmjs.org/
+184 verbose url raw /depd
+185 verbose url resolving [ 'http://registry.npmjs.org/', './depd' ]
+186 verbose url resolved http://registry.npmjs.org/depd
+187 verbose request where is http://registry.npmjs.org/depd
+188 info trying registry request attempt 1 at 10:19:18
+189 verbose etag "EXES9RDIT31NIDPYYVZ47XB58"
+190 http GET http://registry.npmjs.org/depd
+191 verbose cache add name="raw-body" spec="~2.1.2" args=["raw-body","~2.1.2"]
+192 verbose parsed url { protocol: null,
+192 verbose parsed url   slashes: null,
+192 verbose parsed url   auth: null,
+192 verbose parsed url   host: null,
+192 verbose parsed url   port: null,
+192 verbose parsed url   hostname: null,
+192 verbose parsed url   hash: null,
+192 verbose parsed url   search: null,
+192 verbose parsed url   query: null,
+192 verbose parsed url   pathname: '~2.1.2',
+192 verbose parsed url   path: '~2.1.2',
+192 verbose parsed url   href: '~2.1.2' }
+193 verbose addNamed [ 'raw-body', '~2.1.2' ]
+194 verbose addNamed [ null, '>=2.1.2-0 <2.2.0-0' ]
+195 silly lockFile 701f598c-raw-body-2-1-2 raw-body@~2.1.2
+196 verbose lock raw-body@~2.1.2 /home/shipra/.npm/701f598c-raw-body-2-1-2.lock
+197 verbose cache add name="qs" spec="4.0.0" args=["qs","4.0.0"]
+198 verbose parsed url { protocol: null,
+198 verbose parsed url   slashes: null,
+198 verbose parsed url   auth: null,
+198 verbose parsed url   host: null,
+198 verbose parsed url   port: null,
+198 verbose parsed url   hostname: null,
+198 verbose parsed url   hash: null,
+198 verbose parsed url   search: null,
+198 verbose parsed url   query: null,
+198 verbose parsed url   pathname: '4.0.0',
+198 verbose parsed url   path: '4.0.0',
+198 verbose parsed url   href: '4.0.0' }
+199 verbose addNamed [ 'qs', '4.0.0' ]
+200 verbose addNamed [ '4.0.0', '4.0.0' ]
+201 silly lockFile 4b52a1c4-qs-4-0-0 qs@4.0.0
+202 verbose lock qs@4.0.0 /home/shipra/.npm/4b52a1c4-qs-4-0-0.lock
+203 verbose cache add name="type-is" spec="~1.6.6" args=["type-is","~1.6.6"]
+204 verbose parsed url { protocol: null,
+204 verbose parsed url   slashes: null,
+204 verbose parsed url   auth: null,
+204 verbose parsed url   host: null,
+204 verbose parsed url   port: null,
+204 verbose parsed url   hostname: null,
+204 verbose parsed url   hash: null,
+204 verbose parsed url   search: null,
+204 verbose parsed url   query: null,
+204 verbose parsed url   pathname: '~1.6.6',
+204 verbose parsed url   path: '~1.6.6',
+204 verbose parsed url   href: '~1.6.6' }
+205 verbose addNamed [ 'type-is', '~1.6.6' ]
+206 verbose addNamed [ null, '>=1.6.6-0 <1.7.0-0' ]
+207 silly lockFile 6279ce6a-type-is-1-6-6 type-is@~1.6.6
+208 verbose lock type-is@~1.6.6 /home/shipra/.npm/6279ce6a-type-is-1-6-6.lock
+209 silly addNameRange { name: 'on-finished',
+209 silly addNameRange   range: '>=2.3.0-0 <2.4.0-0',
+209 silly addNameRange   hasData: false }
+210 silly addNameRange { name: 'raw-body', range: '>=2.1.2-0 <2.2.0-0', hasData: false }
+211 silly addNameRange { name: 'type-is', range: '>=1.6.6-0 <1.7.0-0', hasData: false }
+212 verbose request where is /http-errors
+213 verbose request registry http://registry.npmjs.org/
+214 verbose url raw /http-errors
+215 verbose url resolving [ 'http://registry.npmjs.org/', './http-errors' ]
+216 verbose url resolved http://registry.npmjs.org/http-errors
+217 verbose request where is http://registry.npmjs.org/http-errors
+218 info trying registry request attempt 1 at 10:19:18
+219 verbose etag "SXH43K3HIBV84M1DG2Y3Y70Q"
+220 http GET http://registry.npmjs.org/http-errors
+221 verbose request where is /iconv-lite
+222 verbose request registry http://registry.npmjs.org/
+223 verbose url raw /iconv-lite
+224 verbose url resolving [ 'http://registry.npmjs.org/', './iconv-lite' ]
+225 verbose url resolved http://registry.npmjs.org/iconv-lite
+226 verbose request where is http://registry.npmjs.org/iconv-lite
+227 info trying registry request attempt 1 at 10:19:18
+228 verbose etag "5Y0Y7NLCWF9MY2C8QA4CJ5DCH"
+229 http GET http://registry.npmjs.org/iconv-lite
+230 verbose request where is /raw-body
+231 verbose request registry http://registry.npmjs.org/
+232 verbose url raw /raw-body
+233 verbose url resolving [ 'http://registry.npmjs.org/', './raw-body' ]
+234 verbose url resolved http://registry.npmjs.org/raw-body
+235 verbose request where is http://registry.npmjs.org/raw-body
+236 info trying registry request attempt 1 at 10:19:18
+237 verbose etag "2BX8CP4JQ0P5EZ26SS8MJX2OY"
+238 http GET http://registry.npmjs.org/raw-body
+239 verbose request where is /on-finished
+240 verbose request registry http://registry.npmjs.org/
+241 verbose url raw /on-finished
+242 verbose url resolving [ 'http://registry.npmjs.org/', './on-finished' ]
+243 verbose url resolved http://registry.npmjs.org/on-finished
+244 verbose request where is http://registry.npmjs.org/on-finished
+245 info trying registry request attempt 1 at 10:19:18
+246 verbose etag "6HH8TSL7EIRNE0SF4BCDOG7B0"
+247 http GET http://registry.npmjs.org/on-finished
+248 verbose request where is /type-is
+249 verbose request registry http://registry.npmjs.org/
+250 verbose url raw /type-is
+251 verbose url resolving [ 'http://registry.npmjs.org/', './type-is' ]
+252 verbose url resolved http://registry.npmjs.org/type-is
+253 verbose request where is http://registry.npmjs.org/type-is
+254 info trying registry request attempt 1 at 10:19:18
+255 verbose etag "CUO55WOP1J4FODKD4OGRXHDQC"
+256 http GET http://registry.npmjs.org/type-is
+257 verbose request where is /qs
+258 verbose request registry http://registry.npmjs.org/
+259 verbose url raw /qs
+260 verbose url resolving [ 'http://registry.npmjs.org/', './qs' ]
+261 verbose url resolved http://registry.npmjs.org/qs
+262 verbose request where is http://registry.npmjs.org/qs
+263 info trying registry request attempt 1 at 10:19:18
+264 verbose etag "7WPD2WJ7LCD8QI7WKCH746ACT"
+265 http GET http://registry.npmjs.org/qs
+266 http 401 http://registry.npmjs.org/content-type
+267 verbose bad json <HTML><HEAD>
+267 verbose bad json <TITLE>Access Denied</TITLE>
+267 verbose bad json </HEAD>
+267 verbose bad json <BODY>
+267 verbose bad json <FONT face="Helvetica">
+267 verbose bad json <big><strong></strong></big><BR>
+267 verbose bad json </FONT>
+267 verbose bad json <blockquote>
+267 verbose bad json <TABLE border=0 cellPadding=1 width="80%">
+267 verbose bad json <TR><TD>
+267 verbose bad json <FONT face="Helvetica">
+267 verbose bad json <big>Access Denied (authentication_failed)</big>
+267 verbose bad json <BR>
+267 verbose bad json <BR>
+267 verbose bad json </FONT>
+267 verbose bad json </TD></TR>
+267 verbose bad json <TR><TD>
+267 verbose bad json <FONT face="Helvetica">
+267 verbose bad json Your credentials could not be authenticated: "Credentials are missing.". You will not be permitted access until your credentials can be verified.
+267 verbose bad json </FONT>
+267 verbose bad json </TD></TR>
+267 verbose bad json <TR><TD>
+267 verbose bad json <FONT face="Helvetica">
+267 verbose bad json This is typically caused by an incorrect username and/or password, but could also be caused by network problems.
+267 verbose bad json </FONT>
+267 verbose bad json </TD></TR>
+267 verbose bad json <TR><TD>
+267 verbose bad json <FONT face="Helvetica" SIZE=2>
+267 verbose bad json <BR>
+267 verbose bad json For assistance, contact your network support team.<br><br>Your request was categorized by Blue Coat Web Filter as 'Technology/Internet'. <br>If you wish to question or dispute this result, please click <a href="http://sitereview.bluecoat.com/sitereview.jsp?referrer=136&url=http://registry.npmjs.org/content-type">here</a>.
+267 verbose bad json </FONT>
+267 verbose bad json </TD></TR>
+267 verbose bad json </TABLE>
+267 verbose bad json </blockquote>
+267 verbose bad json </FONT>
+267 verbose bad json </BODY></HTML>
+268 error registry error parsing json
+269 verbose headers { 'cache-control': 'no-cache',
+269 verbose headers   pragma: 'no-cache',
+269 verbose headers   'www-authenticate': 'NEGOTIATE, NTLM, BASIC realm="BCADINT"',
+269 verbose headers   'content-type': 'text/html; charset=utf-8',
+269 verbose headers   'proxy-connection': 'close',
+269 verbose headers   'set-cookie': [ 'BCSI-CS-ff9696d7b4f08ace=2; Path=/' ],
+269 verbose headers   connection: 'close',
+269 verbose headers   'content-length': '1122' }
+270 silly registry.get cb [ 304, undefined ]
+271 verbose etag http://registry.npmjs.org/content-type from cache
+272 http 401 http://registry.npmjs.org/bytes
+273 verbose bad json <HTML><HEAD>
+273 verbose bad json <TITLE>Access Denied</TITLE>
+273 verbose bad json </HEAD>
+273 verbose bad json <BODY>
+273 verbose bad json <FONT face="Helvetica">
+273 verbose bad json <big><strong></strong></big><BR>
+273 verbose bad json </FONT>
+273 verbose bad json <blockquote>
+273 verbose bad json <TABLE border=0 cellPadding=1 width="80%">
+273 verbose bad json <TR><TD>
+273 verbose bad json <FONT face="Helvetica">
+273 verbose bad json <big>Access Denied (authentication_failed)</big>
+273 verbose bad json <BR>
+273 verbose bad json <BR>
+273 verbose bad json </FONT>
+273 verbose bad json </TD></TR>
+273 verbose bad json <TR><TD>
+273 verbose bad json <FONT face="Helvetica">
+273 verbose bad json Your credentials could not be authenticated: "Credentials are missing.". You will not be permitted access until your credentials can be verified.
+273 verbose bad json </FONT>
+273 verbose bad json </TD></TR>
+273 verbose bad json <TR><TD>
+273 verbose bad json <FONT face="Helvetica">
+273 verbose bad json This is typically caused by an incorrect username and/or password, but could also be caused by network problems.
+273 verbose bad json </FONT>
+273 verbose bad json </TD></TR>
+273 verbose bad json <TR><TD>
+273 verbose bad json <FONT face="Helvetica" SIZE=2>
+273 verbose bad json <BR>
+273 verbose bad json For assistance, contact your network support team.<br><br>Your request was categorized by Blue Coat Web Filter as 'Technology/Internet'. <br>If you wish to question or dispute this result, please click <a href="http://sitereview.bluecoat.com/sitereview.jsp?referrer=136&url=http://registry.npmjs.org/bytes">here</a>.
+273 verbose bad json </FONT>
+273 verbose bad json </TD></TR>
+273 verbose bad json </TABLE>
+273 verbose bad json </blockquote>
+273 verbose bad json </FONT>
+273 verbose bad json </BODY></HTML>
+274 error registry error parsing json
+275 verbose headers { 'cache-control': 'no-cache',
+275 verbose headers   pragma: 'no-cache',
+275 verbose headers   'www-authenticate': 'NEGOTIATE, NTLM, BASIC realm="BCADINT"',
+275 verbose headers   'content-type': 'text/html; charset=utf-8',
+275 verbose headers   'proxy-connection': 'close',
+275 verbose headers   'set-cookie': [ 'BCSI-CS-ff9696d7b4f08ace=2; Path=/' ],
+275 verbose headers   connection: 'close',
+275 verbose headers   'content-length': '1115' }
+276 silly registry.get cb [ 304, undefined ]
+277 verbose etag http://registry.npmjs.org/bytes from cache
+278 silly addNameRange number 2 { name: 'content-type',
+278 silly addNameRange   range: '>=1.0.1-0 <1.1.0-0',
+278 silly addNameRange   hasData: true }
+279 silly addNameRange versions [ 'content-type', [ '0.0.1', '1.0.0', '1.0.1' ] ]
+280 verbose addNamed [ 'content-type', '1.0.1' ]
+281 verbose addNamed [ '1.0.1', '1.0.1' ]
+282 silly lockFile c521c57e-content-type-1-0-1 content-type@1.0.1
+283 verbose lock content-type@1.0.1 /home/shipra/.npm/c521c57e-content-type-1-0-1.lock
+284 silly lockFile f962fd80-bytes-2-1-0 bytes@2.1.0
+285 silly lockFile f962fd80-bytes-2-1-0 bytes@2.1.0
+286 http 401 http://registry.npmjs.org/http-errors
+287 verbose bad json <HTML><HEAD>
+287 verbose bad json <TITLE>Access Denied</TITLE>
+287 verbose bad json </HEAD>
+287 verbose bad json <BODY>
+287 verbose bad json <FONT face="Helvetica">
+287 verbose bad json <big><strong></strong></big><BR>
+287 verbose bad json </FONT>
+287 verbose bad json <blockquote>
+287 verbose bad json <TABLE border=0 cellPadding=1 width="80%">
+287 verbose bad json <TR><TD>
+287 verbose bad json <FONT face="Helvetica">
+287 verbose bad json <big>Access Denied (authentication_failed)</big>
+287 verbose bad json <BR>
+287 verbose bad json <BR>
+287 verbose bad json </FONT>
+287 verbose bad json </TD></TR>
+287 verbose bad json <TR><TD>
+287 verbose bad json <FONT face="Helvetica">
+287 verbose bad json Your credentials could not be authenticated: "Credentials are missing.". You will not be permitted access until your credentials can be verified.
+287 verbose bad json </FONT>
+287 verbose bad json </TD></TR>
+287 verbose bad json <TR><TD>
+287 verbose bad json <FONT face="Helvetica">
+287 verbose bad json This is typically caused by an incorrect username and/or password, but could also be caused by network problems.
+287 verbose bad json </FONT>
+287 verbose bad json </TD></TR>
+287 verbose bad json <TR><TD>
+287 verbose bad json <FONT face="Helvetica" SIZE=2>
+287 verbose bad json <BR>
+287 verbose bad json For assistance, contact your network support team.<br><br>Your request was categorized by Blue Coat Web Filter as 'Technology/Internet'. <br>If you wish to question or dispute this result, please click <a href="http://sitereview.bluecoat.com/sitereview.jsp?referrer=136&url=http://registry.npmjs.org/http-errors">here</a>.
+287 verbose bad json </FONT>
+287 verbose bad json </TD></TR>
+287 verbose bad json </TABLE>
+287 verbose bad json </blockquote>
+287 verbose bad json </FONT>
+287 verbose bad json </BODY></HTML>
+288 error registry error parsing json
+289 verbose headers { 'cache-control': 'no-cache',
+289 verbose headers   pragma: 'no-cache',
+289 verbose headers   'www-authenticate': 'NEGOTIATE, NTLM, BASIC realm="BCADINT"',
+289 verbose headers   'content-type': 'text/html; charset=utf-8',
+289 verbose headers   'proxy-connection': 'close',
+289 verbose headers   'set-cookie': [ 'BCSI-CS-ff9696d7b4f08ace=2; Path=/' ],
+289 verbose headers   connection: 'close',
+289 verbose headers   'content-length': '1121' }
+290 silly registry.get cb [ 304, undefined ]
+291 verbose etag http://registry.npmjs.org/http-errors from cache
+292 http 401 http://registry.npmjs.org/debug
+293 verbose bad json <HTML><HEAD>
+293 verbose bad json <TITLE>Access Denied</TITLE>
+293 verbose bad json </HEAD>
+293 verbose bad json <BODY>
+293 verbose bad json <FONT face="Helvetica">
+293 verbose bad json <big><strong></strong></big><BR>
+293 verbose bad json </FONT>
+293 verbose bad json <blockquote>
+293 verbose bad json <TABLE border=0 cellPadding=1 width="80%">
+293 verbose bad json <TR><TD>
+293 verbose bad json <FONT face="Helvetica">
+293 verbose bad json <big>Access Denied (authentication_failed)</big>
+293 verbose bad json <BR>
+293 verbose bad json <BR>
+293 verbose bad json </FONT>
+293 verbose bad json </TD></TR>
+293 verbose bad json <TR><TD>
+293 verbose bad json <FONT face="Helvetica">
+293 verbose bad json Your credentials could not be authenticated: "Credentials are missing.". You will not be permitted access until your credentials can be verified.
+293 verbose bad json </FONT>
+293 verbose bad json </TD></TR>
+293 verbose bad json <TR><TD>
+293 verbose bad json <FONT face="Helvetica">
+293 verbose bad json This is typically caused by an incorrect username and/or password, but could also be caused by network problems.
+293 verbose bad json </FONT>
+293 verbose bad json </TD></TR>
+293 verbose bad json <TR><TD>
+293 verbose bad json <FONT face="Helvetica" SIZE=2>
+293 verbose bad json <BR>
+293 verbose bad json For assistance, contact your network support team.<br><br>Your request was categorized by Blue Coat Web Filter as 'Technology/Internet'. <br>If you wish to question or dispute this result, please click <a href="http://sitereview.bluecoat.com/sitereview.jsp?referrer=136&url=http://registry.npmjs.org/debug">here</a>.
+293 verbose bad json </FONT>
+293 verbose bad json </TD></TR>
+293 verbose bad json </TABLE>
+293 verbose bad json </blockquote>
+293 verbose bad json </FONT>
+293 verbose bad json </BODY></HTML>
+294 error registry error parsing json
+295 verbose headers { 'cache-control': 'no-cache',
+295 verbose headers   pragma: 'no-cache',
+295 verbose headers   'www-authenticate': 'NEGOTIATE, NTLM, BASIC realm="BCADINT"',
+295 verbose headers   'content-type': 'text/html; charset=utf-8',
+295 verbose headers   'proxy-connection': 'close',
+295 verbose headers   'set-cookie': [ 'BCSI-CS-ff9696d7b4f08ace=2; Path=/' ],
+295 verbose headers   connection: 'close',
+295 verbose headers   'content-length': '1115' }
+296 silly registry.get cb [ 304, undefined ]
+297 verbose etag http://registry.npmjs.org/debug from cache
+298 http 401 http://registry.npmjs.org/depd
+299 verbose bad json <HTML><HEAD>
+299 verbose bad json <TITLE>Access Denied</TITLE>
+299 verbose bad json </HEAD>
+299 verbose bad json <BODY>
+299 verbose bad json <FONT face="Helvetica">
+299 verbose bad json <big><strong></strong></big><BR>
+299 verbose bad json </FONT>
+299 verbose bad json <blockquote>
+299 verbose bad json <TABLE border=0 cellPadding=1 width="80%">
+299 verbose bad json <TR><TD>
+299 verbose bad json <FONT face="Helvetica">
+299 verbose bad json <big>Access Denied (authentication_failed)</big>
+299 verbose bad json <BR>
+299 verbose bad json <BR>
+299 verbose bad json </FONT>
+299 verbose bad json </TD></TR>
+299 verbose bad json <TR><TD>
+299 verbose bad json <FONT face="Helvetica">
+299 verbose bad json Your credentials could not be authenticated: "Credentials are missing.". You will not be permitted access until your credentials can be verified.
+299 verbose bad json </FONT>
+299 verbose bad json </TD></TR>
+299 verbose bad json <TR><TD>
+299 verbose bad json <FONT face="Helvetica">
+299 verbose bad json This is typically caused by an incorrect username and/or password, but could also be caused by network problems.
+299 verbose bad json </FONT>
+299 verbose bad json </TD></TR>
+299 verbose bad json <TR><TD>
+299 verbose bad json <FONT face="Helvetica" SIZE=2>
+299 verbose bad json <BR>
+299 verbose bad json For assistance, contact your network support team.<br><br>Your request was categorized by Blue Coat Web Filter as 'Technology/Internet'. <br>If you wish to question or dispute this result, please click <a href="http://sitereview.bluecoat.com/sitereview.jsp?referrer=136&url=http://registry.npmjs.org/depd">here</a>.
+299 verbose bad json </FONT>
+299 verbose bad json </TD></TR>
+299 verbose bad json </TABLE>
+299 verbose bad json </blockquote>
+299 verbose bad json </FONT>
+299 verbose bad json </BODY></HTML>
+300 error registry error parsing json
+301 verbose headers { 'cache-control': 'no-cache',
+301 verbose headers   pragma: 'no-cache',
+301 verbose headers   'www-authenticate': 'NEGOTIATE, NTLM, BASIC realm="BCADINT"',
+301 verbose headers   'content-type': 'text/html; charset=utf-8',
+301 verbose headers   'proxy-connection': 'close',
+301 verbose headers   'set-cookie': [ 'BCSI-CS-ff9696d7b4f08ace=2; Path=/' ],
+301 verbose headers   connection: 'close',
+301 verbose headers   'content-length': '1114' }
+302 silly registry.get cb [ 304, undefined ]
+303 verbose etag http://registry.npmjs.org/depd from cache
+304 silly lockFile c521c57e-content-type-1-0-1 content-type@1.0.1
+305 silly lockFile c521c57e-content-type-1-0-1 content-type@1.0.1
+306 silly lockFile cc42bda4-content-type-1-0-1 content-type@~1.0.1
+307 silly lockFile cc42bda4-content-type-1-0-1 content-type@~1.0.1
+308 http 401 http://registry.npmjs.org/iconv-lite
+309 verbose bad json <HTML><HEAD>
+309 verbose bad json <TITLE>Access Denied</TITLE>
+309 verbose bad json </HEAD>
+309 verbose bad json <BODY>
+309 verbose bad json <FONT face="Helvetica">
+309 verbose bad json <big><strong></strong></big><BR>
+309 verbose bad json </FONT>
+309 verbose bad json <blockquote>
+309 verbose bad json <TABLE border=0 cellPadding=1 width="80%">
+309 verbose bad json <TR><TD>
+309 verbose bad json <FONT face="Helvetica">
+309 verbose bad json <big>Access Denied (authentication_failed)</big>
+309 verbose bad json <BR>
+309 verbose bad json <BR>
+309 verbose bad json </FONT>
+309 verbose bad json </TD></TR>
+309 verbose bad json <TR><TD>
+309 verbose bad json <FONT face="Helvetica">
+309 verbose bad json Your credentials could not be authenticated: "Credentials are missing.". You will not be permitted access until your credentials can be verified.
+309 verbose bad json </FONT>
+309 verbose bad json </TD></TR>
+309 verbose bad json <TR><TD>
+309 verbose bad json <FONT face="Helvetica">
+309 verbose bad json This is typically caused by an incorrect username and/or password, but could also be caused by network problems.
+309 verbose bad json </FONT>
+309 verbose bad json </TD></TR>
+309 verbose bad json <TR><TD>
+309 verbose bad json <FONT face="Helvetica" SIZE=2>
+309 verbose bad json <BR>
+309 verbose bad json For assistance, contact your network support team.<br><br>Your request was categorized by Blue Coat Web Filter as 'Technology/Internet'. <br>If you wish to question or dispute this result, please click <a href="http://sitereview.bluecoat.com/sitereview.jsp?referrer=136&url=http://registry.npmjs.org/iconv-lite">here</a>.
+309 verbose bad json </FONT>
+309 verbose bad json </TD></TR>
+309 verbose bad json </TABLE>
+309 verbose bad json </blockquote>
+309 verbose bad json </FONT>
+309 verbose bad json </BODY></HTML>
+310 error registry error parsing json
+311 verbose headers { 'cache-control': 'no-cache',
+311 verbose headers   pragma: 'no-cache',
+311 verbose headers   'www-authenticate': 'NEGOTIATE, NTLM, BASIC realm="BCADINT"',
+311 verbose headers   'content-type': 'text/html; charset=utf-8',
+311 verbose headers   'proxy-connection': 'close',
+311 verbose headers   'set-cookie': [ 'BCSI-CS-ff9696d7b4f08ace=2; Path=/' ],
+311 verbose headers   connection: 'close',
+311 verbose headers   'content-length': '1120' }
+312 silly registry.get cb [ 304, undefined ]
+313 verbose etag http://registry.npmjs.org/iconv-lite from cache
+314 http 401 http://registry.npmjs.org/raw-body
+315 verbose bad json <HTML><HEAD>
+315 verbose bad json <TITLE>Access Denied</TITLE>
+315 verbose bad json </HEAD>
+315 verbose bad json <BODY>
+315 verbose bad json <FONT face="Helvetica">
+315 verbose bad json <big><strong></strong></big><BR>
+315 verbose bad json </FONT>
+315 verbose bad json <blockquote>
+315 verbose bad json <TABLE border=0 cellPadding=1 width="80%">
+315 verbose bad json <TR><TD>
+315 verbose bad json <FONT face="Helvetica">
+315 verbose bad json <big>Access Denied (authentication_failed)</big>
+315 verbose bad json <BR>
+315 verbose bad json <BR>
+315 verbose bad json </FONT>
+315 verbose bad json </TD></TR>
+315 verbose bad json <TR><TD>
+315 verbose bad json <FONT face="Helvetica">
+315 verbose bad json Your credentials could not be authenticated: "Credentials are missing.". You will not be permitted access until your credentials can be verified.
+315 verbose bad json </FONT>
+315 verbose bad json </TD></TR>
+315 verbose bad json <TR><TD>
+315 verbose bad json <FONT face="Helvetica">
+315 verbose bad json This is typically caused by an incorrect username and/or password, but could also be caused by network problems.
+315 verbose bad json </FONT>
+315 verbose bad json </TD></TR>
+315 verbose bad json <TR><TD>
+315 verbose bad json <FONT face="Helvetica" SIZE=2>
+315 verbose bad json <BR>
+315 verbose bad json For assistance, contact your network support team.<br><br>Your request was categorized by Blue Coat Web Filter as 'Technology/Internet'. <br>If you wish to question or dispute this result, please click <a href="http://sitereview.bluecoat.com/sitereview.jsp?referrer=136&url=http://registry.npmjs.org/raw-body">here</a>.
+315 verbose bad json </FONT>
+315 verbose bad json </TD></TR>
+315 verbose bad json </TABLE>
+315 verbose bad json </blockquote>
+315 verbose bad json </FONT>
+315 verbose bad json </BODY></HTML>
+316 error registry error parsing json
+317 verbose headers { 'cache-control': 'no-cache',
+317 verbose headers   pragma: 'no-cache',
+317 verbose headers   'www-authenticate': 'NEGOTIATE, NTLM, BASIC realm="BCADINT"',
+317 verbose headers   'content-type': 'text/html; charset=utf-8',
+317 verbose headers   'proxy-connection': 'close',
+317 verbose headers   'set-cookie': [ 'BCSI-CS-ff9696d7b4f08ace=2; Path=/' ],
+317 verbose headers   connection: 'close',
+317 verbose headers   'content-length': '1118' }
+318 silly registry.get cb [ 304, undefined ]
+319 verbose etag http://registry.npmjs.org/raw-body from cache
+320 silly addNameRange number 2 { name: 'depd', range: '>=1.0.1-0 <1.1.0-0', hasData: true }
+321 silly addNameRange versions [ 'depd',
+321 silly addNameRange   [ '0.0.0',
+321 silly addNameRange     '0.0.1',
+321 silly addNameRange     '0.1.0',
+321 silly addNameRange     '0.2.0',
+321 silly addNameRange     '0.3.0',
+321 silly addNameRange     '0.4.0',
+321 silly addNameRange     '0.4.1',
+321 silly addNameRange     '0.4.2',
+321 silly addNameRange     '0.4.3',
+321 silly addNameRange     '0.4.4',
+321 silly addNameRange     '0.4.5',
+321 silly addNameRange     '1.0.0',
+321 silly addNameRange     '1.0.1' ] ]
+322 verbose addNamed [ 'depd', '1.0.1' ]
+323 verbose addNamed [ '1.0.1', '1.0.1' ]
+324 silly lockFile c7d31122-depd-1-0-1 depd@1.0.1
+325 verbose lock depd@1.0.1 /home/shipra/.npm/c7d31122-depd-1-0-1.lock
+326 silly addNameRange number 2 { name: 'http-errors',
+326 silly addNameRange   range: '>=1.3.1-0 <1.4.0-0',
+326 silly addNameRange   hasData: true }
+327 silly addNameRange versions [ 'http-errors',
+327 silly addNameRange   [ '0.0.1',
+327 silly addNameRange     '1.0.0',
+327 silly addNameRange     '1.0.1',
+327 silly addNameRange     '1.1.0',
+327 silly addNameRange     '1.2.0',
+327 silly addNameRange     '1.2.1',
+327 silly addNameRange     '1.2.2',
+327 silly addNameRange     '1.2.3',
+327 silly addNameRange     '1.2.4',
+327 silly addNameRange     '1.2.5',
+327 silly addNameRange     '1.2.6',
+327 silly addNameRange     '1.2.7',
+327 silly addNameRange     '1.2.8',
+327 silly addNameRange     '1.3.0',
+327 silly addNameRange     '1.3.1' ] ]
+328 verbose addNamed [ 'http-errors', '1.3.1' ]
+329 verbose addNamed [ '1.3.1', '1.3.1' ]
+330 silly lockFile 315d31db-http-errors-1-3-1 http-errors@1.3.1
+331 verbose lock http-errors@1.3.1 /home/shipra/.npm/315d31db-http-errors-1-3-1.lock
+332 silly addNameRange number 2 { name: 'debug', range: '>=2.2.0-0 <2.3.0-0', hasData: true }
+333 silly addNameRange versions [ 'debug',
+333 silly addNameRange   [ '0.0.1',
+333 silly addNameRange     '0.1.0',
+333 silly addNameRange     '0.2.0',
+333 silly addNameRange     '0.3.0',
+333 silly addNameRange     '0.4.0',
+333 silly addNameRange     '0.4.1',
+333 silly addNameRange     '0.5.0',
+333 silly addNameRange     '0.6.0',
+333 silly addNameRange     '0.7.0',
+333 silly addNameRange     '0.7.1',
+333 silly addNameRange     '0.7.2',
+333 silly addNameRange     '0.7.3',
+333 silly addNameRange     '0.7.4',
+333 silly addNameRange     '0.8.0',
+333 silly addNameRange     '0.8.1',
+333 silly addNameRange     '1.0.0',
+333 silly addNameRange     '1.0.1',
+333 silly addNameRange     '1.0.2',
+333 silly addNameRange     '1.0.3',
+333 silly addNameRange     '1.0.4',
+333 silly addNameRange     '2.0.0',
+333 silly addNameRange     '2.1.0',
+333 silly addNameRange     '2.1.1',
+333 silly addNameRange     '2.1.2',
+333 silly addNameRange     '2.1.3',
+333 silly addNameRange     '2.2.0' ] ]
+334 verbose addNamed [ 'debug', '2.2.0' ]
+335 verbose addNamed [ '2.2.0', '2.2.0' ]
+336 silly lockFile 82f99b48-debug-2-2-0 debug@2.2.0
+337 verbose lock debug@2.2.0 /home/shipra/.npm/82f99b48-debug-2-2-0.lock
+338 http 401 http://registry.npmjs.org/type-is
+339 verbose bad json <HTML><HEAD>
+339 verbose bad json <TITLE>Access Denied</TITLE>
+339 verbose bad json </HEAD>
+339 verbose bad json <BODY>
+339 verbose bad json <FONT face="Helvetica">
+339 verbose bad json <big><strong></strong></big><BR>
+339 verbose bad json </FONT>
+339 verbose bad json <blockquote>
+339 verbose bad json <TABLE border=0 cellPadding=1 width="80%">
+339 verbose bad json <TR><TD>
+339 verbose bad json <FONT face="Helvetica">
+339 verbose bad json <big>Access Denied (authentication_failed)</big>
+339 verbose bad json <BR>
+339 verbose bad json <BR>
+339 verbose bad json </FONT>
+339 verbose bad json </TD></TR>
+339 verbose bad json <TR><TD>
+339 verbose bad json <FONT face="Helvetica">
+339 verbose bad json Your credentials could not be authenticated: "Credentials are missing.". You will not be permitted access until your credentials can be verified.
+339 verbose bad json </FONT>
+339 verbose bad json </TD></TR>
+339 verbose bad json <TR><TD>
+339 verbose bad json <FONT face="Helvetica">
+339 verbose bad json This is typically caused by an incorrect username and/or password, but could also be caused by network problems.
+339 verbose bad json </FONT>
+339 verbose bad json </TD></TR>
+339 verbose bad json <TR><TD>
+339 verbose bad json <FONT face="Helvetica" SIZE=2>
+339 verbose bad json <BR>
+339 verbose bad json For assistance, contact your network support team.<br><br>Your request was categorized by Blue Coat Web Filter as 'Technology/Internet'. <br>If you wish to question or dispute this result, please click <a href="http://sitereview.bluecoat.com/sitereview.jsp?referrer=136&url=http://registry.npmjs.org/type-is">here</a>.
+339 verbose bad json </FONT>
+339 verbose bad json </TD></TR>
+339 verbose bad json </TABLE>
+339 verbose bad json </blockquote>
+339 verbose bad json </FONT>
+339 verbose bad json </BODY></HTML>
+340 error registry error parsing json
+341 verbose headers { 'cache-control': 'no-cache',
+341 verbose headers   pragma: 'no-cache',
+341 verbose headers   'www-authenticate': 'NEGOTIATE, NTLM, BASIC realm="BCADINT"',
+341 verbose headers   'content-type': 'text/html; charset=utf-8',
+341 verbose headers   'proxy-connection': 'close',
+341 verbose headers   'set-cookie': [ 'BCSI-CS-ff9696d7b4f08ace=2; Path=/' ],
+341 verbose headers   connection: 'close',
+341 verbose headers   'content-length': '1117' }
+342 silly registry.get cb [ 304, undefined ]
+343 verbose etag http://registry.npmjs.org/type-is from cache
+344 http 401 http://registry.npmjs.org/on-finished
+345 verbose bad json <HTML><HEAD>
+345 verbose bad json <TITLE>Access Denied</TITLE>
+345 verbose bad json </HEAD>
+345 verbose bad json <BODY>
+345 verbose bad json <FONT face="Helvetica">
+345 verbose bad json <big><strong></strong></big><BR>
+345 verbose bad json </FONT>
+345 verbose bad json <blockquote>
+345 verbose bad json <TABLE border=0 cellPadding=1 width="80%">
+345 verbose bad json <TR><TD>
+345 verbose bad json <FONT face="Helvetica">
+345 verbose bad json <big>Access Denied (authentication_failed)</big>
+345 verbose bad json <BR>
+345 verbose bad json <BR>
+345 verbose bad json </FONT>
+345 verbose bad json </TD></TR>
+345 verbose bad json <TR><TD>
+345 verbose bad json <FONT face="Helvetica">
+345 verbose bad json Your credentials could not be authenticated: "Credentials are missing.". You will not be permitted access until your credentials can be verified.
+345 verbose bad json </FONT>
+345 verbose bad json </TD></TR>
+345 verbose bad json <TR><TD>
+345 verbose bad json <FONT face="Helvetica">
+345 verbose bad json This is typically caused by an incorrect username and/or password, but could also be caused by network problems.
+345 verbose bad json </FONT>
+345 verbose bad json </TD></TR>
+345 verbose bad json <TR><TD>
+345 verbose bad json <FONT face="Helvetica" SIZE=2>
+345 verbose bad json <BR>
+345 verbose bad json For assistance, contact your network support team.<br><br>Your request was categorized by Blue Coat Web Filter as 'Technology/Internet'. <br>If you wish to question or dispute this result, please click <a href="http://sitereview.bluecoat.com/sitereview.jsp?referrer=136&url=http://registry.npmjs.org/on-finished">here</a>.
+345 verbose bad json </FONT>
+345 verbose bad json </TD></TR>
+345 verbose bad json </TABLE>
+345 verbose bad json </blockquote>
+345 verbose bad json </FONT>
+345 verbose bad json </BODY></HTML>
+346 error registry error parsing json
+347 verbose headers { 'cache-control': 'no-cache',
+347 verbose headers   pragma: 'no-cache',
+347 verbose headers   'www-authenticate': 'NEGOTIATE, NTLM, BASIC realm="BCADINT"',
+347 verbose headers   'content-type': 'text/html; charset=utf-8',
+347 verbose headers   'proxy-connection': 'close',
+347 verbose headers   'set-cookie': [ 'BCSI-CS-ff9696d7b4f08ace=2; Path=/' ],
+347 verbose headers   connection: 'close',
+347 verbose headers   'content-length': '1121' }
+348 silly registry.get cb [ 304, undefined ]
+349 verbose etag http://registry.npmjs.org/on-finished from cache
+350 silly addNameRange number 2 { name: 'raw-body', range: '>=2.1.2-0 <2.2.0-0', hasData: true }
+351 silly addNameRange versions [ 'raw-body',
+351 silly addNameRange   [ '0.0.1',
+351 silly addNameRange     '0.0.2',
+351 silly addNameRange     '0.0.3',
+351 silly addNameRange     '0.1.0',
+351 silly addNameRange     '0.1.1',
+351 silly addNameRange     '0.2.0',
+351 silly addNameRange     '1.0.0',
+351 silly addNameRange     '1.0.1',
+351 silly addNameRange     '1.1.0',
+351 silly addNameRange     '1.1.1',
+351 silly addNameRange     '1.1.2',
+351 silly addNameRange     '1.1.3',
+351 silly addNameRange     '1.1.4',
+351 silly addNameRange     '1.1.5',
+351 silly addNameRange     '1.1.6',
+351 silly addNameRange     '1.1.7',
+351 silly addNameRange     '1.2.0',
+351 silly addNameRange     '1.2.1',
+351 silly addNameRange     '1.2.2',
+351 silly addNameRange     '1.2.3',
+351 silly addNameRange     '1.3.0',
+351 silly addNameRange     '1.3.1',
+351 silly addNameRange     '1.3.2',
+351 silly addNameRange     '1.3.3',
+351 silly addNameRange     '1.3.4',
+351 silly addNameRange     '2.0.0',
+351 silly addNameRange     '2.0.1',
+351 silly addNameRange     '2.0.2',
+351 silly addNameRange     '2.1.0',
+351 silly addNameRange     '2.1.1',
+351 silly addNameRange     '2.1.2' ] ]
+352 verbose addNamed [ 'raw-body', '2.1.2' ]
+353 verbose addNamed [ '2.1.2', '2.1.2' ]
+354 silly lockFile afbef194-raw-body-2-1-2 raw-body@2.1.2
+355 verbose lock raw-body@2.1.2 /home/shipra/.npm/afbef194-raw-body-2-1-2.lock
+356 http 401 http://registry.npmjs.org/qs
+357 verbose bad json <HTML><HEAD>
+357 verbose bad json <TITLE>Access Denied</TITLE>
+357 verbose bad json </HEAD>
+357 verbose bad json <BODY>
+357 verbose bad json <FONT face="Helvetica">
+357 verbose bad json <big><strong></strong></big><BR>
+357 verbose bad json </FONT>
+357 verbose bad json <blockquote>
+357 verbose bad json <TABLE border=0 cellPadding=1 width="80%">
+357 verbose bad json <TR><TD>
+357 verbose bad json <FONT face="Helvetica">
+357 verbose bad json <big>Access Denied (authentication_failed)</big>
+357 verbose bad json <BR>
+357 verbose bad json <BR>
+357 verbose bad json </FONT>
+357 verbose bad json </TD></TR>
+357 verbose bad json <TR><TD>
+357 verbose bad json <FONT face="Helvetica">
+357 verbose bad json Your credentials could not be authenticated: "Credentials are missing.". You will not be permitted access until your credentials can be verified.
+357 verbose bad json </FONT>
+357 verbose bad json </TD></TR>
+357 verbose bad json <TR><TD>
+357 verbose bad json <FONT face="Helvetica">
+357 verbose bad json This is typically caused by an incorrect username and/or password, but could also be caused by network problems.
+357 verbose bad json </FONT>
+357 verbose bad json </TD></TR>
+357 verbose bad json <TR><TD>
+357 verbose bad json <FONT face="Helvetica" SIZE=2>
+357 verbose bad json <BR>
+357 verbose bad json For assistance, contact your network support team.<br><br>Your request was categorized by Blue Coat Web Filter as 'Technology/Internet'. <br>If you wish to question or dispute this result, please click <a href="http://sitereview.bluecoat.com/sitereview.jsp?referrer=136&url=http://registry.npmjs.org/qs">here</a>.
+357 verbose bad json </FONT>
+357 verbose bad json </TD></TR>
+357 verbose bad json </TABLE>
+357 verbose bad json </blockquote>
+357 verbose bad json </FONT>
+357 verbose bad json </BODY></HTML>
+358 error registry error parsing json
+359 verbose headers { 'cache-control': 'no-cache',
+359 verbose headers   pragma: 'no-cache',
+359 verbose headers   'www-authenticate': 'NEGOTIATE, NTLM, BASIC realm="BCADINT"',
+359 verbose headers   'content-type': 'text/html; charset=utf-8',
+359 verbose headers   'proxy-connection': 'close',
+359 verbose headers   'set-cookie': [ 'BCSI-CS-ff9696d7b4f08ace=2; Path=/' ],
+359 verbose headers   connection: 'close',
+359 verbose headers   'content-length': '1112' }
+360 silly registry.get cb [ 304, undefined ]
+361 verbose etag http://registry.npmjs.org/qs from cache
+362 silly lockFile c7d31122-depd-1-0-1 depd@1.0.1
+363 silly lockFile c7d31122-depd-1-0-1 depd@1.0.1
+364 silly lockFile 315d31db-http-errors-1-3-1 http-errors@1.3.1
+365 silly lockFile 315d31db-http-errors-1-3-1 http-errors@1.3.1
+366 silly lockFile 82f99b48-debug-2-2-0 debug@2.2.0
+367 silly lockFile 82f99b48-debug-2-2-0 debug@2.2.0
+368 silly addNameRange number 2 { name: 'type-is', range: '>=1.6.6-0 <1.7.0-0', hasData: true }
+369 silly addNameRange versions [ 'type-is',
+369 silly addNameRange   [ '1.0.0',
+369 silly addNameRange     '1.0.1',
+369 silly addNameRange     '1.1.0',
+369 silly addNameRange     '1.2.0',
+369 silly addNameRange     '1.2.1',
+369 silly addNameRange     '1.2.2',
+369 silly addNameRange     '1.3.0',
+369 silly addNameRange     '1.3.1',
+369 silly addNameRange     '1.3.2',
+369 silly addNameRange     '1.4.0',
+369 silly addNameRange     '1.5.0',
+369 silly addNameRange     '1.5.1',
+369 silly addNameRange     '1.5.2',
+369 silly addNameRange     '1.5.3',
+369 silly addNameRange     '1.5.4',
+369 silly addNameRange     '1.5.5',
+369 silly addNameRange     '1.5.6',
+369 silly addNameRange     '1.5.7',
+369 silly addNameRange     '1.6.0',
+369 silly addNameRange     '1.6.1',
+369 silly addNameRange     '1.6.2',
+369 silly addNameRange     '1.6.3',
+369 silly addNameRange     '1.6.4',
+369 silly addNameRange     '1.6.5',
+369 silly addNameRange     '1.6.6',
+369 silly addNameRange     '1.6.7',
+369 silly addNameRange     '1.6.8' ] ]
+370 verbose addNamed [ 'type-is', '1.6.8' ]
+371 verbose addNamed [ '1.6.8', '1.6.8' ]
+372 silly lockFile 9fa3a080-type-is-1-6-8 type-is@1.6.8
+373 verbose lock type-is@1.6.8 /home/shipra/.npm/9fa3a080-type-is-1-6-8.lock
+374 silly lockFile 96f022c4-depd-1-0-1 depd@~1.0.1
+375 silly lockFile 96f022c4-depd-1-0-1 depd@~1.0.1
+376 silly lockFile 0d853b22-http-errors-1-3-1 http-errors@~1.3.1
+377 silly lockFile 0d853b22-http-errors-1-3-1 http-errors@~1.3.1
+378 silly lockFile 7986b842-debug-2-2-0 debug@~2.2.0
+379 silly lockFile 7986b842-debug-2-2-0 debug@~2.2.0
+380 silly lockFile f62a2e31-iconv-lite-0-4-11 iconv-lite@0.4.11
+381 silly lockFile f62a2e31-iconv-lite-0-4-11 iconv-lite@0.4.11
+382 silly addNameRange number 2 { name: 'on-finished',
+382 silly addNameRange   range: '>=2.3.0-0 <2.4.0-0',
+382 silly addNameRange   hasData: true }
+383 silly addNameRange versions [ 'on-finished',
+383 silly addNameRange   [ '2.0.0', '2.1.0', '2.1.1', '2.2.0', '2.2.1', '2.3.0' ] ]
+384 verbose addNamed [ 'on-finished', '2.3.0' ]
+385 verbose addNamed [ '2.3.0', '2.3.0' ]
+386 silly lockFile cc092af7-on-finished-2-3-0 on-finished@2.3.0
+387 verbose lock on-finished@2.3.0 /home/shipra/.npm/cc092af7-on-finished-2-3-0.lock
+388 silly lockFile d0e5cdab-js-org-type-is-type-is-1-6-8-tgz http://registry.npmjs.org/type-is/-/type-is-1.6.8.tgz
+389 verbose lock http://registry.npmjs.org/type-is/-/type-is-1.6.8.tgz /home/shipra/.npm/d0e5cdab-js-org-type-is-type-is-1-6-8-tgz.lock
+390 silly lockFile afbef194-raw-body-2-1-2 raw-body@2.1.2
+391 silly lockFile afbef194-raw-body-2-1-2 raw-body@2.1.2
+392 verbose addRemoteTarball [ 'http://registry.npmjs.org/type-is/-/type-is-1.6.8.tgz',
+392 verbose addRemoteTarball   '3bac8c0c852754c855143e206d4a16e908bf0315' ]
+393 silly lockFile 701f598c-raw-body-2-1-2 raw-body@~2.1.2
+394 silly lockFile 701f598c-raw-body-2-1-2 raw-body@~2.1.2
+395 silly lockFile 4b52a1c4-qs-4-0-0 qs@4.0.0
+396 silly lockFile 4b52a1c4-qs-4-0-0 qs@4.0.0
+397 silly lockFile cc092af7-on-finished-2-3-0 on-finished@2.3.0
+398 silly lockFile cc092af7-on-finished-2-3-0 on-finished@2.3.0
+399 silly lockFile 5dda6b83-on-finished-2-3-0 on-finished@~2.3.0
+400 silly lockFile 5dda6b83-on-finished-2-3-0 on-finished@~2.3.0
+401 info retry fetch attempt 1 at 10:19:18
+402 verbose fetch to= /tmp/npm-5479-NlWD-gq7/registry.npmjs.org/type-is/-/type-is-1.6.8.tgz
+403 http GET http://registry.npmjs.org/type-is/-/type-is-1.6.8.tgz
+404 http 401 http://registry.npmjs.org/type-is/-/type-is-1.6.8.tgz
+405 error fetch failed http://registry.npmjs.org/type-is/-/type-is-1.6.8.tgz
+406 silly lockFile d0e5cdab-js-org-type-is-type-is-1-6-8-tgz http://registry.npmjs.org/type-is/-/type-is-1.6.8.tgz
+407 silly lockFile d0e5cdab-js-org-type-is-type-is-1-6-8-tgz http://registry.npmjs.org/type-is/-/type-is-1.6.8.tgz
+408 silly lockFile 9fa3a080-type-is-1-6-8 type-is@1.6.8
+409 silly lockFile 9fa3a080-type-is-1-6-8 type-is@1.6.8
+410 silly lockFile 6279ce6a-type-is-1-6-6 type-is@~1.6.6
+411 silly lockFile 6279ce6a-type-is-1-6-6 type-is@~1.6.6
+412 verbose about to build /home/shipra/Desktop/shipra/ScreenSharing/clone/PSL-Hackathon-201511/nodejs/node_modules/body-parser
+413 verbose node_modules/body-parser unbuild
+414 info preuninstall body-parser@1.13.3
+415 info uninstall body-parser@1.13.3
+416 verbose true,/home/shipra/Desktop/shipra/ScreenSharing/clone/PSL-Hackathon-201511/nodejs/node_modules,/home/shipra/Desktop/shipra/ScreenSharing/clone/PSL-Hackathon-201511/nodejs/node_modules unbuild body-parser@1.13.3
+417 info postuninstall body-parser@1.13.3
+418 error Error: 401 Unauthorized
+418 error     at WriteStream.<anonymous> (/usr/share/npm/lib/utils/fetch.js:58:12)
+418 error     at WriteStream.EventEmitter.emit (events.js:117:20)
+418 error     at evalmachine.<anonymous>:1601:14
+418 error     at /usr/lib/nodejs/graceful-fs/graceful-fs.js:102:5
+418 error     at Object.oncomplete (evalmachine.<anonymous>:107:15)
+419 error If you need help, you may report this *entire* log,
+419 error including the npm and node versions, at:
+419 error     <http://github.com/npm/npm/issues>
+420 error System Linux 3.16.0-39-generic
+421 error command "/usr/bin/nodejs" "/usr/bin/npm" "install" "body-parser"
+422 error cwd /home/shipra/Desktop/shipra/ScreenSharing/clone/PSL-Hackathon-201511/nodejs
+423 error node -v v0.10.25
+424 error npm -v 1.4.21
+425 verbose exit [ 1, true ]
