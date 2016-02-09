@@ -1,0 +1,32 @@
+<div ng-include="'app/views/partials/header.html'"
+	class="topnavbar-wrapper"></div>
+<div id="outerDiv" style="margin-top: 25px;">
+	<div
+		class="col-xs-12 col-sm-12 col-md-12 col-lg-12 text-left text-white pb pt"
+		style="background-color: #046575; font-size: 25px;">
+		<em class="fa fa-chevron-left" ng-click="changeState('app.ongoingTreatment')">
+			<span class="pb pl">Back</span>
+		</em>
+	</div>
+	<br /> <br />
+	<!-- START Off Sidebar (right)-->
+	<nav
+		style="background-color: #C9D3D4; padding-bottom: 5%; color: black">
+		<tabset justified="false"> <tab> <tab-heading
+			class="fonts"> Blood Pressure Report </tab-heading>
+		<div>
+			<div ng-include="'app/views/Blood_Pressure_report.html'"></div>
+		</div>
+		</tab> <tab> <tab-heading class="fonts"> Lipid Report </tab-heading>
+		<div>
+			<div ng-include="'app/views/lipid_report.html'"></div>
+		</div>
+		</tab> <tab> <tab-heading class="fonts" style="color:#666666">
+		Blood Report </tab-heading>
+		<div ng-include="'app/views/blood_report.html'"></div>
+		</tab> <tab> <tab-heading class="fonts"> Urine Report </tab-heading>
+		<div ng-include="'app/views/urine_report.html'"></div>
+		</tab> </tabset>
+	</nav>
+	<!-- END Off Sidebar (right)-->
+</div>

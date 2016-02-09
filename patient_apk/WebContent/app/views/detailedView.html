@@ -1,0 +1,290 @@
+<!-- Ongoing Treatment -->
+
+<div id="outerDiv" class="onGoingTreatment divMinHeight">
+
+	<div class="row pl" style="background-color: #046575;"
+		ng-click="changeState('app.healthRecord')">
+		<div class="col-xs-1 col-sm-1 text-left pv-lg text-md text-white">
+			<em class="fa fa-chevron-left"></em>
+		</div>
+		<div class="h4 col-xs-10 col-sm-10 pv-lg text-white pull-left pl ml0"
+			align="left" style="font-weight: bold">Detailed View</div>
+	</div>
+	<div class="row pl0 ml0 pr0 mr0 pt pb"
+		style="background-color: #C9D3D4; color: black">
+		<div class="col-sm-7 col-xs-7 ">
+			<em class="h4 text-blue" style="font-weight: bold">COPD</em><br />Date
+			of Birth: 19 June, 1947
+		</div>
+		<div class="col-sm-5 col-xs-5 text-right">
+			<b>Today</b><br />{{ date | date : 'd MMM, yyyy'}}
+		</div>
+	</div>
+
+
+	<!-- Div's involved in ng-repeat -->
+	<div class="table-responsive" style="padding-bottom: 10%">
+		<table id="ongoing_treatment_table" class="table table-striped ">
+			<tr>
+				<td style="" class="col-lg-1 col-md-1 col-sm-1 col-xs-1"><span
+					class="h2"><p class="pull-right mb0">{{timeLineData[0].date}}</p>
+						<br> <span class="h5">
+							<p class="pull-right">May, 2015</p>
+					</span> </span></td>
+
+				<td style="" class="col-lg-11 col-md-11 col-sm-11 col-xs-11">
+
+					<div class="col-lg-10 col-md-10 col-sm-10 col-xs-12">
+						<span style="font-weight: bold">{{timeLineData[0].heading}}</span><br>
+						<section class="text-justify"
+							style="max-height: 60px; overflow: hidden; text-overflow: ellipsis;">{{timeLineData[0].desc}}</section>
+
+					</div>
+
+					<!-- <div class="col-lg-1 col-md-1 col-sm-1 col-xs-0"></div> -->
+
+					<div class="col-lg-1 col-md-1 col-sm-1 col-xs-1 "
+						ng-click="changeState('app.report')">
+						<center>
+							<span class="fa-stack" style="font-size: 25px; cursor: pointer;">
+								<a class="fa fa-file-text-o fa-stack-1x"></a>
+							</span><br /> <small>Reports</small>
+						</center>
+					</div>
+					<div class="col-lg-1 col-md-1 col-sm-1 col-xs-1"
+						ng-click="changeState('app.prescription')">
+						<center>
+							<span class="fa-stack" style="font-size: 25px; cursor: pointer;">
+								<a class="fa fa-medkit fa-stack-1x"></a>
+							</span><br /> <small>Prescription</small>
+						</center>
+					</div>					
+
+				</td>
+
+			</tr>
+
+			<tr>
+				<td class="col-lg-1 col-md-1 col-sm-1 col-xs-"><span class="h2"><p
+							class="pull-right mb0">{{timeLineData[1].date}}</p>
+						<br> <span class="h5">
+							<p class="pull-right">May, 2015</p>
+					</span> </span></td>
+				<td class="col-lg-11 col-md-11 col-sm-11 col-xs-11">
+
+					<div class="col-lg-10 col-md-10 col-sm-10 col-xs-12">
+						<span style="font-weight: bold">{{timeLineData[1].heading}}</span><br>
+						<section class="text-justify"
+							style="max-height: 60px; overflow: hidden; text-overflow: ellipsis;">{{timeLineData[1].desc}}</section>
+
+					</div>
+
+					<!-- <div class="col-lg-1 col-md-1 col-sm-1 col-xs-0"></div> -->
+
+					<div class="col-lg-1 col-md-1 col-sm-1 col-xs-1"
+						ng-click="changeState('app.report')">
+						<center>
+							<span class="fa-stack" style="font-size: 25px; cursor: pointer;">
+								<a class="fa fa-file-text-o fa-stack-1x"></a>
+							</span><br /> <small>Reports</small>
+						</center>
+					</div>
+
+				</td>
+			</tr>
+
+
+			<tr>
+				<td class="col-lg-1 col-md-1 col-sm-1 col-xs-1"><span
+					class="h2"><p class="pull-right mb0">{{timeLineData[2].date}}</p>
+						<br> <span class="h5">
+							<p class="pull-right">May, 2015</p>
+					</span> </span></td>
+				<td class="col-lg-11 col-md-11 col-sm-11 col-xs-11">
+
+					<div class="col-lg-10 col-md-10 col-sm-10 col-xs-12">
+						<span style="font-weight: bold">{{timeLineData[2].heading}}</span><br>
+						<section class="text-justify"
+							style="max-height: 60px; overflow: hidden; text-overflow: ellipsis;">{{timeLineData[2].desc}}</section>
+
+					</div>
+
+					<div class="col-lg-1 col-md-1 col-sm-1 col-xs-1"></div>
+
+					<div class="col-lg-1 col-md-1 col-sm-1 col-xs-1"></div>
+				</td>
+			</tr>
+
+
+			<tr>
+				<td class="col-lg-1 col-md-1 col-sm-1 col-xs-1"><span
+					class="h2"><p class="pull-right mb0">{{timeLineData[3].date}}</p>
+						<br> <span class="h5">
+							<p class="pull-right">May, 2015</p>
+					</span> </span></td>
+				<td class="col-lg-11 col-md-11 col-sm-11 col-xs-11">
+
+					<div class="col-lg-10 col-md-10 col-sm-10 col-xs-12">
+						<span style="font-weight: bold">{{timeLineData[3].heading}}</span><br>
+						<section class="text-justify"
+							style="max-height: 60px; overflow: hidden; text-overflow: ellipsis;">{{timeLineData[3].desc}}</section>
+
+					</div>
+
+					<div class="col-lg-1 col-md-1 col-sm-1 col-xs-1"
+						ng-click="changeState('app.report')">
+						<center>
+							<span class="fa-stack" style="font-size: 25px; cursor: pointer;">
+								<a class="fa fa-file-text-o fa-stack-1x "></a>
+							</span><br /> <small>Reports</small>
+						</center>
+					</div>
+<!-- 
+					<div class="col-lg-1 col-md-1 col-sm-1 col-xs-1"
+						ng-click="changeState('app.prescription')">
+						<center>
+							<span class="fa-stack" style="font-size: 25px; cursor: pointer;">
+								<a class="fa fa-medkit fa-stack-1x"></a>
+							</span><br /> <small>Prescription</small>
+						</center>
+					</div>
+					-->
+
+				</td>
+			</tr>
+
+<!--
+			<tr>
+				<td class="col-lg-1 col-md-1 col-sm-1 col-xs-1"><span
+					class="h2"><p class="pull-right mb0">{{timeLineData[4].date}}</p>
+						<br> <span class="h5">
+							<p class="pull-right">May, 2015</p>
+					</span> </span></td>
+				<td class="col-lg-11 col-md-11 col-sm-11 col-xs-11">
+
+					<div class="col-lg-10 col-md-10 col-sm-10 col-xs-12">
+						<span style="font-weight: bold">{{timeLineData[4].heading}}</span><br>
+						<section class="text-justify"
+							style="max-height: 60px; overflow: hidden; text-overflow: ellipsis;">{{timeLineData[4].desc}}</section>
+
+					</div>
+
+					<div class="col-lg-1 col-md-1 col-sm-1 col-xs-1"></div>
+
+					<div class="col-lg-1 col-md-1 col-sm-1 col-xs-1"></div>
+
+				</td>
+
+
+			</tr>
+			<tr>
+				<td class="col-lg-1 col-md-1 col-sm-1 col-xs-1"><span
+					class="h2"><p class="pull-right mb0">{{timeLineData[5].date}}</p>
+						<br> <span class="h5">
+							<p class="pull-right">May, 2015</p>
+					</span> </span></td>
+				<td class="col-lg-11 col-md-11 col-sm-11 col-xs-11">
+
+					<div class="col-lg-10 col-md-10 col-sm-10 col-xs-12">
+						<span style="font-weight: bold">{{timeLineData[5].heading}}</span><br>
+						<section class="text-justify"
+							style="max-height: 60px; overflow: hidden; text-overflow: ellipsis;">{{timeLineData[5].desc}}.</section>
+
+					</div>
+
+					<div class="col-lg-1 col-md-1 col-sm-1 col-xs-3"></div>
+
+					<div class="col-lg-1 col-md-1 col-sm-1 col-xs-3"></div>
+
+				</td>
+
+			</tr>			
+
+			<tr>
+				<td class="col-lg-1 col-md-1 col-sm-1 col-xs-1"><span
+					class="h2"><p class="pull-right mb0">14</p>
+						<br> <span class="h5">
+							<p class="pull-right">May, 2015</p>
+					</span> </span></td>
+				<td class="col-lg-11 col-md-11 col-sm-11 col-xs-11">
+
+					<div class="col-lg-10 col-md-10 col-sm-10 col-xs-12">
+						<span style="font-weight: bold">Dr. David Brown| Specialist
+							(NNSC, HAS)</span><br>
+						<section class="text-justify"
+							style="max-height: 60px; overflow: hidden; text-overflow: ellipsis;">Concussion
+							due to head injury, minor bleeding from the wound.Recommended to
+							see Vision Expert. The headache must be due to XYZ.</section>
+
+					</div>
+
+					<div class="col-lg-1 col-md-1 col-sm-1 col-xs-0"></div>
+
+					<div class="col-lg-1 col-md-1 col-sm-1 col-xs-1"
+						ng-click="changeState('app.prescription')">
+						<center>
+							<span class="fa-stack" style="font-size: 25px; cursor: pointer;">
+								<a class="fa fa-medkit fa-stack-1x"></a>
+							</span><br /> <small>Prescription</small>
+						</center>
+					</div>
+
+				</td>
+			</tr>
+
+			<tr>
+				<td class="col-lg-1 col-md-1 col-sm-1 col-xs-1"><span
+					class="h2"><p class="pull-right mb0">12</p>
+						<br> <span class="h5">
+							<p class="pull-right">May, 2015</p>
+					</span> </span></td>
+				<td class="col-lg-11 col-md-11 col-sm-11 col-xs-11">
+
+					<div class="col-lg-10 col-md-10 col-sm-10 col-xs-12">
+						<span style="font-weight: bold">Dr. Josh Hanson(PCP, MD,
+							ABD) | Magna Care Clinic</span><br>
+						<section class="text-justify"
+							style="max-height: 60px; overflow: hidden; text-overflow: ellipsis;">Concussion
+							due to an accident. Need to see a specialist for headache. Minor
+							bleeding from wound. Need to visit a specialist.</section>
+
+					</div>
+
+					<div class="col-lg-1 col-md-1 col-sm-1 col-xs-1"></div>
+
+					<div class="col-lg-1 col-md-1 col-sm-1 col-xs-1"></div>
+
+				</td>
+
+			</tr>
+			
+
+			<tr>
+				<td class="col-lg-1 col-md-1 col-sm-1 col-xs-1"><span
+					class="h2"><p class="pull-right mb0">11</p>
+						<br> <span class="h5">
+							<p class="pull-right">May, 2015</p>
+					</span> </span></td>
+				<td class="col-lg-11 col-md-11 col-sm-11 col-xs-11">
+
+					<div class="col-lg-10 col-md-10 col-sm-10 col-xs-12">
+						<span style="font-weight: bold">Dr. Josh Hanson(PCP, MD,
+							ABD) | Magna Care Clinic</span><br>
+						<section class="text-justify"
+							style="max-height: 60px; overflow: hidden; text-overflow: ellipsis;">Primary
+							examination for Concussion.</section>
+
+					</div>
+
+					<div class="col-lg-1 col-md-1 col-sm-1 col-xs-3"></div>
+
+					<div class="col-lg-1 col-md-1 col-sm-1 col-xs-3"></div>
+
+				</td>
+
+			</tr>
+			-->
+		</table>
+	</div>
+
+</div>

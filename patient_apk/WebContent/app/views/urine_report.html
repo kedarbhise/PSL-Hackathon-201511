@@ -1,0 +1,63 @@
+<div data-ng-app="angle" data-ng-controller="reportController"
+	ng-init="getUrineReport('urine')">
+	<div class=" panel" style="position: relaative" ng-int>
+
+		<div class="panel-body">
+			<!-- 			<div class="logo"> -->
+			<!-- 				<img class="img-responsive" src="app/img/persistent-logo_0_0.png" -->
+			<!-- 					alt="Express Clinics Pvt.Ltd."></img> -->
+			<!-- 			</div> -->
+			<br />
+			<div class="table-responsive">
+				<table class="table table-striped"
+					style="border: 0px; overflow-x: auto">
+					<tr style="font-weight: bold">
+						<th style="width: 30%">TEST NAME</th>
+						<th style="width: 20%">RESULT</th>
+						<th style="width: 20%">UNITS</th>
+						<th style="width: 30%">Normal Range</th>
+					</tr>
+					<tr></tr>
+					<tr ng-repeat="Obeservation in urineData.contained">
+						<td style="width: 30%">{{Obeservation.name.text}}</td>
+						<td style="width: 20%"><label
+							id="{{Obeservation.interpretation.coding[0].code}}">{{Obeservation.valueQuantity.value}}</label></td>
+						<td style="width: 10%">{{Obeservation.valueQuantity.units}}</td>
+						<td style="width: 30%"><p
+								id="range{{Obeservation.interpretation.coding[0].code}}">{{Obeservation.referenceRange[0].low.value}}
+								- {{Obeservation.referenceRange[0].high.value}}</p>
+							<p id="not{{Obeservation.interpretation.coding[0].code}}">{{Obeservation.referenceRange[0].low.value}}
+							</p></td>
+					</tr>
+				</table>
+			</div>
+			<div style="width: 100%; background-color: darkgray; height: 1px"></div>
+			</br>
+			<!-- 
+			<div class="col-xs-6 col-sm-4 col-md-2">
+				<div id="L" class="col-xs-6 col-sm-6 col-md-6"></div>
+				<div class="col-xs-6 col-sm-6 col-md-6">Low</div>
+			</div>
+
+			<div class="col-xs-6 col-sm-4 col-md-2">
+				<div id="H" class="col-xs-6 col-sm-6 col-md-6"></div>
+				<div class="col-xs-6 col-sm-6 col-md-6">High</div>
+			</div>
+
+			<div class="col-xs-6 col-sm-4 col-md-2">
+				<div id="POS" class="col-xs-6 col-sm-6 col-md-6"></div>
+				<div class="col-xs-6 col-sm-6 col-md-6">Positive</div>
+			</div>
+
+			<div class="col-xs-6 col-sm-4 col-md-2">
+				<div id="NEG" class="col-xs-6 col-sm-6 col-md-6"></div>
+				<div class="col-xs-6 col-sm-6 col-md-6">Negative</div>
+			</div>
+
+			<div class="col-xs-6 col-sm-4 col-md-2">
+				<div id="DET" class="col-xs-6 col-sm-6 col-md-6"></div>
+				<div class="col-xs-6 col-sm-6 col-md-6">Detected</div>
+			</div>
+			 -->
+		</div>
+	</div>

@@ -1,0 +1,28 @@
+[
+  
+  {
+    "text": "Health Record",
+    "sref": "app.healthRecord",
+    "icon": "fa fa-h-square",
+    "translate": "sidebar.nav.HEALTHRECORD"
+  },
+  {
+    "text": "Detailed View",
+    "sref": "app.detailedView",
+    "icon": "fa fa-list",
+    "translate": "sidebar.nav.DETAILEDVIEW"
+  },
+    {
+    "text": "My Care Team",
+    "sref": "app.myCareTeam",
+    "icon": "fa fa-users",
+    "translate": "sidebar.nav.MYCARETEAM"
+  },
+  {
+    "text": "Share Health Record",
+    "sref": "app.shareHealthRecord",
+    "icon": "fa fa-share-alt",
+    "translate": "sidebar.nav.SHAREHEALTHRECORD"
+  }
+  
+]

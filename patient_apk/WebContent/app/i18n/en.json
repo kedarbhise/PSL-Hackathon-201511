@@ -1,0 +1,22 @@
+{
+  "dashboard": {
+    "WELCOME": "Welcome to {{appName}}"
+  },
+  "topbar": {
+    "search": {
+      "PLACEHOLDER": "Type and hit enter.."
+    }
+  },
+  "sidebar": {
+    
+    "nav": {
+      "SINGLEVIEW": "Single View",
+	  "HEALTHRECORD": "Health Record",
+	  "DETAILEDVIEW": "Detailed View",
+	  "MYCARETEAM": "My Care Team",
+	  "ONGOINGTREATMENT":"Ongoing Treatment",
+	  "SHAREHEALTHRECORD": "Share Health Record"
+     
+    }
+  }
+}

@@ -1,0 +1,71 @@
+<div id="outerDiv" data-ng-app="angle"
+	data-ng-controller="prescriptionController"
+	ng-init="loadPrescription()">
+	<div class="row pl" style="background-color: #046575;"
+		ng-click="changeState('app.detailedView')">
+		<div class="col-xs-1 col-sm-1 text-left pv-lg text-md text-white">
+			<em class="fa fa-chevron-left"></em>
+		</div>
+		<div
+			class="h4 col-xs-10 col-sm-10 pv-lg text-white pull-left pl ml0 pt mt"
+			align="left" style="font-weight: bold">Prescription</div>
+	</div>
+
+	<table class="table pl">
+		<tr>
+			<td class="col-sm-3 col-xs-4 col-md-2 col-lg-1"><b>Patient :<b></td>
+			<td class="col-sm-9 col-xs-8 col-md-10 col-lg-11">Edmund Jackson</td>
+		</tr>
+
+		<tr>
+			<td class="col-sm-3 col-xs-4 col-md-2 col-lg-1"><b>Prescriber
+					:<b></td>
+			<td class="col-sm-9 col-xs-8 col-md-10 col-lg-11">{{prescriptiondata.prescriber.display}}</td>
+		</tr>
+<!--  
+		<tr>
+			<td class="col-sm-3 col-xs-4 col-md-3 col-lg-1"><b>Medication
+					:</b></td>
+			<td class="col-sm-9 col-xs-8 col-md-10 col-lg-11">{{name}}</td>
+		</tr>
+-->
+	</table>
+
+
+
+	<b class="pl"><u>Dosage Instruction:</u></b>
+	<table class="table pl" style="border: 0px solid; overflow-x: auto;">
+		<tr style="font-weight: bold">
+		    <th class="col-sm-1 col-xs-1 col-md-1 col-lg-1">Medicine</th>
+			<th class="col-sm-1 col-xs-1 col-md-1 col-lg-1">Frequency</th>
+			<!-- <th class="col-sm-1 col-xs-1 col-md-1 col-lg-1">Time duration</th> -->
+			<!-- <th class="col-sm-1 col-xs-1 col-md-1 col-lg-1">Time units</th> -->
+			<th class="col-sm-1 col-xs-1 col-md-1 col-lg-1">Strenght</th>
+			<th class="col-sm-1 col-xs-1 col-md-1 col-lg-1">Units</th>
+		</tr>
+
+		<tr ng-repeat="instruction in prescriptiondata.dosageInstruction">
+			<td class="col-sm-1 col-xs-1 col-md-1 col-lg-1">{{instruction.medicineName}}</td>		
+			<td class="col-sm-1 col-xs-1 col-md-1 col-lg-1">{{instruction.timingSchedule.repeat.frequency}}</td>
+			<!-- <td class="col-sm-1 col-xs-1 col-md-1 col-lg-1">{{instruction.timingSchedule.repeat.duration}}</td> -->
+			<!--  <td class="col-sm-1 col-xs-1 col-md-1 col-lg-1">{{instruction.timingSchedule.repeat.units}}</td>-->
+			<td class="col-sm-1 col-xs-1 col-md-1 col-lg-1">{{instruction.doseQuantity.value}}</td>
+			<td class="col-sm-1 col-xs-1 col-md-1 col-lg-1">{{instruction.doseQuantity.units}}</td>
+		</tr>
+	</table>
+	<!--  <div  align="center"></div> -->
+	<br /> 
+	<div ng-hide="true"><!-- this is dummy just to hide inside content -->
+	<b class="pl"><u>Dispense:</u></b><br />
+	<table class="table pl" style="border: 0px solid; overflow-x: auto;">
+		<tr>
+			<th class="col-sm-1 col-xs-1 col-md-1 col-lg-1">Unit</th>
+			<th class="col-sm-11 col-xs-11 col-md-11 col-lg-11">Value</th>
+		</tr>
+		<tr>
+			<td class="col-sm-1 col-xs-1 col-md-1 col-lg-1">{{prescriptiondata.dispense.quantity.units}}</td>
+			<td class="col-sm-11 col-xs-11 col-md-11 col-lg-11">{{prescriptiondata.dispense.quantity.value}}</td>
+		</tr>
+	</table>
+	</div>
+</div>

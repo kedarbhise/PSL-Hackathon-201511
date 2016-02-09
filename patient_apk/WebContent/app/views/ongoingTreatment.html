@@ -1,0 +1,61 @@
+<div id="outerDiv" class="onGoingTreatment divMinHeight">
+	<div class="row pl  " style="background-color: #046575"
+		ng-click="changeState('app.healthRecord')">
+		<div class="col-xs-1 col-sm-1 text-left pv-lg text-md text-white">
+			<em class="fa fa-chevron-left"></em>
+		</div>
+		<div class="h4 col-xs-10 col-sm-10 pv-lg text-white pull-left pl ml0"
+			align="left" style="font-weight: bold">Ongoing Illness
+			Treatment</div>
+	</div>
+	<div class="row pl0 ml0 pr0 mr0" id="topDiv">
+		<div class="col-sm-6 col-xs-6 ">
+			<em class="h4 text-blue" style="font-weight: bold">COPD</em><br />Date
+			of Birth: 19 June, 1947
+		</div>
+		<div class="col-sm-6 col-xs-6 text-right">
+			<b>Today</b><br />{{ date | date : 'd MMM, yyyy'}}
+		</div>
+	</div>
+	<scrollable height="495" class="list-group">
+	<table class="ml border0" style="margin-bottom: 13px;">
+		<tr ng-repeat="data in timeLineData">
+			<td>
+
+				<h1 class="text-right">{{data.date}}</h1>
+				<p>May,&nbsp;&nbsp;2015</p>
+
+			</td>
+			<td class="pl">
+				<div class=" col-xs-1">
+					<div
+						style="border-left: 1px solid; height: 6rem; margin-left: 7px;"
+						class="text-blue"></div>
+					<!-- upper line-->
+					<div style="border-radius: 50%; width: 15px; height: 15px;"
+						class="circlebg"></div>
+					<!-- dot-->
+					<div
+						style="border-left: 1px solid; height: 6rem; margin-left: 7px;"
+						class="text-blue">
+						<!-- lower line-->
+					</div>
+				</div> <!-- START panel-->
+				<div class=" col-xs-10 mt0 pt0 mb0 pb0 pr0  ">
+					<div class="panel panel-default mb0 pb0 ml mb mr0 pr  div-rounded"
+						style="margin-top: 22px; background-color: #B5D5E8; width: 100%;">
+						<div class="panel-body pb0 mr0 pr">
+							<p class=" pt0 pb0 mb0 mt0 h5"
+								style="height: 1.5em; font-weight: bold;">{{data.heading}}</p>
+							<p class="ellipsisActivate pb0" style="height: 50px;">
+								{{data.desc}}</p>
+						</div>
+					</div>
+				</div> <!-- END panel-->
+			</td>
+		</tr>
+	</table>
+	</scrollable>
+	<!-- page footer -->
+
+</div>

@@ -1,0 +1,181 @@
+<div id="outerDiv"
+	style="margin-bottom: 50px; padding-bottom: 10px; overflow-y: auto"  ng-controller="healthRecordController" >
+
+	<div class="row pl"
+		style="background-color: #046575; margin-right: 0px; padding-right: 0px;">
+
+		<div class="h4 col-xs-10 col-sm-10 pv-lg text-white pull-left pl ml"
+			align="left" style="font-weight: bold;">Health Record</div>
+	</div>
+	<!-- Icons of Illness History, Care Team & Illness Treatment-->
+	<div class="row" style="margin-left: 0rem; margin-right: 0rem;">
+		<div class="col-lg-4 col-sm-4 col-xs-4 text-center text-large"
+			ng-click="changeState('app.ongoingTreatment')">
+			<span class="fa fa-stethoscope text-blue"></span><br>
+			<p class="text-small">Ongoing Illness Treatment</p>
+		</div>
+		<div class="col-lg-4 col-sm-4 col-xs-4 text-center text-large" ng-click="changeState('app.detailedView')">
+			<span class="fa fa-history text-blue"></span><br>
+			<p class="text-small">Illness History</p>
+		</div>
+		<div class="col-lg-4 col-sm-4 col-xs-4 text-center text-large"
+			ng-click="changeState('app.myCareTeam')">
+			<span class="fa fa-user-md text-blue"></span><br>
+			<p class="text-small">My Care Team</p>
+		</div>
+	</div>
+	<br />
+
+	<!--User Profile-->
+	<!-- START widget-->
+	<div class="panel widget mb">
+		<div class="panel-body pb0">
+			<div class="row ">
+				<div class="col-xs-5 col-sm-6 col-lg-6 " style="height: 200px;">
+
+					<img src="app/img/user/02.jpg" class="img-responsive img-width "
+						align="right"></img>
+					<!--img-width used here -->
+
+				</div>
+				<div class="col-xs-7 col-sm-6 col-lg-6 hr-patientDetails mt">
+					<!--center info used here -->
+
+					<h3 class="mt0">{{user.name}}</h3>
+					<ul class="list-unstyled ">
+						<li class="mb-sm"><br /> <em class="fa fa-map-marker fa-fw"></em>{{user.address.street}}
+						, <br> &nbsp;&nbsp;{{user.address.city}} {{user.address.pin}}, {{user.address.country}}</li>
+						<li class="mb-sm"><em class="fa fa-phone fa-fw"></em>&nbsp;Ph:
+							{{user.tel}}<br>&nbsp;&nbsp;Ph: {{user.mobile}}</li>
+						<li class="mb-sm"><em class="fa fa-envelope fa-fw"></em>&nbsp;{{user.email}}</li>
+					</ul>
+
+				</div>
+			</div>
+		</div>
+	</div>
+	<!-- END widget-->
+
+	<!-- Accordions -->
+	<!-- START panel-->
+
+	<div id="accordion1">
+		<h3 class="text-blue">
+			<span class="fa fa-child pull-left text-blue mr pr"></span>Demographics
+		</h3>
+		<div class="row bg-gray">
+
+			<div class="col-sm-4 col-xs-6 col-md-4 pb5">Age : {{user.age}}</div>
+			<div class="col-sm-4 col-xs-6 col-md-4 pb5">Height : {{user.height}}</div>
+			<div class="col-sm-4 col-xs-6 col-md-4 pb5">Vision : {{user.vision}}</div>
+			<div class="col-sm-4 col-xs-6 col-md-4 pb5">Gender : {{user.gender}}</div>
+			<div class="col-sm-4 col-xs-6 col-md-4 pb5">Weight : {{user.weight}}</div>
+			<div class="col-sm-4 col-xs-6 col-md-4 pb5">Hearing :{{user.hearing}}</div>
+
+		</div>
+	</div>
+	<div style="min-height: 5px;"></div>
+
+	<div id="accordion2">
+		<h3 class="text-blue">
+			<span class="fa fa-frown-o pull-left text-blue mr pr"></span>Allergies
+		</h3>
+		<div class="row">
+
+			<!--<h2 class="text-thin">Allergy Details </h2>-->
+			<div class="col-xs-12 col-sm-4 col-lg-4   mb0"
+				style="min-height: 105px;" ng-repeat="allergy in allergies">
+
+				<div id="panelDemo8" class="panel  mb0"
+					style="border-top: 3px solid{{allergy.color">
+					<div class="panel-heading bgLightGray">
+						{{ allergy.name }} <em class="fa fa-fw pull-right"></em>
+					</div>
+					<div class="panel-body panel-footer">
+						<div>
+							<em class="fa fa-fw pull-right {{ allergy.substanceType }}"></em><!--{{
+							allergy.substance }}-->
+						</div>
+						
+						<div>
+							<span  class="pull-right {{ allergy.severity}}" style="font-weight: bold;"> {{allergy.criticality}}</span>{{allergy.substance}}
+						</div>
+						
+						<div style="clear: both"></div>
+					</div>
+					<div class="panel-footer">Recorded on {{allergy.RecordedAt}}</div>
+				</div>
+
+
+
+			</div>
+		</div>
+
+	</div>
+	<div style="min-height: 5px;"></div>
+	<div id="accordion3">
+		<h3 class="text-blue">
+			<span class="fa fa-medkit pull-left text-blue mr pr"></span>Prior
+			Medications
+		</h3>
+
+		<div class="row">
+
+			<!--<h2 class="text-thin">Medicine details</h2>-->
+			<div class="col-lg-4 col-sm-4 col-xs-12 mb0"
+				ng-repeat="medicine in medicine">
+				<div id="panelDemo8" class="panel mb0"
+					style="min-height: 120px; border-top: 3px solid #3BB9FF;">
+					<div class="panel-heading bgLightGray pb"
+						style="font-weight: bold;">
+						{{ medicine.name }}
+<!-- 						 <span class="pull-right" -->
+<!-- 							style="font-weight: normal;">{{ medicine.numberOfDays }}</span> -->
+					</div>
+					<div class="panel-body panel-footer">
+						<div class="form-horizontal">
+							<div class="form-group m0">
+
+								<div class="form-group m0">
+									<div class="col-xs-6 form-control-static"
+										style="font-weight: bold">Strength</div>
+									<div class="col-xs-5">
+										<p class="form-control-static">{{ medicine.doseQuantity }}
+										</p>
+									</div>
+								</div>
+								<div class="form-group m0">
+									<div class="col-xs-6 form-control-static"
+										style="font-weight: bold">Frequency</div>
+									<div class="col-xs-5">
+										<p class="form-control-static">{{ medicine.doseFrequency
+											}}</p>
+									</div>
+								</div>
+								<div class="form-group m0">
+									<div class="col-xs-6 form-control-static"
+										style="font-weight: bold">Route</div>
+									<div class="col-xs-5">
+										<p class="form-control-static">Oral
+										</p>
+									</div>
+								</div>								
+								<div class="form-group m0">
+									<div class="col-xs-6 form-control-static"
+										style="font-weight: bold">Started on</div>
+									<div class="col-xs-6">
+										<p class="form-control-static">{{ medicine.startedOn }}</p>
+									</div>
+								</div>
+							</div>
+
+						</div>
+
+					</div>
+
+				</div>
+			</div>
+		</div>
+	</div>
+	<div style="min-height: 5px;"></div>
+</div>

@@ -1,0 +1,77 @@
+
+<div id="outerDiv" class="row divMinHeight" align="center">
+	<div class="row pl ml " style="background-color: #046575"
+		ng-click="changeState('app.healthRecord')">
+		<div class="col-xs-1 col-sm-1 text-left pv-lg text-md text-white">
+			<em class="fa fa-chevron-left"></em>
+		</div>
+		<div class="h4 col-xs-10 col-sm-10 pv-lg text-white pull-left pl ml0"
+			align="left" style="font-weight: bold">Share Health Record</div>
+	</div>
+	<div class="col-lg-12 col-sm-12 col-md-12 pr0">
+		<div class="panel widget pr mb0 mr0"
+			style="background-color: #C9D3D4; color: black">
+			<div class="row pt pb pr">
+				<div class="col-xs-8 col-sm-8 text-left ">
+					<div class="text-left" style="padding-left: 10px">
+						<p>Last Updated on 26 May, 2015</p>
+						<p>at Magna Care Clinic</p>
+					</div>
+				</div>
+				<div class="col-xs-4 col-sm-4 ">
+					<div class="ml0 text-right">
+						<p>
+							<b>Today</b>
+						</p>
+						<p>{{date | date:'d MMM, y'}}</p>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+
+	<div id="qrcode" style="margin-bottom: 20px;"></div>
+
+	<div>
+		<center style="font-size: 15px">OR</center>
+		<center>
+			<small>Log on to</small>
+		</center>
+		<center style="font-size: 15px">
+			<a>www.mycare.com/auth</a>
+		</center>
+		</br>
+		<center>
+			<small>Enter the Code</small>
+		</center>
+		<center style="font-weight: bold">JDGsjhduwd&9897</center>
+	</div>
+	<hr style="display: block; border-style: inset; border-width: 1px;">
+
+	<div>
+		<button type="button" class="btn btn-primary btn-lg ml mr"
+			style="width: 80%; background-color: #046575">Allow Access</button>
+	</div>
+
+	<div class="content-wrapper wrapper" style="border-top: 0px">
+		<center style="font-size: 15px">
+			<a>Deny Access</a>
+		</center>
+		<span class="text-primary">Genesis Clinic</span> requesting your
+		updated health records from <span class="text-primary">Magna
+			Care Clinic</span>
+
+		<p>To Grant Access please Tap on "Allow Access" button above</p>
+		</br>
+	</div>
+
+</div>
+</div>
+
+<footer class="myfooter" style="position: relative">
+
+	<center style="width: 100%;">
+		<button type="button" class="btn btn-square btn-danger myButton">Emergency
+			Broadcast</button>
+	</center>
+</footer>

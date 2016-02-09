@@ -1,0 +1,32 @@
+{
+  "dashboard": {
+    "WELCOME": "Welcome to {{appName}}"
+  },
+  "topbar": {
+    "search": {
+      "PLACEHOLDER": "Type and hit enter.."
+    }
+  },
+  "sidebar": {
+    "WELCOME": "Welcome",	
+	"OWNVIEW": "My very own view",
+    "heading": {
+      "HEADER": "Main Navigation"
+    },
+    "nav": {
+      "SINGLEVIEW": "Single View",
+	  "HEALTHRECORD": "Health Record",
+<<<<<<< HEAD
+	  "ONGOINGTREATMENT": "Ongoing Treatment",
+=======
+	  "DETAILEDVIEW": "Detailed View",
+	  "MYCARETEAM": "My Care Team",
+	  "SHAREHEALTHRECORD": "Share Health Record",
+>>>>>>> d18337d9a755428b8779054091e15a1e05f088f5
+      "menu": {
+        "MENU": "Menu",
+        "SUBMENU": "Sub Menu"
+      }
+    }
+  }
+}

@@ -1,0 +1,21 @@
+
+<div class="panel panel-default" style="margin-left: 30%;margin-right: 30%;">
+            <div class="panel-heading">
+               <div class="panel-title"><img src="app/img/doctorlogologin.PNG" /> Login</div>
+            </div>
+            <div class="panel-body">
+               <div class="form-group">
+                  <label class="control-label">Email Id *</label>
+                  <input type="text" name="email" required="required" class="form-control" data-parsley-id="6371" ng-model="doctorEmail"><ul class="parsley-errors-list" id="parsley-id-6371"></ul>
+               </div>
+               <div class="form-group">
+                  <label class="control-label">Password *</label>
+                  <input type="password" name="password" required="required" class="form-control" data-parsley-id="3376" ng-model="password"><ul class="parsley-errors-list" id="parsley-id-3376"></ul>
+               </div>
+               <div class="required">* Required fields</div>
+            </div>
+            <div class="panel-footer">
+            
+               <button type="submit" class="btn btn-primary" ng-click=login() style="margin-left:85%;">Login</button>
+            </div>
+         </div>

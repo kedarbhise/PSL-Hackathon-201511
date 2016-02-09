@@ -1,0 +1,27 @@
+
+<div style="height: 50px; width: 100%; background-color: #046575; border-bottom: 1px solid white;">
+	<a ng-click="app.layout.isCollapsed = !app.layout.isCollapsed" class="hidden-xs" style="padding-left: 20px;" title="Menu"> 
+	<em class="fa fa-navicon" style="color: white" ng-click="onsidebar()"></em>
+	</a> 
+	<a href="#" toggle-state="aside-toggled" no-persist="no-persist"
+		class="visible-xs sidebar-toggle" title="Menu" style="padding: 10px;">
+		<em class="fa fa-navicon"></em>
+	</a>
+
+
+	<img src="app/img/logo.png" alt="App Logo" style="color: blue; padding-left: 30px; padding-bottom:12px !important;padding-top:3px !important;"  height="60px;"/>
+	 <div style="float: right; padding-top: 15px;padding-bottom: 10px !important;" title="Chat" >
+		<a  no-persist="no-persist"
+			 ng-click="startMeet()" style="font-size:2rem;"> <em class="fa fa-comment pr text-white"></em>
+		</a>
+	</div>
+	
+	 <!--
+	<div style="float: right; padding-top: 15px;padding-bottom: 10px !important;" title="Chat" >
+		<a  no-persist="no-persist"
+			toggle-state="offsidebar-open" style="font-size:2rem;"> <em class="fa fa-comment pr text-white"></em>
+		</a>
+	</div>
+ -->
+</div>
+<!-- toggle-state="offsidebar-open ui-sref="app.meet"" -->
