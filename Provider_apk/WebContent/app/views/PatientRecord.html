@@ -1,0 +1,174 @@
+  <div class="navbar-header">
+<div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 text-left text-white"
+		style="background-color: #046575; font-size: 25px; padding-top: 30px;margin-top:-21%;">
+		<em class="fa fa-chevron-left"
+			ng-click="$state.go('app.useragent')"><span class="pb pl">Back</span></em>
+	</div>
+	</div>
+<div id="outerDiv" style="margin-bottom: 59px; margin-top: 25px;">
+	<!--
+				<div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 text-left text-white pb m10" style="padding-top:30px;position:fixed; z-index:1; background-color:#046575;height:80px" >
+					   <div class="col-xs-1 col-sm-1 col-md-1 col-lg-1 pv-lg pb text-left" style="font-size:20px">
+							<em class="fa fa-chevron-left" ng-click="changeState('app.singleview')"></em>
+					   </div>
+					   <div class="col-xs-11 col-sm-11 col-md-11 col-lg-11 h4 pv-lg pb m10 pull-left" style="font-family:'Source Sans Pro',sans-serif;align:center;padding:10px">
+					   Back</div>
+				</div>
+				
+				-->
+	
+
+
+
+	<br />
+	<div style="height: 50%; width: 100%; overflow-y: auto; padding-top: 0px">
+		<table class="table table-striped">
+			<tbody>
+				<tr ng-click="moveTimeLine()" style="padding-top: 0px">
+					<td id="img-1" class="col-sm-2 "><img src="./app/img/11.png"
+						style="padding-left: 60px;" class="image-responsive"></td>
+					<td class="col-sm-8">
+						<table class="table" style="background-color: transparent;">
+							<tr>
+								<td id="patient-image" class="col-sm-2 ">
+									<div class="col-sm-2" style="margin-top: 40px;">
+										<img src="./app/img/user/10.jpg"
+											class="img-circle image-responsive" alt="Cinque Terre">
+									</div>
+								</td>
+								<td id="patient-info" class="col-sm-10"
+									style="padding-bottom: 0px; padding-left: 0px; padding-right: 0px;">
+									<div class="col-sm-10"
+										style="padding-left: 8px; padding-top: 8px">
+										<p class="h3">{{patient.name}}</p>
+										<p class=" text-justify">
+											{{patient.address.street}}, {{patient.address.city}} {{patient.address.pin}}, {{patient.address.country}}<br />
+											Ph: {{patient.tel}} {{patient.mobile}}<br /> Email:
+											{{patient.email}}
+										</p>
+									</div>
+								</td>
+							</tr>
+						</table>
+					</td>
+					<td id="img-1" class="col-sm-2"><a><span
+							class="fa fa-chevron-right arrow-responsive"
+							style="padding: 50px; color: #A0A09C;"></span></a></td>
+				</tr>
+				<tr ng-click="#">
+					<!-- second tr-->
+					<td id="img-1" class="col-sm-2"><img src="./app/img/12.png"
+						style="padding-left: 60px;" class="image-responsive"></td>
+					<td class="col-sm-8 pb0 mb0 pt0 mt0"
+						style="padding-bottom: 0px !important;">
+						<table class="table mt0 mb0 pb0"
+							style="background-color: transparent;">
+							<tr>
+								<th colspan="2" cellmargin="0">
+									<div>
+										<p class="h3" style="text-align: left;">Demographics</p>
+									</div>
+								</th>
+							</tr>
+							<tr class="mt0 pt0 mb0 pb0">
+								<td class="col-sm-1 pb0 mb0 pt0 mt0">
+									<p>Age</p>
+								</td>
+								<td class="col-sm-2 pb0 mb0 pt0 mt0">
+									<p>: {{patient.age}}</p>
+								</td>
+								<td class="col-sm-1 pb0 mb0 pt0 mt0">
+									<p>Weight</p>
+								</td>
+								<td class="col-sm-2 pb0 mb0 pt0 mt0">
+									<p>: {{patient.weight}}</p>
+								</td>
+							</tr>
+
+							<tr class="mt0 pt0 mb0 pb0">
+								<td class="col-sm-1 pb0 mb0 pt0 mt0">
+									<p>Gender</p>
+								</td>
+								<td class="col-sm-2 pb0 mb0 pt0 mt0">
+									<p>: {{patient.gender}}</p>
+								</td>
+								<td class="col-sm-1 pb0 mb0 pt0 mt0">
+									<p>Vision</p>
+								</td>
+								<td class="col-sm-2 pb0 mb0 pt0 mt0">
+									<p>: {{patient.vision}}</p>
+								</td>
+							</tr>
+							<tr class="mt0 pt0 mb0 pb0">
+								<td class="col-sm-1 pt0 mt0">
+									<p>Height</p>
+								</td>
+								<td class="col-sm-2 pt0 mt0">
+									<p>:{{patient.height}}</p>
+								</td>
+								<td class="col-sm-1 pt0 mt0">
+									<p>Hearing</p>
+								</td>
+								<td class="col-sm-2 pt0 mt0">
+									<p>: {{patient.hearing}}</p>
+								</td>
+							</tr>
+						</table>
+					</td>
+					<td id="img-1" class="col-sm-2"><a href="#"> <span
+							class="fa fa-chevron-right arrow-responsive"
+							style="padding: 50px; color: #A0A09C;"></span>
+					</a></td>
+				</tr>
+
+				<tr ng-click="#">
+					<td id="img-1" class="col-sm-2"><img src="./app/img/13.png"
+						style="padding-left: 60px;" class="image-responsive"></td>
+					<td class="col-sm-8">
+						<table class="table" style="background-color: transparent;">
+							<tr>
+								<td>
+									<div class="col-sm-10 pl0">
+										<p class="h3 ">Prior Allergies & Medications</p>
+										<p class=" text-justify">
+											An Moderate sensitivity to certain substances, such as
+											Dust mites,Pollen and Animal Hair.Abnormally High Senstivity to Penicllin<br /> Common indications
+											of these may include congestion,runny or itchy nose,watery, itchy eyes and cough.
+
+										</p>
+									</div>
+								</td>
+							</tr>
+						</table>
+					</td>
+					<td id="img-1" class="col-sm-2"><a href="#"> <span
+							class="fa fa-chevron-right arrow-responsive"
+							style="padding: 50px; color: #A0A09C;"></span>
+					</a></td>
+				</tr>
+
+				<tr id="">
+					<td id="img-1" class="col-sm-2"><img src="./app/img/14.png"
+						style="padding-left: 60px;" class="image-responsive"></td>
+					<td class="col-sm-8">
+						<table class="table" style="background-color: transparent;">
+							<tr>
+								<td>
+									<div class="col-sm-10 pl0">
+										<p class="h3 text-justify">Current Illness: {{currentIllness.title}}</p>
+										<p class=" text-justify">
+											{{currentIllness.desc}}
+										</p>
+									</div>
+								</td>
+							</tr>
+						</table>
+					</td>
+					<td id="img-1" ng-click="moveTimeLine()" class="col-sm-2"><a><span
+							class="fa fa-chevron-right arrow-responsive"
+							style="padding: 50px; color: #A0A09C;"></span></a></td>
+				</tr>
+			</tbody>
+		</table>
+	</div>
+</div>
