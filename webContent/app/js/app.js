@@ -52,7 +52,73 @@ var App = angular.module('angle', ['ngRoute', 'ngAnimate', 'ngStorage', 'ngCooki
                 job:      'ng-Dev',
                 picture:  'app/img/user/02.jpg'
               };
-             
+             $rootScope.user=
+          	{
+          		    name:"Edmund Jackson",
+          		    email:"edmund234@gmail.com",
+          		    address:
+          		    {
+          			    street : "675 Valley Brok Ave",
+          			    city: "NJ",
+          			    pin:"07071",
+          		     	country:"United States"			
+                       },
+                       tel:"+1 201-933-9477",
+                       mobile:"+1 201-933-9488",
+                       age:"68 yrs",
+                       height:" 174 cm ",
+                       vision:"20/20",
+                       gender:"Male",
+                       weight:"154.3 lbs",
+                       hearing:"Normal"
+          	};
+              $rootScope.myData=[
+                                 
+                                 {
+                                	"image":"Ethan.jpg",
+                                	"clinic":"Genesis Clinic",
+                                	"add":"Sacramento",
+                                	"state":"CA",
+                                	"doctor":"Dr. Ethan Mathews",
+                                	//"desig":"Neurologist (HDHS,NERS)",
+                                	"desig":"Pulmonologist",
+                                	"addedOn":"28 April, 2015",
+                                	"email":"Ethan@gmail.com"
+                                	},
+                                	{
+                                	"image":"Ryan.jpg",
+                                	"clinic":"Merzano Clinic",
+                                	"add":"Roseville",
+                                	"state":"CA",
+                                	"doctor":"Dr. Ryan Fleming",
+                                	//"desig":" Eye Specialist(HDHS,NERS)",
+                                	"desig":"Cardiologist",
+                                	"addedOn":"17 Dec, 2014",
+                                	"email":"Ryan@gmail.com"
+                                	},
+                                	{
+                                	"image":"Josh.jpg",
+                                	"clinic":"Magna Care Clinic",
+                                	"add":"Sacramento",
+                                	"state":"CA",
+                                	"doctor":"Dr. Josh Hanson",
+                                	//"desig":"(PCP, MD, ABD)",
+                                	"desig":"Primary Care Physician",	
+                                	"addedOn":"14 Aug, 2014",
+                                	"email":"Josh@gmail.com"
+                                	}/*,
+                                	{
+                                	"image":"David.jpg",
+                                	"clinic":"Stanford Clinic",
+                                	"add":"Stanford", 
+                                	"state":"CA",
+                                	"doctor":"Dr. David Brown",
+                                	//"desig":" Specialist (NNSC, HAS)",
+                                	"desig":"Pathologist",	
+                                	"addedOn":"15 Jan, 2015"
+                                	},*/
+                                 
+                                 ];
 
           }]);
 
@@ -60,6 +126,7 @@ var App = angular.module('angle', ['ngRoute', 'ngAnimate', 'ngStorage', 'ngCooki
  * Module: config.js
  * App routes and resources configuration
  =========================================================*/
+ 
 
 App.config(['$stateProvider', '$locationProvider', '$urlRouterProvider', 'RouteHelpersProvider',
 function ($stateProvider, $locationProvider, $urlRouterProvider, helper) {
@@ -70,7 +137,7 @@ function ($stateProvider, $locationProvider, $urlRouterProvider, helper) {
   $locationProvider.html5Mode(false);
 
   // default route
-  $urlRouterProvider.otherwise('/app/useragent');
+  $urlRouterProvider.otherwise('/app/healthRecord');
 
   // 
   // Application Routes
@@ -105,6 +172,63 @@ function ($stateProvider, $locationProvider, $urlRouterProvider, helper) {
         url: '/submenu',
         title: 'Submenu',
         templateUrl: helper.basepath('submenu.html')
+    })
+	.state('app.healthRecord', {
+        url: '/healthRecord',
+        title: 'Health Record',
+        templateUrl: helper.basepath('healthRecord.html'),
+		//controller:  'healthRecordController',
+        resolve: helper.resolveFor('jquery-ui', 'jquery-ui-widgets')
+    })
+	 .state('app.ongoingTreatment', {
+        url: '/ongoingTreatment',
+        title: 'Ongoing Treatment',
+		controller:  'ongoingTreatmentController',
+        templateUrl: helper.basepath('ongoingTreatment.html')
+		
+    })
+  .state('app.detailedView', {
+        url: '/detailedView',
+        title: 'Detailed View',
+		controller:'detailedViewController',
+        templateUrl: helper.basepath('detailedView.html')
+		
+    })
+	.state('app.myCareTeam', {
+        url: '/myCareTeam',
+        title: 'My Care Team',
+		controller: 'myCareTeamController',
+        templateUrl: helper.basepath('myCareTeam.html')
+    })
+	.state('app.shareHealthRecord', {
+        url: '/shareHealthRecord',
+        title: 'Share Health Record',
+		controller: 'shareHealthRecordController',
+        templateUrl: helper.basepath('shareHealthRecord.html')
+    })
+	.state('app.chat', {
+        url: '/chat',
+        title: 'Chat',
+		controller: 'chatController',
+        templateUrl: helper.basepath('chat.html')
+    })
+		.state('app.meet', {
+        url: '/meet',
+        title: 'Meet',
+		controller: 'meetController',
+       // templateUrl: helper.basepath('shareHealthRecord.html')
+    })
+	.state('app.report', {
+        url: '/report',
+        title: 'report',
+		controller: 'reportController',
+        templateUrl: helper.basepath('report.html')
+    })
+		.state('app.prescription', {
+        url: '/prescription',
+        title: 'prescription',
+		controller: 'prescriptionController',
+        templateUrl: helper.basepath('Prescription.html')
     })
     // 
     // CUSTOM RESOLVES
