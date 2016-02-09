@@ -36,7 +36,9 @@ if(!err) {
 
 //To get requested user's details
 app.get('/getRequestQueue', function(req, res) {
-	connection.query('SELECT * FROM Requests a, Customer b where a.EmailId=b.EmailId', function(err, rows, fields) {
+	var doctorEmail = req.query.doctorEmail;
+	console.log("doctorEmail: "+doctorEmail);
+	connection.query('SELECT * FROM Requests a, Customer b where a.EmailId=b.EmailId and a.DoctorEmail='+doctorEmail, function(err, rows, fields) {
 	//connection.end();
   if (!err){
     console.log('The solution is: ', rows);
@@ -46,6 +48,43 @@ app.get('/getRequestQueue', function(req, res) {
     console.log('Error while performing Query.');
   }
   });	
+});
+
+//For Doctor login
+app.post('/doctorLogin', function(req, res) {
+	res.setHeader('Content-Type', 'application/json');
+	res.setHeader('Access-Control-Allow-Origin', '*');
+	var body=req.body;
+	console.log(body); 
+	var query="SELECT * FROM Doctor where DoctorEmail='"+body.DoctorEmail+"' and Password='"+body.DoctorPassword+"'";
+	connection.query(query,function(err, rows, fields) {
+	if (!err) {
+		if(rows.length>0){
+			console.log("Record matched to db");
+			res.send(JSON.stringify({
+			result: 'success',
+			json: rows
+			}));
+		}
+		else{
+			console.log("Record not matched to db");
+			res.send(JSON.stringify({
+			result: 'error',
+			json: rows
+			}));
+		}
+	}
+	else{	
+		console.error(err);
+		res.statusCode = 500;
+		res.send(JSON.stringify({
+			result: 'error',
+			err: err.code
+		}));
+		//connection.end();
+	}	 
+	});
+
 });
 
 //To get requested user's details
@@ -69,7 +108,7 @@ app.post('/postHelpRequest', function(req, res) {
 	res.setHeader('Access-Control-Allow-Origin', '*');
 	var body=req.body;
 	console.log(body); 
-	var query1="INSERT INTO Requests (EmailId, isServiced) VALUES ('"+body.EmailId+"',0)";
+	var query1="INSERT INTO Requests (EmailId, isServiced, DoctorEmail) VALUES ('"+body.EmailId+"',0,'"+body.DoctorEmail+"')";
 	connection.query(query1,function(err, rows, fields) {
 	if (err) {
 		console.error(err);
@@ -147,9 +186,7 @@ app.get('/getMeetURL', function(req, res) {
   else{
     console.log('Error while performing Query.');
   }
-  });
-
-		
+  });		
 });
 
 function getCustomerDetails(emailId,callback){

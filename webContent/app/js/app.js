@@ -157,6 +157,13 @@ function ($stateProvider, $locationProvider, $urlRouterProvider, helper) {
         templateUrl: helper.basepath('singleview.html')
        // resolve: helper.resolveFor('oitozero.ngSweetAlert')
     })
+    .state('app.login', {
+        url: '/login',
+        title: 'Login Page',
+        controller: 'LoginController',
+        templateUrl: helper.basepath('Login.html')
+       // resolve: helper.resolveFor('oitozero.ngSweetAlert')
+    })
     .state('app.useragent', {
         url: '/useragent',
         title: 'User Agent',
@@ -766,88 +773,59 @@ $scope.status = status;
 
 }]);
 
+App.controller('LoginController', ['$scope', '$state', '$http', '$interval',
+                                   function($scope, $state, $http, $interval){
+                                   
+    $scope.doctorEmail="";
+		$scope.password="";
+		//Login Functionality
+		$scope.login=function(){
+		    console.log("Email:"+$scope.doctorEmail+", Password:"+$scope.password);
+		  	var reqBody={
+						"DoctorEmail": $scope.doctorEmail,
+						"DoctorPassword": $scope.password
+				};
+			//	alert(JSON.stringify(reqBody));
+				   $http({
+            url: 'http://10.44.54.9:3000/doctorLogin',     
+            method:'POST',
+            headers: {
+			    	'Content-Type': 'application/json'
+		   	},
+            data:reqBody
+             
+        }).success(function(data, status) {
+           // console.log(JSON.stringify(data));
+            $scope.loginCredentials=data;
+            if($scope.loginCredentials.result=="success"){
+              console.log("Login Success: "+$scope.loginCredentials.json[0].DoctorEmail);
+              localStorage.setItem("DoctorEmail",$scope.loginCredentials.json[0].DoctorEmail);
+              console.log("Localstorage: "+localStorage.getItem("DoctorEmail"));
+              $state.transitionTo('app.useragent');
+            }
+                  
+        }).error(function(data,status) {
+          console.log("Login not success: "+data);
 
+        });
+		  
+		}                           
+                                     
+                                     
+                                     
+                                   }]);
 /**=========================================================
  * Module: sweetalert.js
  =========================================================*/
 App.controller('SweetAlertController', ['$scope', '$state', '$http', '$interval',
                                    function($scope, $state, $http, $interval){
 	  'use strict';
-/*(function() {
-  
-
-    angular
-        .module('app.elements')
-        .controller('SweetAlertController', SweetAlertController);
-
-    SweetAlertController.$inject = ['SweetAlert'];
-    function SweetAlertController(SweetAlert) {
-        var vm = this;
-
-        activate();
-*/
-        ////////////////
-
-       /* function activate() {
-          vm.demo1 = function() {
-            SweetAlert.swal('Here\'s a message');
-          };
-
-          vm.demo2 = function() {
-            SweetAlert.swal('Here\'s a message!', 'It\'s pretty, isn\'t it?');
-          };
-
-          vm.demo3 = function() {
-            SweetAlert.swal('Good job!', 'You clicked the button!', 'success');
-          };
-
-          vm.demo4 = function() {
-            SweetAlert.swal({   
-              title: 'Are you sure?',   
-              text: 'Your will not be able to recover this imaginary file!',   
-              type: 'warning',   
-              showCancelButton: true,   
-              confirmButtonColor: '#DD6B55',   
-              confirmButtonText: 'Yes, delete it!',
-              closeOnConfirm: false
-            },  function(){  
-              SweetAlert.swal('Booyah!');
-            });
-          };
-
-          vm.demo5 = function() {
-            SweetAlert.swal({   
-              title: 'Are you sure?',   
-              text: 'Your will not be able to recover this imaginary file!',   
-              type: 'warning',   
-              showCancelButton: true,   
-              confirmButtonColor: '#DD6B55',   
-              confirmButtonText: 'Yes, delete it!',   
-              cancelButtonText: 'No, cancel plx!',   
-              closeOnConfirm: false,   
-              closeOnCancel: false 
-            }, function(isConfirm){  
-              if (isConfirm) {     
-                SweetAlert.swal('Deleted!', 'Your imaginary file has been deleted.', 'success');   
-              } else {     
-                SweetAlert.swal('Cancelled', 'Your imaginary file is safe :)', 'error');   
-              } 
-            });
-          };*/
-
-         /* $scope.demo6 = function() {
-            SweetAlert.swal({   
-              title: 'Sweet!',   
-              text: 'Here\'s a custom image.',   
-              imageUrl: 'http://oitozero.com/img/avatar.jpg' 
-            });
-          };*/
-    //    }
-  //  }
+    
   
     $scope.loadingVisible = false;
 	
 		$scope.showLoading = function(){
+		
 		
 			$scope.loadingVisible = true;
 				console.log("show loader image"+$scope.loadingVisible);
